@@ -20,34 +20,22 @@ A double, huge benefit from a single plugin. And all free.
 **Section “Vendors”:**
 
 * Vendor page creation with following information: name, PayPal email address, Owner, Store description, Slug
-
 * Commission Rate
-
 * Superadmin can enable or disable sales for each vendor
 
 **Show owner can:**
-
 * Manage vendor’s media gallery
-
 * Manage vendor’s products
-
 * Manage linked products: grouped, upsells and cross sells
-
 * Edit vendor information: name, description, PayPal email address, slug
 
 **Section “Commissions”:**
-
 * Superadmin makes payments on the basis of his/her own policy, agreed by vendors when starting cooperation sale and commission reports
 
-
 **Section “Shop”:**
-
 * Tab “Vendor” with information about the supplier (if any) and link to vendor’s page in single product page
-
 * Vendor’s name next to product name in shop page
-
 * Vendor’s name next to product name in single product page
-
 * Widget for displaying a list of all vendors
 
 == Screenshots ==
