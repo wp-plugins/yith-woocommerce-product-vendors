@@ -5,7 +5,7 @@ Plugin URI: http://yithemes.com/themes/plugins/yith-woocommerce-product-vendors/
 Description: Send a review reminder to the customers over WooCommerce.
 Author: YIThemes
 Text Domain: yith_wc_product_vendors
-Version: 1.0.0
+Version: 1.0.1
 Author URI: http://yithemes.com/
 */
 
@@ -46,7 +46,7 @@ if ( ! function_exists( 'WC' ) ) {
 if ( defined( 'YITH_WPV_VERSION' ) ) {
     return;
 } else {
-    define( 'YITH_WPV_VERSION', '1.0' );
+    define( 'YITH_WPV_VERSION', '1.0.1' );
 }
 
 /* Load YWCM text domain */
