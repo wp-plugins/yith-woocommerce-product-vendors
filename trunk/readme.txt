@@ -4,7 +4,7 @@ Contributors: yithemes
 Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, yit, yith, yithemes
 Requires at least: 4.0
 Tested up to: 4.1.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,10 @@ That's the way:
 3. Activate `YITH WooCommerce Product Vendors` from Plugins page
 
 == Changelog ==
+
+= 1.0.1 =
+
+* Fixed: Wrong commission rate on vendor admin page
 
 = 1.0.0 =
 

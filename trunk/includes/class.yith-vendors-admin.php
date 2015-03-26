@@ -240,7 +240,8 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 		        return;
 	        }
 
-	        $args = apply_filters( 'yith_wc_product_vendors_details_menu_items', array(
+	        $args = apply_filters( 'yith_wc_product_vendors_details_menu_items',
+		        array(
 			        'parent_slug' => 'edit.php?post_type=product',
 			        'page_title'  => __( 'Vendor Details', 'yith_wc_product_vendors' ),
 			        'menu_title'  => __( 'Vendor Details', 'yith_wc_product_vendors' ),
@@ -252,7 +253,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 
 	        extract( $args );
 
-	        add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function );
+	        add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, 'dashicons-id-alt', 30 );
 
             /* Remove Media Library */
             remove_menu_page( 'upload.php' );
@@ -267,13 +268,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
          */
         public function admin_details_page() {
             $vendor = yith_get_vendor( 'current', 'user' );
-
-            $args                   = (array) $vendor;
-            $args['enable_selling'] = $vendor->enable_selling;
-            $args['paypal_email']   = $vendor->paypal_email;
-            $args['commission']     = $vendor->get_commission();
-
-            yith_wcpv_get_template( 'vendor-admin', $args, 'admin' );
+            yith_wcpv_get_template( 'vendor-admin', array( 'vendor' => $vendor ), 'admin' );
         }
 
         /**

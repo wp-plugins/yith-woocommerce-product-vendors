@@ -200,8 +200,6 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 		    if ( 'admins' === $key ) {
 			    $value = $this->get_admins();
 
-		    } elseif ( 'commission' === $key ) {
-			    $value = $this->get_commission();
 		    }
 
 		    if ( ! empty( $value ) ) {
