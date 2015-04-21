@@ -8,7 +8,7 @@
  * http://www.gnu.org/licenses/gpl-3.0.txt
  */
 
-return apply_filters( 'yith_wcqw_panel_commissions_options', array(
+return apply_filters( 'yith_wpv_panel_commissions_options', array(
 
         'commissions' => array(
 
@@ -38,10 +38,10 @@ return apply_filters( 'yith_wcqw_panel_commissions_options', array(
                 )
             ),
 
-            'vendors_options_end'          => array(
+            'commissions_options_end'          => array(
                 'type'  => 'sectionend',
-                'id'    => 'yith_wpv_vendors_options_end'
+                'id'    => 'yith_wpv_commissions_options_end'
             ),
         )
-    )
+    ), 'commissions'
 );

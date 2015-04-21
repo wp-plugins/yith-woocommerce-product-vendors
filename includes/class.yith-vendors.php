@@ -81,6 +81,14 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		 */
 		public $admin = null;
 
+        /**
+		 * Main Frontpage Instance
+		 *
+		 * @var YITH_Vendors_Frontend
+		 * @since 1.0
+		 */
+		public $frontend = null;
+
 		/**
 		 * Constructor
 		 *
@@ -95,17 +103,18 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 			$require = apply_filters( 'yith_wcpv_require_class',
 				array(
 					'common' => array(
-						'includes/functions.yith-vendors.php',
+                        'includes/functions.yith-update.php',
+                        'includes/functions.yith-vendors.php',
 						'includes/class.yith-vendor.php',
 						'includes/class.yith-commission.php',
 						'includes/class.yith-commissions.php',
+						'includes/class.yith-vendors-credit.php',
 						'includes/class.yith-vendors-frontend.php',
 						'includes/lib/class.yith-walker-category-dropdown.php',
 						'widgets/class.yith-woocommerce-vendors-widget.php'
 					),
 					'admin' => array(
 						'includes/class.yith-vendors-admin.php',
-						'includes/class.yith-vendors-backend.php',
 					)
 				)
 			);
@@ -123,6 +132,9 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 
 			/* widget */
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+
+			/* init emails */
+			add_filter( 'woocommerce_email_classes', array( $this, 'register_emails' ) );
 
 			/* === END Hooks === */
 		}
@@ -157,7 +169,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 			}
 
 			if ( ! is_admin() ) {
-				new YITH_Vendors_Frontend();
+				$this->frontend = new YITH_Vendors_Frontend();
 			}
 		}
 
@@ -187,7 +199,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		/**
 		 * Load plugin framework
 		 *
-		 * @author Andrea Grillo <andrea.grillo@yithemes.com>
+		 * @author Andrea Gr  illo <andrea.grillo@yithemes.com>
 		 * @since  1.0
 		 * @return void
 		 */
@@ -195,6 +207,18 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 			if ( ! defined( 'YIT' ) || ! defined( 'YIT_CORE_PLUGIN' ) ) {
 				require_once( YITH_WPV_PATH . 'plugin-fw/yit-plugin.php' );
 			}
+		}
+
+		/**
+		 * Register Emails for Vendors
+		 *
+		 * @since  1.0.0
+		 * @return string The taxonomy name
+		 */
+		public function register_emails( $emails ) {
+			$emails['YITH_WC_Email_Commissions_Paid'] = include( 'emails/class-yith-wc-email-commissions-paid.php' );
+			$emails['YITH_WC_Email_Commissions_Unpaid'] = include( 'emails/class-yith-wc-email-commissions-unpaid.php' );
+			return $emails;
 		}
 
 		/**
@@ -288,14 +312,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 				"manage_bookings",
 			);
 
-			$skip_review = get_option( 'yith_wpv_vendors_option_skip_review' ) == 'yes' ? true : false;
-			$skip_review = apply_filters( 'yith_vendor_admin_publish_products_capabilities', $skip_review );
-
-			if ( $skip_review ) {
-				$caps[] = 'publish_products';
-			}
-
-			return apply_filters( 'yith_product_vendors_admin_capabilities', $caps );
+			return $caps;
 		}
 
 		/**
@@ -343,11 +360,14 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		 */
 		public function get_vendors( $args = array() ) {
 			$args = wp_parse_args( $args, array(
-				'enabled_selling' => '',
-                'fields' => ''
+				'enabled_selling'   => '',
+                'fields'            => '',
 			) );
 
-			$query_args = array( 'hide_empty' => false );
+			$query_args = array(
+                'hide_empty' => false,
+                'number'  => isset( $args['number'] ) ? $args['number'] : ''
+            );
 
 			// filter for enable selling
 			if ( '' !== $args['enabled_selling'] ) {
@@ -364,10 +384,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
             $res = array();
 
 			foreach ( $vendors as $vendor ) {
-				$obj = yith_get_vendor( $vendor );
-				if ( $obj !== false ) {
-					$res[] = 'ids' == $args['fields'] ? $obj->id : $obj;
-				}
+                $res[] = 'ids' == $args['fields'] ? $vendor->term_id : yith_get_vendor( $vendor );
 			}
 
 			return $res;
@@ -382,7 +399,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		 */
 		public function widgets_init() {
 
-			$widgets = apply_filters( 'yith_wcpv_widgets', array( 'YITH_Woocommerce_Vendors_Widget' ) );
+			$widgets = apply_filters( 'yith_wpv_register_widgets', array( 'YITH_Woocommerce_Vendors_Widget' ) );
 
 			foreach ( $widgets as $widget ) {
 				register_widget( $widget );

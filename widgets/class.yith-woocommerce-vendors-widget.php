@@ -42,25 +42,27 @@ if ( ! class_exists( 'YITH_Woocommerce_Vendors_Widget' ) ) {
          * @param array $args     Display arguments including before_title, after_title,
          *                        before_widget, and after_widget.
          * @param array $instance The settings for the particular instance of the widget.
+         *
          * @author Andrea Grillo <andrea.grillo@yithemes.com>
          */
         public function widget( $args, $instance ) {
-            yith_wcpv_get_template( 'vendors-list', $instance, 'widgets'  );
+            yith_wcpv_get_template( 'vendors-list', $instance, 'widgets' );
         }
 
         /**
          * Output the settings update form.
          *
          * @param array $instance Current settings.
+         *
          * @return string Default return is 'noform'.
          * @author Andrea Grillo <andrea.grillo@yithemes.com>
          */
 
         public function form( $instance ) {
             $defaults = array(
-                'title'                 => __( 'Vendor List', 'yith_wc_product_vendors' ),
-                'show_product_number'   => '',
-                'hide_empty'            => '',
+                'title'               => __( 'Vendor List', 'yith_wc_product_vendors' ),
+                'show_product_number' => '',
+                'hide_empty'          => '',
             );
 
             $instance = wp_parse_args( (array) $instance, $defaults );
@@ -71,7 +73,7 @@ if ( ! class_exists( 'YITH_Woocommerce_Vendors_Widget' ) ) {
                 </label>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'show_product_number' ); ?>"><?php _e( 'Show vendor product number', 'yith_wc_product_vendors' ) ?>:
+                <label for="<?php echo $this->get_field_id( 'show_product_number' ); ?>"><?php _e( 'Vendor\'s amount of products', 'yith_wc_product_vendors' ) ?>:
                     <input type="checkbox" id="<?php echo $this->get_field_id( 'show_product_number' ); ?>" name="<?php echo $this->get_field_name( 'show_product_number' ); ?>" value="1" <?php checked( $instance['show_product_number'], 1, true )?> class="widefat" />
                 </label>
             </p>
@@ -82,27 +84,27 @@ if ( ! class_exists( 'YITH_Woocommerce_Vendors_Widget' ) ) {
             </p>
         <?php
         }
-    }
 
-    /**
-     * Update a particular instance.
-     *
-     * This function should check that $new_instance is set correctly. The newly-calculated
-     * value of `$instance` should be returned. If false is returned, the instance won't be
-     * saved/updated.
-     *
-     * @param array $new_instance New settings for this instance as input by the user via.
-     * @param array $old_instance Old settings for this instance.
-     * @return array Settings to save or bool false to cancel saving.
-     * @author Andrea Grillo <andrea.grillo@yithemes.com>
-     * @see WP_Widget::form()
-     */
-    function update( $new_instance, $old_instance ) {
-        $instance                           = $old_instance;
-        $instance['title']                  = strip_tags( $new_instance['title'] );
-        $instance['show_product_number']    = strip_tags( $new_instance['show_product_number'] );
-        $instance['hide_empty']             = strip_tags( $new_instance['hide_empty'] );
-        return $instance;
+        /**
+         * Update a particular instance.
+         *
+         * This function should check that $new_instance is set correctly. The newly-calculated
+         * value of `$instance` should be returned. If false is returned, the instance won't be
+         * saved/updated.
+         *
+         * @param array $new_instance New settings for this instance as input by the user via.
+         * @param array $old_instance Old settings for this instance.
+         *
+         * @return array Settings to save or bool false to cancel saving.
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @see    WP_Widget::form()
+         */
+        public function update( $new_instance, $old_instance ) {
+            $instance                        = $old_instance;
+            $instance['title']               = strip_tags( $new_instance['title'] );
+            $instance['show_product_number'] = strip_tags( $new_instance['show_product_number'] );
+            $instance['hide_empty']          = strip_tags( $new_instance['hide_empty'] );
+            return $instance;
+        }
     }
-
 }

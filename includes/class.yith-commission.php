@@ -404,7 +404,7 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 		 * @return mixed
 		 */
 		public function get_rate( $context = '' ) {
-			return 'display' == $context ? sprintf( '%d%%', $this->rate * 100 ) : $this->rate;
+			return 'display' == $context ? sprintf( '%s%%', $this->rate * 100 ) : $this->rate;
 		}
 
 		/**
@@ -416,7 +416,7 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 		 */
 		public function get_view_url( $context = '' ) {
 			if ( 'admin' == $context ) {
-				$url = remove_query_arg( 'view' );
+				$url = admin_url( 'admin.php?page=' . YITH_Commissions()->get_screen() );
 				return add_query_arg( 'view', $this->id, $url );
 			}
 			else {
@@ -424,20 +424,22 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 			}
 		}
 
-        /**
+		/**
 		 * Change status of commissions
-         *
-         * WC Order Status  ->  YITH Commissions Status
-         * pending          ->  pending
-         * processing       ->  pending
-         * on-hold          ->  unpaid
-         * completed        ->  paid
-         * cancelled        ->  cancelled
-         * failed           ->  cancelled
-         * refunded         ->  refunded
+		 *
+		 * WC Order Status  ->  YITH Commissions Status
+		 * pending          ->  pending
+		 * processing       ->  pending
+		 * on-hold          ->  unpaid
+		 * completed        ->  paid
+		 * cancelled        ->  cancelled
+		 * failed           ->  cancelled
+		 * refunded         ->  refunded
 		 *
 		 * @param string $new_status
-         * @return bool
+		 * @param string $note
+		 *
+		 * @return bool
 		 */
 		public function update_status( $new_status, $note = '' ) {
 			if ( ! $this->id ) {
@@ -480,6 +482,17 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 		}
 
 		/**
+		 * Checks the commission status against a passed in status.
+		 *
+		 * @param $status string|array
+		 *
+		 * @return bool
+		 */
+		public function has_status( $status ) {
+			return apply_filters( 'yith_vendors_commission_has_status', ( is_array( $status ) && in_array( $this->get_status(), $status ) ) || $this->get_status() === $status ? true : false, $this, $status );
+		}
+
+		/**
 		 * Change amount to the commission and user associated
 		 *
 		 * @param $amount
@@ -500,15 +513,6 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 		}
 
 		/**
-		 * Specific method to set the commission as paid
-		 *
-		 * @since 1.0
-		 */
-		public function set_paid() {
-			$this->update_status( 'paid' );
-		}
-
-		/**
 		 * Add a note for the commission
 		 *
 		 * @param string $msg
@@ -517,10 +521,6 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 		 */
 		public function add_note( $msg = '' ) {
 			global $wpdb;
-
-			if ( empty( $msg ) ) {
-				return;
-			}
 
 			$wpdb->insert( $wpdb->commissions_notes, array(
 				'commission_id' => $this->id,
@@ -577,6 +577,31 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 			$amount = array_sum( $refunds );
 
 			return 'display' == $context ? wc_price( $amount ) : $amount;
+		}
+
+		/**
+		 * Retrieve the table for commission details
+		 *
+		 * @param bool $plain_text
+		 *
+		 * @return string
+		 */
+		public function email_commission_details_table( $plain_text = false ) {
+			ob_start();
+
+			$template = $plain_text ? 'plain/commission-detail-table' : 'commission-detail-table';
+
+			yith_wcpv_get_template( $template, array(
+				'commission' => $this,
+				'order' => $this->get_order(),
+				'vendor' => $this->get_vendor(),
+				'item' => $this->get_item(),
+				'product' => $this->get_product(),
+			), 'emails' );
+
+			$return = apply_filters( 'woocommerce_email_commission_detail_table', ob_get_clean(), $this );
+
+			return $return;
 		}
 	}
 }

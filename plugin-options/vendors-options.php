@@ -8,34 +8,34 @@
  * http://www.gnu.org/licenses/gpl-3.0.txt
  */
 
-return apply_filters( 'yith_wcqw_panel_settings_options', array(
+return apply_filters( 'yith_wpv_panel_vendors_options', array(
 
         'vendors' => array(
 
-            'vendors_options_start'          => array(
-                'type'  => 'sectionstart',
-                'id'    => 'yith_wpv_vendors_options_start'
+            'vendors_options_start' => array(
+                'type' => 'sectionstart',
+                'id'   => 'yith_wpv_vendors_options_start'
             ),
 
-            'vendors_options_title'          => array(
+            'vendors_options_title' => array(
                 'title' => __( 'Product Vendors', 'yith_wc_product_vendors' ),
                 'type'  => 'title',
                 'desc'  => '',
                 'id'    => 'yith_wpv_vendors_options_title'
             ),
 
-            'vendors_color_name'          => array(
-                'title'     => __( 'Vendor name label color', 'yith_wc_product_vendors' ),
-                'type'      => 'color',
-                'desc'      => __( 'Use in shop page and single product page', 'yith_wc_product_vendors' ),
-                'id'        => 'yith_vendors_color_name',
-                'default'   => '#000000'
+            'vendors_color_name'    => array(
+                'title'   => __( 'Vendor name label color', 'yith_wc_product_vendors' ),
+                'type'    => 'color',
+                'desc'    => __( 'Use in shop page and single product page', 'yith_wc_product_vendors' ),
+                'id'      => 'yith_vendors_color_name',
+                'default' => '#bc360a'
             ),
 
-            'vendors_options_end'          => array(
-                'type'  => 'sectionend',
-                'id'    => 'yith_wpv_vendors_options_end'
+            'vendors_options_end'   => array(
+                'type' => 'sectionend',
+                'id'   => 'yith_wpv_vendors_options_end'
             ),
         )
-    )
+    ), 'vendors'
 );

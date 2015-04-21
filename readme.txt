@@ -1,18 +1,18 @@
-﻿=== YITH WooCommerce Product Vendors ===
+﻿=== YITH WooCommerce Multi Vendor ===
 
 Contributors: yithemes
 Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, yit, yith, yithemes
 Requires at least: 4.0
 Tested up to: 4.1.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Multi vendor e-commerce is a new idea of e-commerce platform that is becoming more and more popular in the web.
+YITH WooCommerce Multi Vendor is a plugin explicitly developed to switch your website into a platform hosting more than one shop.
 
 == Description ==
 
-Are you trying to make your website a place where you can host many vendor pages and earn commissions from their sales? YITH WooCommerce Product Vendors
+Are you trying to make your website a place where you can host many vendor pages and earn commissions from their sales? YITH WooCommerce Multi Vendor
 is the plugin explicitly developed to switch your website into a multi-vendor platform that will let you earn from commissions without you to lift a finger.
 Moreover a multi-vendor shop brings more traffic to your site and allows you to get a better engine search positioning.
 A double, huge benefit from a single plugin. And all free.
@@ -54,7 +54,6 @@ A double, huge benefit from a single plugin. And all free.
 9. Shop: Show Vendor for this product
 
 
-
 == Frequently Asked Questions ==
 
 = Can i customize plugin templates ? =
@@ -62,23 +61,25 @@ A double, huge benefit from a single plugin. And all free.
 Yes, you can, plugin templates can be overwritten from your theme.
 You just have to create the folder *woocommerce/product-vendors* and add in it the templates that you want to customize.
 
-== Support ==
-
-Already knew it, right?! Great, but maybe you do not know that: if you're looking for how to install the plugins or how to use them within your Wordpress installations,
-which is the right way to ask support?
-
-That's the way:
-
-* Register on http://yithemes.com
-* Go to Support > Get Support
-
 == Installation ==
 
 1. Unzip the downloaded zip file.
 2. Upload the plugin folder into the `wp-content/plugins/` directory of your WordPress site.
-3. Activate `YITH WooCommerce Product Vendors` from Plugins page
+3. Activate `YITH WooCommerce Multi Vendor` from Plugins page
 
 == Changelog ==
+
+= 1.0.2 =
+
+* Added: Support to WooCommerce 2.3.8
+* Added: yith_wc_product_vendors_details_menu_items filter
+* Tweak: Vendors management
+* Tweak: Commissions management
+* Tweak: Template management
+* Updated: Database version
+* Fixed: Issue on edit/create vendor
+* Removed: Old global template for vendor name
+* Removed: YITH Vendors Backend class
 
 = 1.0.1 =
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: YITH Woocommerce Product Vendors\n"
-"POT-Creation-Date: 2015-03-25 14:14+0100\n"
-"PO-Revision-Date: 2015-03-25 14:15+0100\n"
+"Project-Id-Version: YITH Woocommerce Multi Vendor\n"
+"POT-Creation-Date: 2015-04-21 12:59+0100\n"
+"PO-Revision-Date: 2015-04-21 12:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: YIThemes <plugins@yithemes.com>\n"
 "Language: en\n"
@@ -19,175 +19,196 @@ msgstr ""
 
 #: ../init.php:34
 msgid ""
-"YITH WooCommerce Product Vendors is enabled but not effective. It requires "
+"YITH WooCommerce Multi Vendor is enabled but not effective. It requires "
 "Woocommerce in order to work."
 msgstr ""
 
-#: ../includes/class.yith-commission.php:453
+#: ../includes/class.yith-commission.php:455
 #, php-format
 msgid "Commission status changed from %s to %s."
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:166
-msgid "Error: Commission status not updated!"
+#: ../includes/class.yith-commissions.php:175
+msgid "Commission status not updated!"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:167
-msgid "Success: Commission status updated!"
+#: ../includes/class.yith-commissions.php:176
+msgid "Commission status updated!"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:206
+#: ../includes/class.yith-commissions.php:177
+msgid ""
+"Payment sent successfully. You will receive an email in a few minutes with "
+"the outcome of the payment and the commission state will be changed "
+"accordingly."
+msgstr ""
+
+#: ../includes/class.yith-commissions.php:178
+msgid "Payment failed."
+msgstr ""
+
+#: ../includes/class.yith-commissions.php:217
 msgid "Paid"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:207
+#: ../includes/class.yith-commissions.php:218
 msgid "Unpaid"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:208
+#: ../includes/class.yith-commissions.php:219
 msgid "Pending"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:209
+#: ../includes/class.yith-commissions.php:220
 msgid "Refunded"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:210
+#: ../includes/class.yith-commissions.php:221
 msgid "Cancelled"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:271
-#: ../includes/class.yith-commissions.php:272
-#: ../includes/class.yith-commissions.php:1121
-#: ../includes/class.yith-vendors-backend.php:91
+#: ../includes/class.yith-commissions.php:222
+msgid "Processing"
+msgstr ""
+
+#: ../includes/class.yith-commissions.php:276
+#: ../includes/class.yith-commissions.php:277
+#: ../includes/class.yith-commissions.php:1169
+#: ../includes/class.yith-vendors-admin.php:117
 msgid "Commissions"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:328
+#: ../includes/class.yith-commissions.php:341
 #, php-format
 msgid "Commission #%d details"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:329
+#: ../includes/class.yith-commissions.php:342
 #, php-format
 msgid "%1$s &lsaquo; %2$s &#8212; WordPress"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:987
+#: ../includes/class.yith-commissions.php:1035
 #, php-format
 msgid "Refunded %s from order"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:1020
+#: ../includes/class.yith-commissions.php:1068
 #, php-format
 msgid "Cancelled %s refund from order"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:172
+#: ../includes/class.yith-commissions.php:1193
+#: ../templates/admin/commission-view.php:410
+msgid "Commission"
+msgstr ""
+
+#: ../includes/class.yith-commissions.php:1213
+msgid "Product commission"
+msgstr ""
+
+#: ../includes/class.yith-commissions.php:1215
+msgid ""
+"You can set a specific commission for a single product. Keep this field "
+"blank or zero to use the vendor commission"
+msgstr ""
+
+#: ../includes/class.yith-vendors-admin.php:118
+#: ../includes/class.yith-vendors.php:270
+msgid "Vendors"
+msgstr ""
+
+#: ../includes/class.yith-vendors-admin.php:125
+#: ../includes/class.yith-vendors-admin.php:126
+msgid "Multi Vendor"
+msgstr ""
+
+#: ../includes/class.yith-vendors-admin.php:246
 #, php-format
 msgid ""
 "You do not have permission to edit this product. %1$sClick here to view and "
 "edit your products%2$s."
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:245
-#: ../includes/class.yith-vendors-admin.php:246
-#: ../templates/admin/vendor-admin.php:13
+#: ../includes/class.yith-vendors-admin.php:319
+#: ../includes/class.yith-vendors-admin.php:320
+#: ../templates/admin/vendor-admin.php:17
 msgid "Vendor Details"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:290
-msgid "Cheatin&#8217; uh?"
-msgstr ""
-
-#: ../includes/class.yith-vendors-admin.php:438
-#: ../includes/class.yith-vendors-admin.php:457
+#: ../includes/class.yith-vendors-admin.php:461
+#: ../includes/class.yith-vendors-admin.php:480
 msgid "A vendor with this name already exists."
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:439
+#: ../includes/class.yith-vendors-admin.php:462
 msgid "Vendor name already exists"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:776
+#: ../includes/class.yith-vendors-admin.php:785
 #, php-format
 msgid "No %s"
 msgstr ""
 
-#: ../includes/class.yith-vendors-backend.php:92
-#: ../includes/class.yith-vendors.php:246
-msgid "Vendors"
-msgstr ""
-
-#: ../includes/class.yith-vendors-backend.php:99
-#: ../includes/class.yith-vendors-backend.php:100
-#: ../includes/class.yith-vendors.php:244
+#: ../includes/class.yith-vendors.php:268
 #: ../plugin-options/vendors-options.php:21
 msgid "Product Vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors-backend.php:144
-#: ../plugin-fw/lib/yit-cpt-unlimited.php:1048
-#: ../plugin-fw/lib/yit-cpt-unlimited.php:1196
-#: ../plugin-fw/lib/yit-cpt-unlimited.php:1202
-#: ../plugin-fw/lib/yit-plugin-panel.php:62
-msgid "Settings"
-msgstr ""
-
-#: ../includes/class.yith-vendors.php:245
-#: ../templates/admin/commission-view.php:177
+#: ../includes/class.yith-vendors.php:269
+#: ../templates/admin/commission-view.php:180
 msgid "Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:247
+#: ../includes/class.yith-vendors.php:271
 msgid "Search Vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:248
+#: ../includes/class.yith-vendors.php:272
 msgid "All Vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:249
+#: ../includes/class.yith-vendors.php:273
 msgid "Parent Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:250
+#: ../includes/class.yith-vendors.php:274
 msgid "Parent Vendor:"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:251
+#: ../includes/class.yith-vendors.php:275
 msgid "View Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:252
+#: ../includes/class.yith-vendors.php:276
 msgid "Edit Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:253
+#: ../includes/class.yith-vendors.php:277
 msgid "Update Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:254
+#: ../includes/class.yith-vendors.php:278
 msgid "Add New Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:255
+#: ../includes/class.yith-vendors.php:279
 msgid "New Vendor Name"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:257
+#: ../includes/class.yith-vendors.php:281
 msgid "Separate vendors with commas"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:258
+#: ../includes/class.yith-vendors.php:282
 msgid "Add or remove vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:259
+#: ../includes/class.yith-vendors.php:283
 msgid "Choose from most used vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:260
+#: ../includes/class.yith-vendors.php:284
 msgid "No vendors found"
 msgstr ""
 
@@ -204,7 +225,7 @@ msgid "Product"
 msgstr ""
 
 #: ../includes/lib/class.yith-commissions-list-table.php:63
-#: ../templates/admin/commission-view.php:376
+#: ../templates/admin/commission-view.php:404
 msgid "Rate"
 msgstr ""
 
@@ -221,59 +242,59 @@ msgid "Date"
 msgstr ""
 
 #: ../includes/lib/class.yith-commissions-list-table.php:68
-#: ../templates/admin/commission-view.php:150
+#: ../templates/admin/commission-view.php:153
 msgid "Last update"
 msgstr ""
 
 #: ../includes/lib/class.yith-commissions-list-table.php:69
-#: ../templates/admin/commission-view.php:47
+#: ../templates/admin/commission-view.php:45
 msgid "Actions"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:236
-#: ../templates/admin/commission-view.php:128
+#: ../includes/lib/class.yith-commissions-list-table.php:229
+#: ../templates/admin/commission-view.php:126
 msgid "Guest"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:244
+#: ../includes/lib/class.yith-commissions-list-table.php:237
 #, php-format
 msgctxt "Order number by X"
 msgid "%s by %s"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:266
-#: ../templates/admin/commission-view.php:172
+#: ../includes/lib/class.yith-commissions-list-table.php:260
+#: ../templates/admin/commission-view.php:175
 msgid "User deleted"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:278
-#: ../templates/admin/commission-view.php:183
+#: ../includes/lib/class.yith-commissions-list-table.php:272
+#: ../templates/admin/commission-view.php:186
 msgid "Vendor deleted"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:291
+#: ../includes/lib/class.yith-commissions-list-table.php:285
 msgid "View"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:296
-#: ../includes/lib/class.yith-commissions-list-table.php:314
-#: ../templates/admin/commission-view.php:153
+#: ../includes/lib/class.yith-commissions-list-table.php:290
+#: ../includes/lib/class.yith-commissions-list-table.php:308
+#: ../templates/admin/commission-view.php:156
 msgid "Y/m/d g:i:s A"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:303
-#: ../includes/lib/class.yith-commissions-list-table.php:321
-#: ../templates/admin/commission-view.php:154
+#: ../includes/lib/class.yith-commissions-list-table.php:297
+#: ../includes/lib/class.yith-commissions-list-table.php:315
+#: ../templates/admin/commission-view.php:157
 #, php-format
 msgid "%s ago"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:306
-#: ../includes/lib/class.yith-commissions-list-table.php:323
+#: ../includes/lib/class.yith-commissions-list-table.php:300
+#: ../includes/lib/class.yith-commissions-list-table.php:317
 msgid "Y/m/d"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:355
+#: ../includes/lib/class.yith-commissions-list-table.php:349
 msgid "No commissions found."
 msgstr ""
 
@@ -393,6 +414,13 @@ msgstr ""
 msgid "%s Settings"
 msgstr ""
 
+#: ../plugin-fw/lib/yit-cpt-unlimited.php:1048
+#: ../plugin-fw/lib/yit-cpt-unlimited.php:1196
+#: ../plugin-fw/lib/yit-cpt-unlimited.php:1202
+#: ../plugin-fw/lib/yit-plugin-panel.php:64
+msgid "Settings"
+msgstr ""
+
 #: ../plugin-fw/lib/yit-cpt-unlimited.php:1051
 msgid "Type"
 msgstr ""
@@ -487,77 +515,77 @@ msgstr ""
 msgid "The changes you have made will be lost if you leave this page."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:61
+#: ../plugin-fw/lib/yit-plugin-panel.php:63
 msgid "Plugin Settings"
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:91
+#: ../plugin-fw/lib/yit-plugin-panel.php:95
 #: ../plugin-fw/lib/yit-plugin-subpanel.php:101
 msgid "YIT Plugins"
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:280
+#: ../plugin-fw/lib/yit-plugin-panel.php:292
 #: ../plugin-fw/lib/yit-plugin-subpanel.php:142
 #: ../plugin-fw/templates/panel/woocommerce/woocommerce-form.php:5
 msgid "Save Changes"
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:283
+#: ../plugin-fw/lib/yit-plugin-panel.php:295
 #: ../plugin-fw/templates/panel/woocommerce/woocommerce-form.php:8
 msgid ""
 "If you continue with this action, you will reset all options in this page."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:285
+#: ../plugin-fw/lib/yit-plugin-panel.php:297
 #: ../plugin-fw/lib/yit-plugin-subpanel.php:147
 msgid "Reset to Default"
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:285
+#: ../plugin-fw/lib/yit-plugin-panel.php:297
 #: ../plugin-fw/lib/yit-plugin-subpanel.php:147
 #: ../plugin-fw/templates/panel/woocommerce/woocommerce-form.php:10
 msgid "Are you sure?"
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:419
+#: ../plugin-fw/lib/yit-plugin-panel.php:431
 msgid ""
 "The element you have entered already exists. Please, enter another name."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:420
+#: ../plugin-fw/lib/yit-plugin-panel.php:432
 msgid "Settings saved"
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:421
+#: ../plugin-fw/lib/yit-plugin-panel.php:433
 msgid "Settings reset"
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:422
+#: ../plugin-fw/lib/yit-plugin-panel.php:434
 msgid "Element deleted correctly."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:423
-#: ../plugin-fw/lib/yit-plugin-panel.php:424
+#: ../plugin-fw/lib/yit-plugin-panel.php:435
+#: ../plugin-fw/lib/yit-plugin-panel.php:436
 msgid "Element updated correctly."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:425
+#: ../plugin-fw/lib/yit-plugin-panel.php:437
 msgid "Database imported correctly."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:426
+#: ../plugin-fw/lib/yit-plugin-panel.php:438
 msgid "An error has occurred during import. Please try again."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:427
+#: ../plugin-fw/lib/yit-plugin-panel.php:439
 msgid "The added file is not valid."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:428
+#: ../plugin-fw/lib/yit-plugin-panel.php:440
 msgid "Sorry, import is disabled."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-plugin-panel.php:429
+#: ../plugin-fw/lib/yit-plugin-panel.php:441
 msgid "Sorting successful."
 msgstr ""
 
@@ -747,73 +775,93 @@ msgstr ""
 
 #: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:23
 msgid ""
+"I cannot find the license key for activating the theme I have bought some "
+"time ago. Where can I find it?"
+msgstr ""
+
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:26
+msgid ""
+"If you have purchased one of our products before 27 January 2015, you can "
+"benefit from support and updates (the services offered with the license)\n"
+"            until 27 January 2016 and you do not have to purchase it again "
+"to get a new license key, because, before this date, your license used to be "
+"activated automatically by our system.\n"
+"            After 27 January 2016, instead, if you want to benefit from "
+"support and updates you have to buy a new license and activate it through "
+"the license key you will be\n"
+"            provided with and that you can find in your YIThemes account, in "
+"section \"My licenses\"."
+msgstr ""
+
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:37
+msgid ""
 "Have you updated your licenses? Have you asked for an extension? Update "
 "information concerning your products."
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:25
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:39
 msgid "Update licence information"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:35
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:49
 msgid "Products to be activated"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:54
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:68
 msgid "Activate"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:73
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:87
 msgid "Activated"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:77
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:109
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:133
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:91
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:123
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:147
 msgid "Product Name"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:78
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:110
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:134
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:145
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:337
-#: ../templates/admin/commission-view.php:169
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:92
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:124
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:148
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:148
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:340
+#: ../templates/admin/commission-view.php:172
 msgid "Email"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:79
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:111
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:135
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:93
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:125
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:149
 msgid "Licence Key"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:80
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:136
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:94
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:150
 msgid "Expires"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:81
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:95
 msgid "Remaining"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:82
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:95
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:137
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:147
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:96
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:109
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:151
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:161
 msgid "Renew"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:93
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:107
 #, php-format
 msgid "%1s out of %2s"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:105
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:119
 msgid "Banned"
 msgstr ""
 
-#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:129
+#: ../plugin-fw/licence/templates/panel/activation/activation-panel.php:143
 msgid "Expired"
 msgstr ""
 
@@ -829,180 +877,180 @@ msgstr ""
 msgid "+ Add New Category"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:5
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:7
 msgid "Text Input"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:6
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:8
 msgid "Checkbox"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:7
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:9
 msgid "Select"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:8
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:10
 msgid "Textarea"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:9
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:11
 msgid "Radio Input"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:10
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:12
 msgid "Password Field"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:11
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:13
 msgid "File Upload"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:45
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:47
 msgid "Theme Icon"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:46
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:48
 msgid "Custom Icon"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:47
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:49
 #: ../plugin-fw/templates/metaboxes/types/responsivesliders.php:24
 msgid "None"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:57
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:60
 msgid "Add field"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:66
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:258
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:69
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:261
 #: ../plugin-fw/templates/metaboxes/types/customtabs.php:37
 #: ../plugin-fw/templates/metaboxes/types/customtabs.php:82
 msgid "Remove"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:67
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:259
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:70
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:262
 msgid "Click to toggle"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:74
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:266
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:77
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:269
 msgid "Title Field"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:78
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:270
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:81
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:273
 msgid "Insert the title for the field."
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:83
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:275
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:86
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:278
 msgid "Data Name"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:87
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:279
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:90
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:282
 msgid ""
 "REQUIRED: Field identification name to be entered into email body. "
 "<strong>Note:</strong>Use only lowercase characters and underscores."
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:92
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:284
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:95
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:287
 msgid "Type field"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:100
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:292
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:103
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:295
 msgid "Select the type for this field."
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:105
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:297
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:108
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:300
 msgid "Checked"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:109
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:301
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:112
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:304
 msgid "Select this option if you want this field appears as already checked."
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:114
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:306
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:117
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:309
 msgid "Add options "
-msgstr ""
-
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:115
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:307
-msgid "Add option"
 msgstr ""
 
 #: ../plugin-fw/templates/metaboxes/types/contactform.php:118
 #: ../plugin-fw/templates/metaboxes/types/contactform.php:310
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:432
-msgid "Selected"
+msgid "Add option"
 msgstr ""
 
 #: ../plugin-fw/templates/metaboxes/types/contactform.php:121
 #: ../plugin-fw/templates/metaboxes/types/contactform.php:313
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:432
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:436
+msgid "Selected"
+msgstr ""
+
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:124
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:316
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:436
 msgid "Delete option"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:127
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:319
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:130
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:322
 msgid "Error Message"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:131
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:323
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:134
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:326
 msgid "Insert the error message for validation."
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:136
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:328
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:139
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:331
 msgid "Required"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:140
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:332
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:143
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:335
 msgid "Select this option if it must be required."
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:149
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:341
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:152
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:344
 msgid "Select this option if the email must be valid."
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:154
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:346
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:157
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:349
 msgid "Reply To"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:158
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:350
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:161
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:353
 msgid "Select this if it is the email you can reply to."
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:163
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:355
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:166
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:358
 msgid "Class"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:167
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:359
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:170
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:362
 msgid ""
 "Insert additional class(es) (separated by commas) for more personalization."
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:172
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:364
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:175
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:367
 msgid "Icon"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:200
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:388
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:203
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:391
 #: ../plugin-fw/templates/metaboxes/types/icon-list.php:69
 #: ../plugin-fw/templates/metaboxes/types/select-icon.php:33
 #: ../plugin-fw/templates/metaboxes/types/upload.php:21
@@ -1011,25 +1059,25 @@ msgstr ""
 msgid "Upload"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:206
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:394
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:209
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:397
 #: ../plugin-fw/templates/metaboxes/types/icon-list.php:75
 #: ../plugin-fw/templates/metaboxes/types/select-icon.php:39
 msgid "Image preview"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:214
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:402
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:217
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:405
 msgid "Insert an icon for more personalization."
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:219
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:406
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:222
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:409
 msgid "Width"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:244
-#: ../plugin-fw/templates/metaboxes/types/contactform.php:418
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:247
+#: ../plugin-fw/templates/metaboxes/types/contactform.php:421
 msgid "Set field length."
 msgstr ""
 
@@ -1069,34 +1117,34 @@ msgstr ""
 msgid "(Default: <i %s></i> )"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/image-gallery.php:35
 #: ../plugin-fw/templates/metaboxes/types/image-gallery.php:40
-#: ../plugin-fw/templates/metaboxes/types/images.php:33
-#: ../plugin-fw/templates/metaboxes/types/images.php:59
+#: ../plugin-fw/templates/metaboxes/types/image-gallery.php:45
+#: ../plugin-fw/templates/metaboxes/types/images.php:38
+#: ../plugin-fw/templates/metaboxes/types/images.php:64
 msgid "Delete image"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/image-gallery.php:40
+#: ../plugin-fw/templates/metaboxes/types/image-gallery.php:45
 msgid "Add Images to Gallery"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/image-gallery.php:40
+#: ../plugin-fw/templates/metaboxes/types/image-gallery.php:45
 msgid "Add to gallery"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/image-gallery.php:40
+#: ../plugin-fw/templates/metaboxes/types/image-gallery.php:45
 msgid "Add images"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/image-gallery.php:40
+#: ../plugin-fw/templates/metaboxes/types/image-gallery.php:45
 msgid "Delete"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/images.php:37
+#: ../plugin-fw/templates/metaboxes/types/images.php:42
 msgid "Upload new images"
 msgstr ""
 
-#: ../plugin-fw/templates/metaboxes/types/images.php:70
+#: ../plugin-fw/templates/metaboxes/types/images.php:75
 msgid "Are you sure you want to remove this image?"
 msgstr ""
 
@@ -1239,114 +1287,114 @@ msgstr ""
 msgid "Percentage of the total sale price that this vendor receives"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:27
+#: ../templates/admin/commission-view.php:25
 msgid "View Commission"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:28
+#: ../templates/admin/commission-view.php:26
 msgid "Back"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:41
+#: ../templates/admin/commission-view.php:39
 msgid "Commission Actions"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:49
+#: ../templates/admin/commission-view.php:47
 #, php-format
 msgid "Change to %s"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:55
+#: ../templates/admin/commission-view.php:53
 msgid "Apply"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:64
+#: ../templates/admin/commission-view.php:62
 msgid "Commission notes"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:75
+#: ../templates/admin/commission-view.php:73
 #, php-format
 msgid "added on %1$s at %2$s"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:80
+#: ../templates/admin/commission-view.php:78
 msgid "There are no notes yet."
 msgstr ""
 
-#: ../templates/admin/commission-view.php:101
+#: ../templates/admin/commission-view.php:99
 #, php-format
 msgid "Commission %s Details"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:132
+#: ../templates/admin/commission-view.php:135
 #, php-format
 msgctxt "Commission credited to [user]"
-msgid "credited to %s &#8212; from order %s"
-msgstr ""
-
-#: ../templates/admin/commission-view.php:139
-msgid "General details"
+msgid "credited to %s &#8212; from order %s &#8212; order status: %s"
 msgstr ""
 
 #: ../templates/admin/commission-view.php:142
+msgid "General details"
+msgstr ""
+
+#: ../templates/admin/commission-view.php:145
 msgid "Status"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:146
+#: ../templates/admin/commission-view.php:149
 msgid "Commission date"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:164
+#: ../templates/admin/commission-view.php:167
 msgid "User details"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:188
+#: ../templates/admin/commission-view.php:191
 msgid "Paypal"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:196
+#: ../templates/admin/commission-view.php:199
 msgid "Billing information"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:231
+#: ../templates/admin/commission-view.php:224
+msgid "Shipping information"
+msgstr ""
+
+#: ../templates/admin/commission-view.php:259
 msgid "Item data"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:238
+#: ../templates/admin/commission-view.php:266
 msgid "Item"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:239
+#: ../templates/admin/commission-view.php:267
 msgid "Qty"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:240
+#: ../templates/admin/commission-view.php:268
 msgid "Cost"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:252
+#: ../templates/admin/commission-view.php:280
 msgid "Product ID:"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:255
-#: ../templates/admin/commission-view.php:257
+#: ../templates/admin/commission-view.php:283
+#: ../templates/admin/commission-view.php:285
 msgid "Variation ID:"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:257
+#: ../templates/admin/commission-view.php:285
 msgid "No longer exists"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:261
+#: ../templates/admin/commission-view.php:289
 msgid "Product SKU:"
 msgstr ""
 
-#: ../templates/admin/commission-view.php:352
+#: ../templates/admin/commission-view.php:380
 msgid "Coupon(s) Used"
-msgstr ""
-
-#: ../templates/admin/commission-view.php:382
-msgid "Commission"
 msgstr ""
 
 #: ../templates/admin/commissions.php:18
@@ -1369,43 +1417,42 @@ msgstr ""
 msgid "Percentage of the total sale price that this vendor receives."
 msgstr ""
 
-#: ../templates/admin/vendor-admin.php:20
+#: ../templates/admin/vendor-admin.php:24
 msgid "Name:"
 msgstr ""
 
-#: ../templates/admin/vendor-admin.php:25
+#: ../templates/admin/vendor-admin.php:29
 msgid "Slug:"
 msgstr ""
 
-#: ../templates/admin/vendor-admin.php:30
+#: ../templates/admin/vendor-admin.php:34
 msgid "PayPal email address:"
 msgstr ""
 
-#: ../templates/admin/vendor-admin.php:35
+#: ../templates/admin/vendor-admin.php:39
 msgid "Description:"
 msgstr ""
 
-#: ../templates/admin/vendor-admin.php:41
+#: ../templates/admin/vendor-admin.php:45
 msgid "Commission Rate: "
 msgstr ""
 
-#: ../templates/admin/vendor-admin.php:48
+#: ../templates/admin/vendor-admin.php:52
 msgid "Vendor's selling status: "
 msgstr ""
 
-#: ../templates/admin/vendor-admin.php:50
+#: ../templates/admin/vendor-admin.php:54
 msgid "Enabled"
 msgstr ""
 
-#: ../templates/admin/vendor-admin.php:50
+#: ../templates/admin/vendor-admin.php:54
 msgid "Disabled"
 msgstr ""
 
-#: ../templates/admin/vendor-admin.php:56
+#: ../templates/admin/vendor-admin.php:60
 msgid "Save Vendor Information"
 msgstr ""
 
-#: ../templates/woocommerce/global/vendor-name-title.php:19
 #: ../templates/woocommerce/loop/vendor-name-title.php:20
 #: ../templates/woocommerce/single-product/vendor-name-title.php:20
 msgid "by"
@@ -1419,18 +1466,18 @@ msgstr ""
 msgid "Display the list with enabled vendors."
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:61
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:63
 msgid "Vendor List"
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:69
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:71
 msgid "Title"
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:74
-msgid "Show vendor product number"
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:76
+msgid "Vendor's amount of products"
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:79
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:81
 msgid "Hide vendors with no products"
 msgstr ""

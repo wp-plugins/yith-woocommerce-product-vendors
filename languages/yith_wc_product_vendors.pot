@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: YITH Woocommerce Product Vendors\n"
+"Project-Id-Version: YITH Woocommerce Multi Vendor\n"
 "POT-Creation-Date: 2015-03-25 14:14+0100\n"
 "PO-Revision-Date: 2015-03-25 14:15+0100\n"
 "Last-Translator: \n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../init.php:34
 msgid ""
-"YITH WooCommerce Product Vendors is enabled but not effective. It requires "
+"YITH WooCommerce Multi Vendor is enabled but not effective. It requires "
 "Woocommerce in order to work."
 msgstr ""
 
@@ -123,7 +123,7 @@ msgstr ""
 #: ../includes/class.yith-vendors-backend.php:100
 #: ../includes/class.yith-vendors.php:244
 #: ../plugin-options/vendors-options.php:21
-msgid "Product Vendors"
+msgid "Multi Vendor"
 msgstr ""
 
 #: ../includes/class.yith-vendors-backend.php:144
@@ -1428,7 +1428,7 @@ msgid "Title"
 msgstr ""
 
 #: ../widgets/class.yith-woocommerce-vendors-widget.php:74
-msgid "Show vendor product number"
+msgid "Vendor's amount of products"
 msgstr ""
 
 #: ../widgets/class.yith-woocommerce-vendors-widget.php:79

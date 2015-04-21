@@ -17,6 +17,6 @@ $label_color = 'color: ' . get_option( 'yith_vendors_color_name' );
 
 <span style="<?php echo $label_color ?>" class="by-vendor-name">
     <small>
-        <?php echo __( 'by', 'yith_wc_product_vendors' ) . ' ' . $vendor_name ?>
+        <?php echo __( 'by', 'yith_wc_product_vendors' ) . ' ' . $vendor->name ?>
     </small>
 </span>
