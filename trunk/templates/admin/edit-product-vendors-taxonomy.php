@@ -51,7 +51,7 @@
         </span>
     </th>
     <td>
-        <?php echo $vendor->commission * 100 . '%'?>
+        <?php echo $vendor->get_commission() * 100 . '%'?>
         <br />
         <span class="description"><?php _e( 'Percentage of the total sale price that this vendor receives.', 'yith_wc_product_vendors' ); ?></span>
     </td>

@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: YITH WooCommerce Product Vendors
+Plugin Name: YITH WooCommerce Multi Vendor
 Plugin URI: http://yithemes.com/themes/plugins/yith-woocommerce-product-vendors/
-Description: Send a review reminder to the customers over WooCommerce.
+Description: YITH WooCommerce Multi Vendor is a plugin explicitly developed to switch your website into a platform hosting more than one shop.
 Author: YIThemes
 Text Domain: yith_wc_product_vendors
-Version: 1.0.1
+Version: 1.0.2
 Author URI: http://yithemes.com/
 */
 
@@ -31,7 +31,7 @@ if( ! function_exists( 'install_premium_woocommerce_admin_notice' ) ) {
      */
     function install_premium_woocommerce_admin_notice() { ?>
         <div class="error">
-            <p><?php _e( 'YITH WooCommerce Product Vendors is enabled but not effective. It requires Woocommerce in order to work.', 'yith_wc_product_vendors' ); ?></p>
+            <p><?php _e( 'YITH WooCommerce Multi Vendor is enabled but not effective. It requires Woocommerce in order to work.', 'yith_wc_product_vendors' ); ?></p>
         </div>
         <?php
     }

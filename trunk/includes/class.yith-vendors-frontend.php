@@ -47,6 +47,9 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
             add_filter( 'woocommerce_product_tabs', array( $this, 'add_product_vendor_tab' ) );
             add_action( 'woocommerce_single_product_summary', array( $this, 'woocommerce_template_vendor_name' ), 5 );
             add_action( 'template_redirect', array( $this, 'exit_direct_access_no_selling_capabilities' ) );
+
+            /* Related Products */
+            add_filter( 'woocommerce_related_products_args', array( $this, 'related_products_args' ) );
         }
 
         /**
@@ -99,7 +102,7 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
             $args = array(
                 'vendor_name'        => $vendor->name,
                 'vendor_description' => $vendor->description,
-                'vendor_url'         => $vendor->url
+                'vendor_url'         => $vendor->get_url()
             );
 
             $args = apply_filters( 'yith_woocommerce_product_vendor_tab_template', $args );
@@ -122,14 +125,18 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
                 $vendor = yith_get_vendor( $product, 'product' );
 
                 if ( $vendor->is_valid() ) {
-                    $args          = array( 'vendor_name' => $vendor->name );
+                    $args          = array(
+                        'vendor' => $vendor,
+                        'label_color' => 'color: ' . get_option( 'yith_vendors_color_name' )
+                    );
+
                     $template_info = array(
                         'name'    => 'vendor-name-title',
                         'args'    => $args,
                         'section' => is_product() ? 'woocommerce/single-product' : 'woocommerce/loop',
                     );
 
-                    $template_name = apply_filters( 'yith_woocommerce_vendor_name_template_info', $template_info );
+                    $template_info = apply_filters( 'yith_woocommerce_vendor_name_template_info', $template_info );
 
                     extract( $template_info );
 
@@ -146,7 +153,7 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
          * @author   Andrea Grillo <andrea.grillo@yithemes.com>
          * @use     the_title filter
          */
-        public function check_vendors_selling_capabilities( $query ) {
+        public function check_vendors_selling_capabilities( $query, $set = true ) {
 
             $to_exclude = YITH_Vendors()->get_vendors(
                 array(
@@ -165,7 +172,11 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
                     )
                 );
 
-                $query->set( 'tax_query', $tax_query );
+                if( $set ){
+                    $query->set( 'tax_query', $tax_query );
+                } else {
+                    return $tax_query;
+                }
             }
         }
 
@@ -200,6 +211,7 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
          */
         public function redirect_404( $exit = true ) {
             include( get_query_template( '404' ) );
+
             if ( $exit ) {
                 exit;
             }
@@ -211,9 +223,32 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
          * @return   void
          * @since    1.0
          * @author   Andrea Grillo <andrea.grillo@yithemes.com>
+         * @fire yith_wpv_stylesheet_paths The stylesheet paths
          */
         public function enqueue_scripts() {
-            wp_enqueue_style( 'yith-wc-product-vendors', YITH_WPV_ASSETS_URL . 'css/style.css' );
+            $paths = apply_filters( 'yith_wpv_stylesheet_paths', array(
+                    WC()->template_path() . 'product-vendors.css',
+                    'product-vendors.css',
+                )
+            );
+
+            $located    = locate_template( $paths, false, false );
+            $stylesheet = ! empty( $located ) ? str_replace( get_stylesheet_directory(), get_stylesheet_directory_uri(), $located ) : YITH_WPV_ASSETS_URL . 'css/product-vendors.css';
+            wp_enqueue_style( 'yith-wc-product-vendors', $stylesheet );
+        }
+
+        /**
+         * Exclude the not enable vendors to Related products
+         *
+         * @param $args The related products query args
+         *
+         * @return mixed|array the query args
+         */
+        public function related_products_args( $args ){
+
+            $args['tax_query'] = $this->check_vendors_selling_capabilities( false, false );
+            return $args;
+
         }
     }
 }

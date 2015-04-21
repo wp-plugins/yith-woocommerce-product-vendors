@@ -34,5 +34,6 @@
         <?php _e( 'Commission:', 'yith_wc_product_vendors' ); ?>
         <?php echo ' ' . $commission * 100 . '%'?>
     </div>
+    <input type="hidden" name="yith_vendor_data[commission]" value="<?php echo $commission * 100 ?>" checked /><br />
     <span class="description"><?php _e( 'Percentage of the total sale price that this vendor receives', 'yith_wc_product_vendors' ); ?></span>
 </div>

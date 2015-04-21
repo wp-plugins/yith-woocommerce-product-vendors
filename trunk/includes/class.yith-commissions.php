@@ -89,7 +89,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
          * @since 1.0
          * @access protected
          */
-        protected static $_db_version = '1.0-alpha';
+        protected static $_db_version = '1.0.1';
 
         /**
          * Status changing capabilities
@@ -99,11 +99,12 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
          * @access protected
          */
         protected $_status_capabilities = array(
-            'pending'   => array( 'unpaid', 'paid', 'cancelled' ),
-            'unpaid'    => array( 'pending', 'paid', 'cancelled' ),
-            'paid'      => array( 'pending', 'unpaid', 'refunded' ),
-            'cancelled' => array(),
-            'refunded'  => array(),
+            'pending'    => array( 'unpaid', 'paid', 'cancelled' ),
+            'unpaid'     => array( 'pending', 'paid', 'cancelled', 'processing' ),
+            'paid'       => array( 'pending', 'unpaid', 'refunded' ),
+            'cancelled'  => array(),
+            'refunded'   => array(),
+            'processing' => array( 'paid', 'unpaid', 'cancelled' ),
         );
 
         /**
@@ -141,9 +142,16 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
             add_action( 'before_delete_post', array( $this, 'remove_refund_commission_helper' ) );
             add_action( 'deleted_post', array( $this, 'remove_refund_commission' ) );
 
+            /* Add commission rate on single product */
+            add_filter( 'woocommerce_product_data_tabs', array( $this, 'single_product_commission_tab' ) );
+            add_action( 'woocommerce_product_data_panels', array( $this, 'single_product_commission_content' ) );
+            add_action( 'woocommerce_process_product_meta', array( $this, 'save_product_commission_meta' ), 10, 2 );
+
             $this->_admin_init();
         }
-
+        /**
+         * Admin init
+         */
         protected function _admin_init() {
             if ( ! is_admin() ) {
                 return;
@@ -156,6 +164,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 
 	        add_action( 'current_screen', array( $this, 'add_screen_option' ) );
 	        add_filter( 'set-screen-option', array( $this, 'set_screen_option' ), 10, 3 );
+	        add_action( 'admin_notices', array( $this, 'admin_notice' ) );
 
 	        /* == Update commission status from Commissions Page == */
 	        add_action( 'admin_action_yith_commission_table_actions', array( $this, 'table_update_status' ) );
@@ -163,8 +172,10 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 	        //Set messages
 	        $this->_messages = apply_filters( 'yith_commissions_admin_notice',
 		        array(
-			        'error'   => __( 'Error: Commission status not updated!', 'yith_wc_product_vendors' ),
-			        'updated' => __( 'Success: Commission status updated!', 'yith_wc_product_vendors' ),
+			        'error'   => __( 'Commission status not updated!', 'yith_wc_product_vendors' ),
+			        'updated' => __( 'Commission status updated!', 'yith_wc_product_vendors' ),
+			        'pay-process' => __( 'Payment sent successfully. You will receive an email in a few minutes with the outcome of the payment and the commission state will be changed accordingly.', 'yith_wc_product_vendors' ),
+			        'pay-failed' => __( 'Payment failed.', 'yith_wc_product_vendors' )
 		        )
 	        );
 
@@ -203,11 +214,12 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
              *
              */
             return array(
-                'paid'      => __( 'Paid', 'yith_wc_product_vendors' ),
-                'unpaid'    => __( 'Unpaid', 'yith_wc_product_vendors' ),
-                'pending'   => __( 'Pending', 'yith_wc_product_vendors' ),
-                'refunded'  => __( 'Refunded', 'yith_wc_product_vendors' ),
-                'cancelled' => __( 'Cancelled', 'yith_wc_product_vendors' ),
+                'paid'       => __( 'Paid', 'yith_wc_product_vendors' ),
+                'unpaid'     => __( 'Unpaid', 'yith_wc_product_vendors' ),
+                'pending'    => __( 'Pending', 'yith_wc_product_vendors' ),
+                'refunded'   => __( 'Refunded', 'yith_wc_product_vendors' ),
+                'cancelled'  => __( 'Cancelled', 'yith_wc_product_vendors' ),
+                'processing' => __( 'Processing', 'yith_wc_product_vendors' ),
             );
         }
 
@@ -217,25 +229,18 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 	     * @since  1.0
 	     * @author Andrea Grillo <andrea.grillo@yithemes.com>
 	     *
-	     * @param bool $is_bulk_action
-	     *
 	     * @fire yith_commissions_admin_notice hooks
 	     */
-	    public function admin_notice( $is_bulk_action = false ) {
-
-		    if ( ! empty( $_GET['message'] ) && ! empty( $_GET['page'] ) && YITH_Commissions()->get_screen() == $_GET['page'] ) {
+	    public function admin_notice() {
+		    if ( ! empty( $_GET['message'] ) && ! empty( $_GET['page'] ) && $this->get_screen() == $_GET['page'] && isset( $this->_messages[ $_GET['message'] ] ) ) {
 			    $type = $_GET['message'];
+			    if ( in_array( $type, array( 'pay-process' ) ) ) {
+				    $type = 'update-nag';
+			    }
+			    $message = in_array( $type, array( 'updated', 'error' ) ) ? '<p>' . $this->_messages[ $_GET['message'] ] . '</p>' : $this->_messages[ $_GET['message'] ];
 			    ?>
 			    <div class="<?php echo $type ?>">
-				    <p><?php echo $this->_messages[$type] ?></p>
-			    </div>
-		    <?php
-		    }
-
-		    if ( $is_bulk_action ) {
-			    ?>
-			    <div class="updated">
-				    <p><?php echo $this->_messages['updated'] ?></p>
+				    <?php echo $message ?>
 			    </div>
 		    <?php
 		    }
@@ -303,9 +308,17 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 			        require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 		        }
 
-		        require_once( YITH_WPV_PATH . 'includes/lib/class.yith-commissions-list-table.php' );
+		        $path_class = YITH_WPV_PATH . 'includes/lib/class.yith-commissions-list-table';
+		        $class = 'YITH_Commissions_List_Table';
 
-		        $commissions_table = new YITH_Commissions_List_Table();
+		        require_once( $path_class . '.php' );
+		        if ( file_exists( $path_class . '-premium.php' ) ) {
+			        require_once( $path_class . '-premium.php' );
+			        $class .= '_Premium';
+		        }
+
+		        /** @var YITH_Commissions_List_Table|YITH_Commissions_List_Table_Premium $commissions_table */
+		        $commissions_table = new $class();
 		        $commissions_table->prepare_items();
 
 		        $args = apply_filters( 'yith_vendors_commissions_template', array( 'commissions_table' => $commissions_table ) );
@@ -417,11 +430,13 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 
             $default_args = array(
                 'line_item_id' => 0,
+                'product_id'   => 0,
                 'order_id'     => 0,
                 'user_id'      => 0,
                 'vendor_id'    => 0,
                 'status'       => 'unpaid',
                 'm'            => false,
+                'date_query'   => false,
 	            's'            => '',
                 'number'       => '',
                 'offset'       => '',
@@ -431,7 +446,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
                 'fields'       => 'ids'
             );
 
-	        foreach ( array( 'order_id', 'vendor_id', 'status', 'paged', 'm', 's', 'orderby', 'order' ) as $key ) {
+	        foreach ( array( 'order_id', 'vendor_id', 'status', 'paged', 'm', 's', 'orderby', 'order', 'product_id' ) as $key ) {
 		        if ( isset( $_REQUEST[ $key ] ) ) {
 			        $default_args[ $key ] = $_REQUEST[ $key ];
 		        }
@@ -457,6 +472,11 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
             if ( ! empty( $q['line_item_id'] ) ) {
                 $where .= $wpdb->prepare( " AND c.line_item_id = %d", $q['line_item_id'] );
             }
+            if ( ! empty( $q['product_id'] ) ) {
+		        $join .= " JOIN {$wpdb->prefix}woocommerce_order_items oi ON ( oi.order_item_id = c.line_item_id AND oi.order_id = c.order_id )";
+		        $join .= " JOIN {$wpdb->prefix}woocommerce_order_itemmeta oim ON ( oim.order_item_id = oi.order_item_id )";
+                $where .= $wpdb->prepare( " AND oim.meta_key = %s AND oim.meta_value = %s", '_product_id', $q['product_id'] );
+            }
             if ( ! empty( $q['order_id'] ) ) {
                 $where .= $wpdb->prepare( " AND c.order_id = %d", $q['order_id'] );
             }
@@ -467,7 +487,10 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
                 $where .= $wpdb->prepare( " AND c.vendor_id = %d", $q['vendor_id'] );
             }
             if ( ! empty( $q['status'] ) && 'all' != $q['status'] ) {
-                $where .= $wpdb->prepare( " AND c.status = %s", $q['status'] );
+	            if ( is_array( $q['status'] ) ) {
+		            $q['status'] = implode( "', '", $q['status'] );
+	            }
+                $where .= sprintf( " AND c.status IN ( '%s' )", $q['status'] );
             }
 
 	        // The "m" parameter is meant for months but accepts datetimes of varying specificity
@@ -490,6 +513,15 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 			        $where .= " AND SECOND(o.post_date)=" . substr($q['m'], 12, 2);
 	        }
 
+            // Handle complex date queries
+            if ( ! empty( $q['date_query'] ) ) {
+                $join .= strpos( $join, "$wpdb->posts o" ) === false ? " JOIN $wpdb->posts o ON o.ID = c.order_id" : '';
+		        $where .= " AND o.post_type = 'shop_order'";
+
+                $date_query = new WP_Date_Query( $q['date_query'], 'o.post_date' );
+                $where .= $date_query->get_sql();
+            }
+
 	        // Search
 	        if ( $q['s'] ) {
 		        // added slashes screw with quote grouping when done early, so done later
@@ -501,7 +533,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 		        $join .= strpos( $join, "$wpdb->posts o" ) === false ? " JOIN $wpdb->posts o ON o.ID = c.order_id" : '';
 
 		        // product
-		        $join .= " JOIN {$wpdb->prefix}woocommerce_order_items oi ON ( oi.order_item_id = c.line_item_id AND oi.order_id = c.order_id )";
+		        $join .= strpos( $join, 'woocommerce_order_items' ) === false ? " JOIN {$wpdb->prefix}woocommerce_order_items oi ON ( oi.order_item_id = c.line_item_id AND oi.order_id = c.order_id )" : '';
 		        $where .= " AND oi.order_item_type = 'line_item'";
 
 		        // user
@@ -683,16 +715,22 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
                         continue;
                     }
 
-                    // add commission in pending
-                    $commission_id = YITH_Commission()->add(
-                        array(
-                            'line_item_id' => $item_id,
-                            'order_id'     => $order->id,
-                            'user_id'      => $vendor->get_owner(),
-                            'vendor_id'    => $vendor->id,
-                            'amount'       => $amount
-                        )
+                    $args = array(
+                        'line_item_id' => $item_id,
+                        'order_id'     => $order->id,
+                        'user_id'      => $vendor->get_owner(),
+                        'vendor_id'    => $vendor->id,
+                        'amount'       => $amount
                     );
+
+                    // get commission from product if exists
+                    if ( ! empty( $_product->product_commission ) ) {
+                        $args['rate'] = (float) $_product->product_commission / 100;
+                    }
+
+                    // add commission in pending
+                    $commission_id = YITH_Commission()->add( $args );
+
                     // add line item to retrieve simply the commission associated
                     wc_add_order_item_meta( $item_id, '_commission_id', $commission_id );
 
@@ -716,16 +754,22 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
          */
         public function calculate_commission( $vendor, $order, $item ) {
 
+            //check for product commission
+            $_product = $order->get_product_from_item( $item );
+
             // Get percentage for commission
-            $commission = (float) $vendor->get_commission();
+            $commission = ! empty( $_product->product_commission ) ? (float) $_product->product_commission / 100 : (float) $vendor->get_commission();
 
             // If commission is 0% then go no further
             if ( ! $commission ) {
                 return 0;
             }
 
+            // Check
+            $get_item_amount = 'yes' == get_option( 'yith_wpv_include_coupon' ) ? 'get_item_total' : 'get_item_subtotal';
+
             // Retrieve the real amount of single item, with right discounts applied and without taxes
-            $line_total = (float) $order->get_item_total( $item, false, false ) * $item['qty'];
+            $line_total = (float) $order->$get_item_amount( $item, false, false ) * $item['qty'];
 
             // If total is 0 after discounts then go no further
             if ( ! $line_total ) {
@@ -800,6 +844,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 
                     // set commission as unpaid, ready to be paid
                     $commission->update_status( 'unpaid' );
+	                $commission->save_data();
                 }
             }
         }
@@ -830,6 +875,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 
                     // set commission as refunded
                     $commission->update_status( 'refunded' );
+	                $commission->save_data();
 
                     // Mark commissions as processed
                     update_post_meta( $order_id, '_commissions_refunded', 'yes' );
@@ -863,6 +909,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 
                     // set commission as refunded
                     $commission->update_status( 'cancelled' );
+	                $commission->save_data();
 
                     // Mark commissions as processed
                     update_post_meta( $order_id, '_commissions_cancelled', 'yes' );
@@ -895,6 +942,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 
                     // set commission as refunded
                     $commission->update_status( 'pending' );
+	                $commission->save_data();
                 }
             }
         }
@@ -1119,6 +1167,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
         public function add_screen_option() {
             if ( 'toplevel_page_' . $this->_screen == get_current_screen()->id ) {
                 add_screen_option( 'per_page', array( 'label' => __( 'Commissions', 'yith_wc_product_vendors' ), 'default' => 20, 'option' => 'edit_commissions_per_page' ) );
+
             }
         }
 
@@ -1133,6 +1182,67 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
          */
         public function set_screen_option( $set, $option, $value ){
             return 'edit_commissions_per_page' == $option ? $value : $set;
+        }
+
+        /**
+         * Add commission tab in single product "Product Data" section
+         */
+        public function single_product_commission_tab( $product_data_tabs ) {
+            if( current_user_can( 'manage_woocommerce' ) ) {
+                $product_data_tabs['commissions'] = array(
+                    'label'  => __( 'Commission', 'woocommerce' ),
+                    'target' => 'yith_wpv_single_commission',
+                    'class'  => array(),
+                );
+            }
+
+            return $product_data_tabs;
+        }
+
+        /**
+         * Add commission tab in single product "Product Data" section
+         */
+        public function single_product_commission_content() {
+            if ( current_user_can( 'manage_woocommerce' ) ) {
+                global $post;
+                $meta_value = get_post_meta( $post->ID, '_product_commission', true );
+
+                $args = array(
+                    'field_args' => array(
+                        'id'                => 'yith_wpv_product_commission',
+                        'label'             => __( 'Product commission', 'yith_wc_product_vendors' ),
+                        'desc_tip'          => 'true',
+                        'description'       => __( 'You can set a specific commission for a single product. Keep this field blank or zero to use the vendor commission', 'yith_wc_product_vendors' ),
+                        'value'             => $meta_value ? $meta_value : '',
+                        'type'              => 'number',
+                        'custom_attributes' => array(
+                            'step' => 0.1,
+                            'min'  => 0,
+                            'max'  => 100
+                        )
+                    )
+                );
+
+                yith_wcpv_get_template( 'product-data-commission', $args, 'woocommerce/admin' );
+            }
+        }
+
+        /**
+         * Save product commission rate meta
+         *
+         * @param $post_id  The post id
+         * @param $post     The post object
+         *
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since 1.0
+         * @return void
+         */
+        public function save_product_commission_meta( $post_id, $post ){
+            if( ! empty( $_POST['yith_wpv_product_commission'] ) ){
+                update_post_meta( $post_id, '_product_commission', $_POST['yith_wpv_product_commission'] );
+            } else {
+                delete_post_meta( $post_id, '_product_commission' );
+            }
         }
     }
 }

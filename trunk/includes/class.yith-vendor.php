@@ -21,44 +21,43 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 	 * @since      1.0.0
 	 * @author     Your Inspiration Themes
 	 *
-	 * @property    string $name
-	 * @property    string $slug
-	 * @property    string $description
-	 * @property    string $url
 	 * @property    string $paypal_email
 	 * @property    string $enable_selling
+	 * @property    string $payment_type
+	 * @property    string $threshold
+	 * @property    string $registration_date
+	 * @property    string $registration_date_gmt
 	 * @property    array $admins
 	 * @property    int|string $commission
 	 */
     class YITH_Vendor {
 
-	    /**
-	     * The vendor ID.
-	     *
-	     * @var int
-	     */
+	    /** @public int The vendor ID. */
 	    public $id = 0;
 
-	    /**
-	     * $post Stores term data of vendor
-	     *
-	     * @var $term object
-	     */
+	    /** @public object Stores term data of vendor */
 	    public $term = null;
 
-	    /**
-	     * $post Stores term data of vendor
-	     *
-	     * @var $term string
-	     */
-	    protected $_usermetaKey = '';
+        /** @public string The taxonomy of the vendor. */
+        public static $taxonomy;
 
-	    /**
-	     * $post Stores term data of vendor
-	     *
-	     * @var $term string
-	     */
-	    protected $_usermetaOwner = '';
+	    /** @protected string Stores term data of vendor */
+	    protected static $_usermetaKey = '';
+
+	    /** @protected string Stores term data of vendor */
+	    protected static $_usermetaOwner = '';
+
+        /** @private array Indicate the change properties status. */
+		private $_changed = false;
+
+		/**
+		 * Main Instance
+		 *
+		 * @var string
+		 * @since 1.0
+		 * @access protected
+		 */
+		protected static $_instance = null;
 
 	    /**
 	     * Construct
@@ -67,11 +66,10 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 	     * @param string $obj What object is if is numeric (vendor|user|product)
 	     * @return bool|YITH_Vendor
 	     */
-	    public function __construct( $vendor = false, $obj = 'vendor' ) {
-		    $taxonomy             = YITH_Vendors()->get_taxonomy_name();
-		    $this->_usermetaKey   = YITH_Vendors()->get_user_meta_key();
-		    $this->_usermetaOwner = YITH_Vendors()->get_user_meta_owner();
-		    $this->_taxonomy      = YITH_Vendors()->get_taxonomy_name();
+	    public static function retrieve( $vendor = false, $obj = 'vendor' ) {
+		    self::$_usermetaKey   = YITH_Vendors()->get_user_meta_key();
+		    self::$_usermetaOwner = YITH_Vendors()->get_user_meta_owner();
+		    self::$taxonomy       = YITH_Vendors()->get_taxonomy_name();
 
 		    // change value 'current' to false for $vendor, to make it more rock!
 		    if ( 'current' == $vendor ) {
@@ -83,12 +81,12 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 
 			    // get vendor of actual user if nothind passed
 			    if ( false === $vendor ) {
-				    $vendor = get_user_meta( get_current_user_id(), $this->_usermetaKey, true );
+				    $vendor = get_user_meta( get_current_user_id(), self::$_usermetaKey, true );
 			    }
 
 			    // Get Vendor ID by user ID passed by $vendor and set the getter to 'vendor'
 			    else {
-				    $vendor = get_user_meta( $vendor, $this->_usermetaKey, true );
+				    $vendor = get_user_meta( $vendor, self::$_usermetaKey, true );
 			    }
 
 			    $obj    = 'vendor';
@@ -107,73 +105,106 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 				    $vendor = $vendor->id;
 			    }
 
-			    $terms = wp_get_post_terms( $vendor, $this->_taxonomy );
+			    $terms = wp_get_post_terms( $vendor, self::$taxonomy );
 
 			    if ( empty( $terms ) ) {
-				    return false;
+				    return self::_instance();
 			    }
 
-			    $this->term = array_shift( $terms );
-			    $this->id = $this->term->term_id;
+			    $vendor_term = array_shift( $terms );
+			    $vendor_id = $vendor_term->term_id;
 
-			    $this->_populate();
-			    return $this;
+		        return self::_instance( $vendor_id, $vendor_term );
 
 		    }
 
 		    // exit if any object is retrieved
 		    if ( empty( $vendor ) ) {
-			    return false;
+			    return self::_instance();
 		    }
 
 		    // RETRIEVE OBJECT
 
 		    // Get vendor by Vendor ID
 		    if ( is_numeric( $vendor ) && 'vendor' == $obj ) {
-			    $this->id   = absint( $vendor );
-			    $this->term = get_term_by( 'term_id', $this->id, $taxonomy );
+			    $vendor_id   = absint( $vendor );
+			    $vendor_term = get_term_by( 'term_id', $vendor_id, self::$taxonomy );
 		    }
 
 		    // get vendor by Vendor slug or name
 		    elseif ( is_string( $vendor ) ) {
-			    $this->term = get_term_by( 'slug', $vendor, $taxonomy );
-			    if ( empty( $this->term ) || is_wp_error( $this->term ) ) {
-				    $this->term = get_term_by( 'name', $vendor, $taxonomy );
+			    $vendor_term = get_term_by( 'slug', $vendor, self::$taxonomy );
+			    if ( empty( $vendor_term ) || is_wp_error( $vendor_term ) ) {
+				    $vendor_term = get_term_by( 'name', $vendor, self::$taxonomy );
 			    }
-			    if ( empty( $this->term ) || is_wp_error( $this->term ) ) {
-				    return false;
+			    if ( empty( $vendor_term ) || is_wp_error( $vendor_term ) ) {
+				    return self::_instance();
 			    }
-			    $this->id   = $this->term->term_id;
+			    $vendor_id = $vendor_term->term_id;
 		    }
 
 		    // get vendor by object vendor
 		    elseif ( $vendor instanceof YITH_Vendor ) {
-			    $this->id   = absint( $vendor->id );
-			    $this->term = $vendor->term;
-			    return $vendor;
+			    $vendor_id   = absint( $vendor->id );
+			    $vendor_term = $vendor->term;
+			    return self::_instance( $vendor_id, $vendor_term );
 		    }
 
 		    // get vendor by term object
-		    elseif ( isset( $vendor->slug ) && term_exists( $vendor->slug, $taxonomy ) ) {
-			    $this->id   = absint( $vendor->term_id );
-			    $this->term = $vendor;
+		    elseif ( isset( $vendor->slug ) && term_exists( $vendor->slug, self::$taxonomy ) ) {
+			    $vendor_id   = absint( $vendor->term_id );
+			    $vendor_term = $vendor;
 		    }
 
 		    // no vendor found
 		    else {
-			    return false;
+			    return self::_instance();
 		    }
 
 		    // return false is there is a term associated
-		    if ( empty( $this->term ) ) {
-			    return false;
+		    if ( empty( $vendor_term ) ) {
+			    return self::_instance();
 		    }
 
-		    // populate
-		    $this->_populate();
-
-		    return $this;
+		    return self::_instance( $vendor_id, $vendor_term );
 	    }
+
+	    /**
+	     * Get cached vendor instance by ID
+	     *
+	     * @param int $vendor_id
+	     * @param null $vendor_term
+	     *
+	     * @return mixed
+	     */
+        protected static function _instance( $vendor_id = 0, $vendor_term = null ) {
+            if ( is_null( self::$_instance ) || ! isset( self::$_instance[ $vendor_id ] ) ) {
+				self::$_instance[ $vendor_id ] = new self( $vendor_id, $vendor_term );
+			}
+
+			return self::$_instance[ $vendor_id ];
+        }
+
+	    /**
+	     * Populate the instance with term data
+	     *
+	     * @param int $vendor_id
+	     * @param null $term
+	     *
+	     * @internal param null $vendor_term
+	     *
+	     */
+        public function __construct( $vendor_id = 0, $term = null ) {
+            if ( empty( $vendor_id ) || empty( $term ) ) {
+                return;
+            }
+
+            $this->id = $vendor_id;
+            $this->term = $term;
+
+		    $this->_populate();
+            return $this;
+        }
 
 	    /**
 	     * Populate information of vendor
@@ -181,10 +212,12 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 	     * @since 1.0
 	     */
 	    protected function _populate() {
-		    $this->name        = $this->term->name;
+            $this->name        = $this->term->name;
 		    $this->slug        = $this->term->slug;
 		    $this->description = $this->term->description;
-		    $this->url         = get_term_link( $this->term );
+
+            $this->_changed = array();
+            add_action( 'shutdown', array( $this, 'save_data' ), 10 );
 	    }
 
 	    /**
@@ -194,20 +227,92 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 	     * @return mixed
 	     */
 	    public function __get( $key ) {
+            if ( isset( $this->_changed[ $key ] ) ) {
+                return $this->_changed[ $key ];
+            }
+
 		    $value = get_woocommerce_term_meta( $this->id, $key );
+
+		    // defaults
+		    $defaults = array(
+			    'payment_type' => 'instant',
+			    'threshold' => 50
+		    );
+		    foreach ( $defaults as $std_key => $std_value ) {
+			    $key == $std_key && ! isset( $this->$key ) && $value = $std_value;
+		    }
 
 		    // Get values or default if not set
 		    if ( 'admins' === $key ) {
 			    $value = $this->get_admins();
-
 		    }
 
-		    if ( ! empty( $value ) ) {
-			    $this->$key = $value;
+		    else if ( 'taxonomy' === $key ) {
+			    $value = self::$taxonomy;
 		    }
+
+            else if( 'registration_date' === $key && empty( $this->$key ) ){
+                $owner_id = $this->get_owner();
+                if( ! empty( $owner_id ) ){
+                    $owner = get_user_by( 'id', $owner_id );
+                    $value = $owner->user_registered;
+                }
+            }
+
+			else if ( isset( $this->term->$key ) ) {
+                $value = $this->term->$key;
+            }
 
 		    return $value;
 	    }
+
+        /**
+		 * __set function.
+		 *
+		 * @param mixed $property
+		 * @param mixed $value
+		 */
+		public function __set( $property, $value ) {
+            if ( $this->_changed === false ) {
+                return;
+            }
+
+            if ( $value === true ) {
+                $value = 'yes';
+            }
+
+            elseif ( $value === false ) {
+                $value = 'no';
+            }
+
+            $this->_changed[ $property ] = $value;
+        }
+
+        /**
+		 * Save data function.
+		 */
+		public function save_data() {
+			if ( ! $this->is_valid() || empty( $this->_changed ) ) {
+				return;
+			}
+
+            // save the property to change in the term
+            $term_properties = array();
+
+            foreach( $this->_changed as $property => $value ){
+                $value = ! is_array( $value ) ? wc_clean( $value ) : $value;
+                if ( in_array( $property, array( 'name', 'slug', 'description' ) ) ) {
+                    $term_properties[ $property ] = $value;
+                } else {
+                    update_woocommerce_term_meta( $this->id, $property, $value );
+                }
+            }
+
+            // save the term data
+            if ( ! empty( $term_properties ) ) {
+                wp_update_term( $this->id, self::$taxonomy, $term_properties );
+            }
+		}
 
 	    /**
 	     * __isset function.
@@ -226,9 +331,22 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 	     * @return string The vendor commission
 	     * @fire yith_vendor_commission filter
 	     */
-	    public function get_commission() {
+	    public function get_commission( $product_id = false ) {
 		    $base_commission = YITH_Vendors()->get_base_commission();
 		    return apply_filters( 'yith_vendor_commission', $base_commission, $this->id, $this );
+	    }
+
+	    /**
+	     * Get the vendor's settings
+	     *
+	     * @param $key
+	     * @param bool|string $default
+	     *
+	     * @return mixed
+	     */
+	    public function get_setting( $key, $default = false ) {
+			$settings = get_option( 'yit_vendor_' . $this->id . '_options' );
+		    return isset( $settings[ $key ] ) ? wc_clean( $settings[ $key ] ) : $default;
 	    }
 
          /**
@@ -240,7 +358,7 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 	     */
 	    public function get_owner() {
             $args   = array(
-                'meta_key'     => $this->_usermetaOwner,
+                'meta_key'     => self::$_usermetaOwner,
                 'meta_value'   => $this->id,
                 'meta_compare' => '=',
                 'fields'       => 'ids',
@@ -260,7 +378,7 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 	     */
 	    public function get_admins() {
 		    $args   = array(
-			    'meta_key'     => $this->_usermetaKey,
+			    'meta_key'     => self::$_usermetaKey,
 			    'meta_value'   => $this->id,
 			    'meta_compare' => '=',
 			    'fields'       => 'ids'
@@ -338,7 +456,7 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 			    'post_type' => 'product',
 			    'tax_query' => array(
 				    array(
-					    'taxonomy' => $this->_taxonomy,
+					    'taxonomy' => self::$taxonomy,
 					    'field'    => 'id',
 					    'terms'    => $this->id
 				    )
@@ -354,13 +472,13 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 	     * @return array
 	     */
 	    public function get_products( $extra = array() ) {
-		    $args = wp_parse_args( $extra, array(
-			    'posts_per_page' => -1,
-			    'fields' => 'ids'
-		    ) );
+            $args = wp_parse_args( $extra, array(
+                    'posts_per_page' => - 1,
+                    'fields'         => 'ids'
+                )
+            );
 
 		    $args = $this->get_query_products_args( $args );
-
 		    return get_posts( $args );
 	    }
 
@@ -391,7 +509,7 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
                 $user_id = get_current_user_id();
             }
 
-            return get_user_meta( $user_id, $this->_usermetaOwner, true ) == $this->id;
+            return get_user_meta( $user_id, self::$_usermetaOwner, true ) == $this->id;
         }
 
 	    /**
@@ -404,16 +522,156 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 		    $url = '';
 
 		    if ( 'frontend' == $context ) {
-			    if ( $url = get_term_link( $this->term ) && is_wp_error( $url ) ) {
+                $url = get_term_link( $this->term, self::$taxonomy );
+
+			    if ( $url && is_wp_error( $url ) ) {
 				    $url = false;
 			    }
 		    }
 		    else if ( 'admin' == $context ) {
-			    $url = get_edit_term_link( $this->id, $this->_taxonomy );
+			    $url = get_edit_term_link( $this->id, self::$taxonomy );
 		    }
 
 		    return apply_filters( 'yith_vendor_url', $url, $this, $context );
 	    }
+
+	    /**
+	     * Get all unpaid commissions, if the sum amount is out threshold
+	     *
+	     * @return array|null
+	     */
+	    public function get_unpaid_commissions( $extra_args = array() ) {
+			$args = array(
+			    'vendor_id' => $this->id,
+			    'order_id' => '',  // useful when is set the order as completed from orders list, because it set "order_id" in the query string
+			    'status' => 'unpaid'
+		    );
+
+            $args = wp_parse_args( $extra_args, $args );
+
+		    return YITH_Commissions()->get_commissions( $args );
+	    }
+
+	    /**
+	     * Get all unpaid commissions, if the sum amount is out threshold
+	     *
+	     * @return array|null
+	     */
+	    public function get_unpaid_commissions_if_out_threshold() {
+			if ( $this->get_unpaid_commissions_amount() < $this->threshold ) {
+				return array();
+			}
+
+		    $args = array(
+			    'vendor_id' => $this->id,
+			    'order_id' => '',  // useful when is set the order as completed from orders list, because it set "order_id" in the query string
+			    'status' => 'unpaid'
+		    );
+
+		    return YITH_Commissions()->get_commissions( $args );
+	    }
+
+	    /**
+	     * If payment minimum threshold is reached, get all commissions that haven't been paid yet.
+	     *
+	     * @return float
+	     */
+	    public function get_unpaid_commissions_amount() {
+		    global $wpdb;
+		    $amount = $wpdb->get_var( $wpdb->prepare( "SELECT SUM(amount) FROM $wpdb->commissions WHERE status = %s AND vendor_id = %d", 'unpaid', $this->id ) );
+		    return floatval( $amount );
+	    }
+
+	    /**
+	     * Pay commitions unpaid, in base of payment type choosen
+	     *
+	     * @return array
+	     */
+	    public function commissions_to_pay() {
+		    if ( empty( $this->paypal_email ) ) {
+			    return array();
+		    }
+
+		    $commissions = array();
+
+		    if ( 'threshold' == $this->payment_type ) {
+			    $commissions = $this->get_unpaid_commissions_if_out_threshold(); // could be empty
+		    }
+		    else if ( 'instant' == $this->payment_type ) {
+			    $commissions = $this->get_unpaid_commissions();
+		    }
+
+		    return $commissions;
+	    }
+
+        /**
+         * Get the registration date
+         *
+         * @param string $context
+         * @param string $format
+         * @param bool   $gmt
+         *
+         * @return string The registration date
+         */
+        public function get_registration_date( $context = '', $format = '', $gmt = false ){
+            $registration_date = $gmt ? $this->registration_date_gmt : $this->registration_date;
+
+            if( 'timestamp' == $context ) {
+                return mysql2date( 'U', $registration_date );
+            }
+
+            else if( 'display' == $context ){
+                if( empty( $format ) ) {
+                    $format = get_option( 'date_format' );
+                }
+                return mysql2date( $format, $registration_date );
+            }
+
+            else {
+                return $registration_date;
+            }
+        }
+
+        /**
+         * Get query order ids of this vendor
+         *
+         * @return array The order ids
+         */
+        public function get_orders() {
+            global $wpdb;
+            $order_id = $wpdb->get_col( $wpdb->prepare( "SELECT DISTINCT order_id FROM {$wpdb->commissions} WHERE vendor_id = %d", $this->id ) );
+            return $order_id;
+        }
+
+         /**
+         * get the reviews average
+         *
+         * @return array The review average and the product with reviews count
+         */
+        public function get_reviews_average_and_product() {
+            $average_rating = $reviews_product_count = $average = 0;
+            $product_ids    = $this->get_products();
+
+            foreach ( $product_ids as $product_id ) {
+                $product              = wc_get_product( $product_id );
+                $product_review_count = $product->get_review_count();
+
+                if ( ! empty( $product_review_count ) ) {
+                    $reviews_product_count ++;
+                }
+                $average += $product->get_average_rating();
+            }
+
+            if ( ! empty( $reviews_product_count ) ) {
+                $average_rating = number_format( $average / $reviews_product_count, 2 );
+            }
+
+            return array(
+                'average_rating'        => $average_rating,
+                'reviews_product_count' => $reviews_product_count
+            );
+        }
+
     }
 }
 
@@ -429,6 +687,6 @@ if ( ! function_exists( 'yith_get_vendor' ) ) {
 	 * @author Andrea Grillo <andrea.grillo@yithemes.com>
 	 */
     function yith_get_vendor( $vendor = false, $obj = 'vendor' ) {
-        return new YITH_Vendor( $vendor, $obj );
+        return YITH_Vendor::retrieve( $vendor, $obj );
     }
 }

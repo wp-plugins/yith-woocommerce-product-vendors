@@ -24,7 +24,7 @@ $vendors = YITH_Vendors()->get_vendors( array( 'enabled_selling' => true ) );
             }
             ?>
             <li>
-                <a class="vendor-store-url" href="<?php echo $vendor->url ?>">
+                <a class="vendor-store-url" href="<?php echo $vendor->get_url() ?>">
                     <?php echo $vendor->name ?>
                 </a>
                 <?php

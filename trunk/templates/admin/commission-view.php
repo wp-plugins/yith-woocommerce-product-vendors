@@ -17,12 +17,10 @@ $user    = $commission->get_user();
 $vendor  = $commission->get_vendor();
 $product = $commission->get_product();
 $item    = $commission->get_item();
-
 $item_id = $commission->line_item_id;
 ?>
 
 <div class="wrap">
-
 	<h2>
 		<?php _e( 'View Commission', 'yith_wc_product_vendors' ) ?>
 		<a href="<?php echo remove_query_arg( 'view' ) ?>" class="add-new-h2"><?php _e( 'Back', 'yith_wc_product_vendors' ) ?></a>
@@ -97,7 +95,7 @@ $item_id = $commission->line_item_id;
 							</style>
 
 							<div class="panel-wrap woocommerce">
-								<div id="order_data" class="panel">
+								<div id="order_data" class="yith-commission panel">
 									<h2><?php printf( __( 'Commission %s Details', 'yith_wc_product_vendors' ), '#' . $commission->id ) ?></h2>
 									<p class="order_number">
 										<?php
@@ -129,7 +127,12 @@ $item_id = $commission->line_item_id;
 											}
 										}
 
-										printf( _x( 'credited to %s &#8212; from order %s', 'Commission credited to [user]', 'yith_wc_product_vendors' ), $username, sprintf( '<a href="%s">#%d</a>', 'post.php?post=' . absint( $order->id ) . '&action=edit', $order->get_order_number() ) );
+                                        $order_number    = '<strong>#' . esc_attr( $order->get_order_number() ) . '</strong>';
+                                        $order_uri       = sprintf( '<a href="%s">#%d</a>', 'post.php?post=' . absint( $order->id ) . '&action=edit', $order->get_order_number() );
+                                        $order_info      = $vendor->is_super_user() ? $order_uri : $order_number;
+                                        $wc_order_status = wc_get_order_statuses();
+
+										printf( _x( 'credited to %s &#8212; from order %s &#8212; order status: %s', 'Commission credited to [user]', 'yith_wc_product_vendors' ), $username, $order_info, $wc_order_status[ $order->post_status ] );
 										?>
 									</p>
 
@@ -177,7 +180,7 @@ $item_id = $commission->line_item_id;
 													<strong><?php _e( 'Vendor', 'yith_wc_product_vendors' ) ?>:</strong>
 													<?php
                                                     if( $vendor->is_valid() ) {
-                                                        $vendor_url  = get_edit_term_link( $vendor->id, $vendor->_taxonomy );
+                                                        $vendor_url  = get_edit_term_link( $vendor->id, $vendor->taxonomy );
 													    echo ! empty( $vendor_url ) ? "<a href='{$vendor_url}' target='_blank'>{$vendor->name}</a>" : $vendor->name;
                                                     } else {
                                                         echo '<em>' . __( 'Vendor deleted', 'yith_wc_product_vendors' ) . '</em>';
@@ -202,13 +205,38 @@ $item_id = $commission->line_item_id;
                                                         $formatted = WC()->countries->get_formatted_address( array(
                                                             'first_name'    => $user->first_name,
                                                             'last_name'     => $user->last_name,
-                                                            'company'       => get_user_meta( $user->ID, '_billing_company', true ),
-                                                            'address_1'     => get_user_meta( $user->ID, '_billing_address_1', true ),
-                                                            'address_2'     => get_user_meta( $user->ID, '_billing_address_2', true ),
-                                                            'city'          => get_user_meta( $user->ID, '_billing_city', true ),
-                                                            'state'         => get_user_meta( $user->ID, '_billing_state', true ),
-                                                            'postcode'      => get_user_meta( $user->ID, '_billing_postcode', true ),
-                                                            'country'       => get_user_meta( $user->ID, '_billing_country', true ),
+                                                            'company'       => $user->billing_company,
+                                                            'address_1'     => get_user_meta( $user->ID, 'billing_address_1', true ),
+                                                            'address_2'     => get_user_meta( $user->ID, 'billing_address_2', true ),
+                                                            'city'          => get_user_meta( $user->ID, 'billing_city', true ),
+                                                            'state'         => get_user_meta( $user->ID, 'billing_state', true ),
+                                                            'postcode'      => get_user_meta( $user->ID, 'billing_postcode', true ),
+                                                            'country'       => get_user_meta( $user->ID, 'billing_country', true ),
+                                                        ) );
+
+                                                        echo wp_kses( $formatted, array( 'br' => array() ) )
+                                                        ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="order_data_column">
+                                                <h4><?php _e( 'Shipping information', 'yith_wc_product_vendors' ) ?></h4>
+                                                <div class="address">
+                                                    <p>
+                                                        <?php
+
+                                                        // Formatted Addresses
+                                                        $formatted = WC()->countries->get_formatted_address( array(
+                                                            'first_name'    => get_user_meta( $user->ID, 'shipping_first_name', true ),
+                                                            'last_name'     => get_user_meta( $user->ID, 'shipping_last_name', true ),
+                                                            'company'       => get_user_meta( $user->ID, 'shipping_company', true ),
+                                                            'address_1'     => get_user_meta( $user->ID, 'shipping_address_1', true ),
+                                                            'address_2'     => get_user_meta( $user->ID, 'shipping_address_2', true ),
+                                                            'city'          => get_user_meta( $user->ID, 'shipping_city', true ),
+                                                            'state'         => get_user_meta( $user->ID, 'shipping_state', true ),
+                                                            'postcode'      => get_user_meta( $user->ID, 'shipping_postcode', true ),
+                                                            'country'       => get_user_meta( $user->ID, 'shipping_country', true ),
                                                         ) );
 
                                                         echo wp_kses( $formatted, array( 'br' => array() ) )

@@ -98,9 +98,16 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
                 'number' => $per_page,
             );
 
+	        // merge Unpaid with Processing
+	        if ( 'unpaid' == $args['status'] ) {
+		        $args['status'] = array( 'unpaid', 'processing' );
+	        }
+
             if ( $this->_vendor->is_valid() && $this->_vendor->has_limited_access() && $this->_vendor->is_owner() ) {
                 $args['user_id'] = get_current_user_id();
             }
+
+            $args = apply_filters( 'yith_wpv_commissions_table_args', $args );
 
             $commission_ids = YITH_Commissions()->get_commissions( $args );
             $total_items    = YITH_Commissions()->count_commissions( 'last-query' );
@@ -111,15 +118,10 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
             $sortable              = $this->get_sortable_columns();
             $this->_column_headers = array( $columns, $hidden, $sortable );
 
-            // process bulk actions
-            $is_bulk = $this->process_bulk_action();
-
-            YITH_Commissions()->admin_notice( $is_bulk );
-
             $items = array();
 
             foreach ( $commission_ids as $commission_id ) {
-                $items[$commission_id] = YITH_Commission( $commission_id );
+                $items[ $commission_id ] = YITH_Commission( $commission_id );
             }
 
             // retrieve data for table
@@ -127,10 +129,11 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
 
             // sets pagination args
             $this->set_pagination_args( array(
-                'total_items' => $total_items,
-                'per_page'    => $per_page,
-                'total_pages' => ceil( $total_items / $per_page )
-            ) );
+                    'total_items' => $total_items,
+                    'per_page'    => $per_page,
+                    'total_pages' => ceil( $total_items / $per_page )
+                )
+            );
         }
 
 	    /**
@@ -170,16 +173,6 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
          */
         public function get_bulk_actions() {
             return array();
-        }
-
-        /**
-         * Delete wishlist on bulk action
-         *
-         * @return bool
-         * @since 1.0.0
-         */
-        public function process_bulk_action() {
-            return false;
         }
 
         /**
@@ -237,9 +230,9 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
                         }
                     }
 
-                    $order_number = '<strong>#' . esc_attr( $order->get_order_number() ) . '</strong>';
-                    $order_uri    = '<a href="' . admin_url( 'post.php?post=' . absint( $order->id ) . '&action=edit' ) . '">' . $order_number . '</a>';
-                    $order_info   = $this->_vendor->is_super_user() ? $order_uri : $order_number;
+                    $order_number    = '<strong>#' . esc_attr( $order->get_order_number() ) . '</strong>';
+                    $order_uri       = '<a href="' . admin_url( 'post.php?post=' . absint( $order->id ) . '&action=edit' ) . '">' . $order_number . '</a>';
+                    $order_info      = $this->_vendor->is_super_user() ? $order_uri : $order_number;
 
                     printf( _x( '%s by %s', 'Order number by X', 'yith_wc_product_vendors' ), $order_info, $username );
 
@@ -247,6 +240,7 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
                         echo '<small class="meta email"><a href="' . esc_url( 'mailto:' . $order->billing_email ) . '">' . esc_html( $order->billing_email ) . '</a></small>';
                     }
 
+                    do_action( 'yith_wpv_after_order_column', $order );
                     break;
 
                 case 'line_item':
@@ -278,7 +272,7 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
                         return "<em>" . __( 'Vendor deleted', 'yith_wc_product_vendors' ) . "</em>";
                     }
 
-                    $vendor_url  = get_edit_term_link( $vendor->id, $vendor->_taxonomy );
+                    $vendor_url  = get_edit_term_link( $vendor->id, $vendor->taxonomy );
                     $vendor_name = $vendor->name;
                     return ! empty( $vendor_url ) ? "<a href='{$vendor_url}' target='_blank'>{$vendor_name}</a>" : $vendor_name;
                     break;
