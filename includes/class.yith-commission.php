@@ -404,7 +404,7 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 		 * @return mixed
 		 */
 		public function get_rate( $context = '' ) {
-			return 'display' == $context ? sprintf( '%s%%', $this->rate * 100 ) : $this->rate;
+			return 'display' == $context ? sprintf( '%d%%', $this->rate * 100 ) : $this->rate;
 		}
 
 		/**
@@ -417,7 +417,7 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 		public function get_view_url( $context = '' ) {
 			if ( 'admin' == $context ) {
 				$url = admin_url( 'admin.php?page=' . YITH_Commissions()->get_screen() );
-				return add_query_arg( 'view', $this->id, $url );
+				return esc_url( add_query_arg( 'view', $this->id, $url ) );
 			}
 			else {
 				return '';

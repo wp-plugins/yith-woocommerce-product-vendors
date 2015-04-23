@@ -23,7 +23,7 @@ $item_id = $commission->line_item_id;
 <div class="wrap">
 	<h2>
 		<?php _e( 'View Commission', 'yith_wc_product_vendors' ) ?>
-		<a href="<?php echo remove_query_arg( 'view' ) ?>" class="add-new-h2"><?php _e( 'Back', 'yith_wc_product_vendors' ) ?></a>
+		<a href="<?php echo esc_url( remove_query_arg( 'view' ) ) ?>" class="add-new-h2"><?php _e( 'Back', 'yith_wc_product_vendors' ) ?></a>
 	</h2>
 
 	<?php YITH_Commissions()->admin_notice(); ?>
@@ -384,7 +384,7 @@ $item_id = $commission->line_item_id;
 
                                                 $link_before = $link_after = '';
                                                 if ( current_user_can( 'manage_woocommerce' ) ) {
-                                                    $link = $post_id ? add_query_arg( array( 'post' => $post_id, 'action' => 'edit' ), admin_url( 'post.php' ) ) : add_query_arg( array( 's' => $item['name'], 'post_status' => 'all', 'post_type' => 'shop_coupon' ), admin_url( 'edit.php' ) );
+                                                    $link = $post_id ? esc_url( add_query_arg( array( 'post' => $post_id, 'action' => 'edit' ), admin_url( 'post.php' ) ) ) : add_query_arg( array( 's' => $item['name'], 'post_status' => 'all', 'post_type' => 'shop_coupon' ), admin_url( 'edit.php' ) );
                                                     $link_before = '<a href="' . esc_url( $link ) . '" class="tips" data-tip="' . esc_attr( wc_price( $item['discount_amount'], array( 'currency' => $order->get_order_currency() ) ) ) . '">';
                                                     $link_after = '</a>';
                                                 }

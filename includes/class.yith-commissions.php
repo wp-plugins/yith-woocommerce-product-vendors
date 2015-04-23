@@ -142,11 +142,6 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
             add_action( 'before_delete_post', array( $this, 'remove_refund_commission_helper' ) );
             add_action( 'deleted_post', array( $this, 'remove_refund_commission' ) );
 
-            /* Add commission rate on single product */
-            add_filter( 'woocommerce_product_data_tabs', array( $this, 'single_product_commission_tab' ) );
-            add_action( 'woocommerce_product_data_panels', array( $this, 'single_product_commission_content' ) );
-            add_action( 'woocommerce_process_product_meta', array( $this, 'save_product_commission_meta' ), 10, 2 );
-
             $this->_admin_init();
         }
         /**
@@ -1154,7 +1149,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
                 }
             }
 
-            $url = add_query_arg( $args, admin_url( 'admin.php' ) );
+            $url = esc_url( add_query_arg( $args, admin_url( 'admin.php' ) ) );
             wp_redirect( $url );
             exit;
         }
@@ -1182,67 +1177,6 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
          */
         public function set_screen_option( $set, $option, $value ){
             return 'edit_commissions_per_page' == $option ? $value : $set;
-        }
-
-        /**
-         * Add commission tab in single product "Product Data" section
-         */
-        public function single_product_commission_tab( $product_data_tabs ) {
-            if( current_user_can( 'manage_woocommerce' ) ) {
-                $product_data_tabs['commissions'] = array(
-                    'label'  => __( 'Commission', 'woocommerce' ),
-                    'target' => 'yith_wpv_single_commission',
-                    'class'  => array(),
-                );
-            }
-
-            return $product_data_tabs;
-        }
-
-        /**
-         * Add commission tab in single product "Product Data" section
-         */
-        public function single_product_commission_content() {
-            if ( current_user_can( 'manage_woocommerce' ) ) {
-                global $post;
-                $meta_value = get_post_meta( $post->ID, '_product_commission', true );
-
-                $args = array(
-                    'field_args' => array(
-                        'id'                => 'yith_wpv_product_commission',
-                        'label'             => __( 'Product commission', 'yith_wc_product_vendors' ),
-                        'desc_tip'          => 'true',
-                        'description'       => __( 'You can set a specific commission for a single product. Keep this field blank or zero to use the vendor commission', 'yith_wc_product_vendors' ),
-                        'value'             => $meta_value ? $meta_value : '',
-                        'type'              => 'number',
-                        'custom_attributes' => array(
-                            'step' => 0.1,
-                            'min'  => 0,
-                            'max'  => 100
-                        )
-                    )
-                );
-
-                yith_wcpv_get_template( 'product-data-commission', $args, 'woocommerce/admin' );
-            }
-        }
-
-        /**
-         * Save product commission rate meta
-         *
-         * @param $post_id  The post id
-         * @param $post     The post object
-         *
-         * @author Andrea Grillo <andrea.grillo@yithemes.com>
-         * @since 1.0
-         * @return void
-         */
-        public function save_product_commission_meta( $post_id, $post ){
-            if( ! empty( $_POST['yith_wpv_product_commission'] ) ){
-                update_post_meta( $post_id, '_product_commission', $_POST['yith_wpv_product_commission'] );
-            } else {
-                delete_post_meta( $post_id, '_product_commission' );
-            }
         }
     }
 }

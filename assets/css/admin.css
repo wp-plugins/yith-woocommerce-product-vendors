@@ -254,9 +254,8 @@ select#tax-input-yith_shop_vendor {
     display: inline;
 }
 
-#yith_wpv_panel_payments span.description {
+#plugin-fw-wc span.description {
   display: block;
   margin-top: 10px;
 }
-
 

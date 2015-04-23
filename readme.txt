@@ -3,8 +3,8 @@
 Contributors: yithemes
 Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, yit, yith, yithemes
 Requires at least: 4.0
-Tested up to: 4.1.1
-Stable tag: 1.0.2
+Tested up to: 4.2
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,13 @@ You just have to create the folder *woocommerce/product-vendors* and add in it t
 3. Activate `YITH WooCommerce Multi Vendor` from Plugins page
 
 == Changelog ==
+
+= 1.1.0 =
+
+* Added: Support to WordPress 4.2
+* Tweak: safe url on add_query_args() and remove_query_args()
+* Fixed: wc_get_template was called incorrectly in add product
+* Fixed: email template doesn't exists
 
 = 1.0.2 =
 

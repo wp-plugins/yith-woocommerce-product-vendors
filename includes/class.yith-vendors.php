@@ -133,9 +133,6 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 			/* widget */
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 
-			/* init emails */
-			add_filter( 'woocommerce_email_classes', array( $this, 'register_emails' ) );
-
 			/* === END Hooks === */
 		}
 
@@ -207,18 +204,6 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 			if ( ! defined( 'YIT' ) || ! defined( 'YIT_CORE_PLUGIN' ) ) {
 				require_once( YITH_WPV_PATH . 'plugin-fw/yit-plugin.php' );
 			}
-		}
-
-		/**
-		 * Register Emails for Vendors
-		 *
-		 * @since  1.0.0
-		 * @return string The taxonomy name
-		 */
-		public function register_emails( $emails ) {
-			$emails['YITH_WC_Email_Commissions_Paid'] = include( 'emails/class-yith-wc-email-commissions-paid.php' );
-			$emails['YITH_WC_Email_Commissions_Unpaid'] = include( 'emails/class-yith-wc-email-commissions-unpaid.php' );
-			return $emails;
 		}
 
 		/**

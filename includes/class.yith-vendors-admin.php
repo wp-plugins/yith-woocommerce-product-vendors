@@ -466,12 +466,13 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 			    $title     = __( 'Vendor name already exists', 'yith_wc_product_vendors' );
 			    $back_link = admin_url( 'edit-tag.php' );
 
-			    $back_link = add_query_arg( $back_link, array(
-					    'action'    => 'edit',
-					    'taxonomy'  => $_POST['taxonomy'],
-					    'tag_ID'    => $_POST['tag_ID'],
-					    'post_type' => 'product'
-				    )
+                $back_link = esc_url( add_query_arg( $back_link, array(
+                            'action'    => 'edit',
+                            'taxonomy'  => $_POST['taxonomy'],
+                            'tag_ID'    => $_POST['tag_ID'],
+                            'post_type' => 'product'
+                        )
+                    )
 			    );
 
 			    $args = array( 'back_link' => $back_link );
@@ -570,7 +571,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
             do_action( 'yith_wpv_after_save_taxonomy', $vendor, $post_value );
 
             if( 'admin_action_yith_admin_save_fields' == current_action() ){
-                wp_redirect( add_query_arg( array( 'page' => $_POST['page'], 'tab' => $_POST['tab'] ) ) );
+                wp_redirect( esc_url_raw( add_query_arg( array( 'page' => $_POST['page'], 'tab' => $_POST['tab'] ) ) ) );
             }
 	    }
 
