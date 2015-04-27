@@ -59,6 +59,10 @@ if ( ! class_exists( 'YIT_Upgrade' ) ) {
             if( is_network_admin() ){
                 add_action( 'admin_enqueue_scripts', array( $this, 'network_admin_enqueue_scripts' ) );
             }
+
+            if( defined( 'YIT_LICENCE_DEBUG' ) && YIT_LICENCE_DEBUG ){
+                $this->_package_url = 'http://dev.yithemes.com';                
+            }
         }
 
         /**
@@ -362,6 +366,7 @@ if ( ! class_exists( 'YIT_Upgrade' ) ) {
                         $obj->new_version = (string)$plugin_remote_info->latest;
                         $obj->changelog = (string)$plugin_remote_info->changelog;
                         $obj->package = $package;
+                        $obj->plugin      = $init;
                         $transient->response[$init] = $obj;
                     }
 

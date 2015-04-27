@@ -98,7 +98,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 	        /* Vendor information management */
 	        add_action( 'admin_action_yith_admin_save_fields', array( $this, 'save_taxonomy_fields' ) );
 
-            /* Prvente WooCommerce Access Admin */
+            /* Prevent WooCommerce Access Admin */
             add_filter( 'woocommerce_prevent_admin_access', array( $this, 'prevent_admin_access' ) );
         }
 
@@ -342,7 +342,10 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
          */
         public function remove_media_page(){
             /* Remove Media Library */
-            remove_menu_page( 'upload.php' );
+            $vendor = yith_get_vendor( 'current', 'user' );
+            if( $vendor->is_valid() && $vendor->has_limited_access() ){
+                remove_menu_page( 'upload.php' );
+            }
         }
 
         /**

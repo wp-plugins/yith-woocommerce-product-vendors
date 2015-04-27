@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: YITH Woocommerce Multi Vendor\n"
-"POT-Creation-Date: 2015-04-21 12:59+0100\n"
-"PO-Revision-Date: 2015-04-21 12:59+0100\n"
+"POT-Creation-Date: 2015-04-27 12:26+0100\n"
+"PO-Revision-Date: 2015-04-27 12:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: YIThemes <plugins@yithemes.com>\n"
 "Language: en\n"
@@ -28,187 +28,188 @@ msgstr ""
 msgid "Commission status changed from %s to %s."
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:175
+#: ../includes/class.yith-commissions.php:170
 msgid "Commission status not updated!"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:176
+#: ../includes/class.yith-commissions.php:171
 msgid "Commission status updated!"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:177
+#: ../includes/class.yith-commissions.php:172
 msgid ""
 "Payment sent successfully. You will receive an email in a few minutes with "
 "the outcome of the payment and the commission state will be changed "
 "accordingly."
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:178
+#: ../includes/class.yith-commissions.php:173
 msgid "Payment failed."
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:217
+#: ../includes/class.yith-commissions.php:212
 msgid "Paid"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:218
+#: ../includes/class.yith-commissions.php:213
 msgid "Unpaid"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:219
+#: ../includes/class.yith-commissions.php:214
 msgid "Pending"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:220
+#: ../includes/class.yith-commissions.php:215
 msgid "Refunded"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:221
+#: ../includes/class.yith-commissions.php:216
 msgid "Cancelled"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:222
+#: ../includes/class.yith-commissions.php:217
 msgid "Processing"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:276
-#: ../includes/class.yith-commissions.php:277
-#: ../includes/class.yith-commissions.php:1169
-#: ../includes/class.yith-vendors-admin.php:117
+#: ../includes/class.yith-commissions.php:271
+#: ../includes/class.yith-commissions.php:272
+#: ../includes/class.yith-commissions.php:1164
+#: ../includes/class.yith-vendors-admin.php:121
 msgid "Commissions"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:341
+#: ../includes/class.yith-commissions.php:336
 #, php-format
 msgid "Commission #%d details"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:342
+#: ../includes/class.yith-commissions.php:337
 #, php-format
 msgid "%1$s &lsaquo; %2$s &#8212; WordPress"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:1035
+#: ../includes/class.yith-commissions.php:1030
 #, php-format
 msgid "Refunded %s from order"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:1068
+#: ../includes/class.yith-commissions.php:1063
 #, php-format
 msgid "Cancelled %s refund from order"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:1193
-#: ../templates/admin/commission-view.php:410
-msgid "Commission"
-msgstr ""
-
-#: ../includes/class.yith-commissions.php:1213
-msgid "Product commission"
-msgstr ""
-
-#: ../includes/class.yith-commissions.php:1215
-msgid ""
-"You can set a specific commission for a single product. Keep this field "
-"blank or zero to use the vendor commission"
-msgstr ""
-
-#: ../includes/class.yith-vendors-admin.php:118
-#: ../includes/class.yith-vendors.php:270
+#: ../includes/class.yith-vendors-admin.php:122
+#: ../includes/class.yith-vendors.php:255
 msgid "Vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:125
-#: ../includes/class.yith-vendors-admin.php:126
+#: ../includes/class.yith-vendors-admin.php:129
+#: ../includes/class.yith-vendors-admin.php:130
 msgid "Multi Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:246
+#: ../includes/class.yith-vendors-admin.php:250
 #, php-format
 msgid ""
 "You do not have permission to edit this product. %1$sClick here to view and "
 "edit your products%2$s."
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:319
-#: ../includes/class.yith-vendors-admin.php:320
+#: ../includes/class.yith-vendors-admin.php:323
+#: ../includes/class.yith-vendors-admin.php:324
 #: ../templates/admin/vendor-admin.php:17
 msgid "Vendor Details"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:461
-#: ../includes/class.yith-vendors-admin.php:480
+#: ../includes/class.yith-vendors-admin.php:468
+#: ../includes/class.yith-vendors-admin.php:488
 msgid "A vendor with this name already exists."
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:462
+#: ../includes/class.yith-vendors-admin.php:469
 msgid "Vendor name already exists"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:785
+#: ../includes/class.yith-vendors-admin.php:793
 #, php-format
 msgid "No %s"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:268
+#: ../includes/class.yith-vendors-admin.php:875
+#: ../plugin-fw/lib/yit-cpt-unlimited.php:1048
+#: ../plugin-fw/lib/yit-cpt-unlimited.php:1196
+#: ../plugin-fw/lib/yit-cpt-unlimited.php:1202
+#: ../plugin-fw/lib/yit-plugin-panel.php:64
+msgid "Settings"
+msgstr ""
+
+#: ../includes/class.yith-vendors-admin.php:879
+msgid "Premium Version"
+msgstr ""
+
+#: ../includes/class.yith-vendors-admin.php:904
+msgid "Plugin Documentation"
+msgstr ""
+
+#: ../includes/class.yith-vendors.php:253
 #: ../plugin-options/vendors-options.php:21
 msgid "Product Vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:269
+#: ../includes/class.yith-vendors.php:254
 #: ../templates/admin/commission-view.php:180
 msgid "Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:271
+#: ../includes/class.yith-vendors.php:256
 msgid "Search Vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:272
+#: ../includes/class.yith-vendors.php:257
 msgid "All Vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:273
+#: ../includes/class.yith-vendors.php:258
 msgid "Parent Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:274
+#: ../includes/class.yith-vendors.php:259
 msgid "Parent Vendor:"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:275
+#: ../includes/class.yith-vendors.php:260
 msgid "View Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:276
+#: ../includes/class.yith-vendors.php:261
 msgid "Edit Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:277
+#: ../includes/class.yith-vendors.php:262
 msgid "Update Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:278
+#: ../includes/class.yith-vendors.php:263
 msgid "Add New Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:279
+#: ../includes/class.yith-vendors.php:264
 msgid "New Vendor Name"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:281
+#: ../includes/class.yith-vendors.php:266
 msgid "Separate vendors with commas"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:282
+#: ../includes/class.yith-vendors.php:267
 msgid "Add or remove vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:283
+#: ../includes/class.yith-vendors.php:268
 msgid "Choose from most used vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors.php:284
+#: ../includes/class.yith-vendors.php:269
 msgid "No vendors found"
 msgstr ""
 
@@ -412,13 +413,6 @@ msgstr ""
 #: ../plugin-fw/lib/yit-cpt-unlimited.php:1042
 #, php-format
 msgid "%s Settings"
-msgstr ""
-
-#: ../plugin-fw/lib/yit-cpt-unlimited.php:1048
-#: ../plugin-fw/lib/yit-cpt-unlimited.php:1196
-#: ../plugin-fw/lib/yit-cpt-unlimited.php:1202
-#: ../plugin-fw/lib/yit-plugin-panel.php:64
-msgid "Settings"
 msgstr ""
 
 #: ../plugin-fw/lib/yit-cpt-unlimited.php:1051
@@ -630,47 +624,47 @@ msgid ""
 "YIT Plugin tab."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:119
+#: ../plugin-fw/lib/yit-upgrade.php:123
 msgid "There is a new version of %plugin_name% available."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:120
+#: ../plugin-fw/lib/yit-upgrade.php:124
 msgid "View version %latest% details."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:121
+#: ../plugin-fw/lib/yit-upgrade.php:125
 msgid "Automatic update is unavailable for this plugin,"
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:122
+#: ../plugin-fw/lib/yit-upgrade.php:126
 msgid ""
 "please <a href=\"%activate_link%\">activate</a> your copy of %plugin_name%."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:123
+#: ../plugin-fw/lib/yit-upgrade.php:127
 msgid "Update now."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:226
+#: ../plugin-fw/lib/yit-upgrade.php:230
 msgid "Yithemes Repository"
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:260
+#: ../plugin-fw/lib/yit-upgrade.php:264
 msgid "Invalid URL Provided."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:273
+#: ../plugin-fw/lib/yit-upgrade.php:277
 msgid "Could not create Temporary file."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:414
+#: ../plugin-fw/lib/yit-upgrade.php:419
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" class=\"thickbox "
 "yit-changelog-button\" title=\"%3$s\">View version %4$s details</a>."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:416
+#: ../plugin-fw/lib/yit-upgrade.php:421
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" class=\"thickbox "
@@ -679,7 +673,7 @@ msgid ""
 "automatic updates.</em>"
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:418
+#: ../plugin-fw/lib/yit-upgrade.php:423
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" class=\"thickbox "
@@ -688,7 +682,7 @@ msgid ""
 "title=\"Licence activation\">activate</a> your copy of %6s.</em>"
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:420
+#: ../plugin-fw/lib/yit-upgrade.php:425
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" class=\"thickbox "
@@ -696,75 +690,75 @@ msgid ""
 "href=\"%5$s\">update now</a>."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:493
+#: ../plugin-fw/lib/yit-upgrade.php:498
 msgid "You can't update the plugins for this site."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:497
+#: ../plugin-fw/lib/yit-upgrade.php:502
 msgid ""
 "You do not have sufficient permissions to update the plugins for this site."
 msgstr ""
 
-#: ../plugin-fw/lib/yit-upgrade.php:504
+#: ../plugin-fw/lib/yit-upgrade.php:509
 msgid "Update Plugin"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-licence.php:156
+#: ../plugin-fw/licence/lib/yit-licence.php:161
 #, php-format
 msgid "%field% field cannot be empty"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-licence.php:157
+#: ../plugin-fw/licence/lib/yit-licence.php:162
 msgid "%field_1% and %field_2% fields cannot be empty"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-licence.php:158
+#: ../plugin-fw/licence/lib/yit-licence.php:163
 msgid "Unable to contact the remote server, please try again later. Thanks!"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-licence.php:537
+#: ../plugin-fw/licence/lib/yit-licence.php:548
 msgid "Invalid Request"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-licence.php:538
+#: ../plugin-fw/licence/lib/yit-licence.php:549
 msgid "Invalid licence key"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-licence.php:539
+#: ../plugin-fw/licence/lib/yit-licence.php:550
 msgid "Software has been deactivated"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-licence.php:540
+#: ../plugin-fw/licence/lib/yit-licence.php:551
 msgid "Maximum number of activations exceeded"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-licence.php:541
+#: ../plugin-fw/licence/lib/yit-licence.php:552
 msgid "Invalid instance ID"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-licence.php:542
+#: ../plugin-fw/licence/lib/yit-licence.php:553
 msgid "Invalid security key"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-licence.php:543
+#: ../plugin-fw/licence/lib/yit-licence.php:554
 msgid "Licence key has expired"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-licence.php:544
+#: ../plugin-fw/licence/lib/yit-licence.php:555
 msgid "Licence key has been banned"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-plugin-licence.php:63
 #: ../plugin-fw/licence/lib/yit-plugin-licence.php:64
-#: ../plugin-fw/licence/lib/yit-theme-licence.php:63
+#: ../plugin-fw/licence/lib/yit-plugin-licence.php:65
 #: ../plugin-fw/licence/lib/yit-theme-licence.php:64
-#: ../plugin-fw/licence/lib/yit-theme-licence.php:106
+#: ../plugin-fw/licence/lib/yit-theme-licence.php:65
 #: ../plugin-fw/licence/lib/yit-theme-licence.php:107
+#: ../plugin-fw/licence/lib/yit-theme-licence.php:108
 msgid "Licence Activation"
 msgstr ""
 
-#: ../plugin-fw/licence/lib/yit-theme-licence.php:114
 #: ../plugin-fw/licence/lib/yit-theme-licence.php:115
+#: ../plugin-fw/licence/lib/yit-theme-licence.php:116
 #, php-format
 msgid "%s"
 msgstr ""
@@ -1283,7 +1277,7 @@ msgstr ""
 msgid "Commission:"
 msgstr ""
 
-#: ../templates/admin/add-product-vendors-taxonomy.php:37
+#: ../templates/admin/add-product-vendors-taxonomy.php:38
 msgid "Percentage of the total sale price that this vendor receives"
 msgstr ""
 
@@ -1395,6 +1389,10 @@ msgstr ""
 
 #: ../templates/admin/commission-view.php:380
 msgid "Coupon(s) Used"
+msgstr ""
+
+#: ../templates/admin/commission-view.php:410
+msgid "Commission"
 msgstr ""
 
 #: ../templates/admin/commissions.php:18
