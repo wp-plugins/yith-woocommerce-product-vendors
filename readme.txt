@@ -3,8 +3,8 @@
 Contributors: yithemes
 Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, yit, yith, yithemes
 Requires at least: 4.0
-Tested up to: 4.2
-Stable tag: 1.1.1
+Tested up to: 4.2.1
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ A double, huge benefit from a single plugin. And all free.
 **Section “Vendors”:**
 
 * Vendor page creation with following information: name, PayPal email address, Owner, Store description, Slug
-* Commission Rate
+* Global Commission Rate
 * Superadmin can enable or disable sales for each vendor
 
 **Show owner can:**
@@ -40,6 +40,8 @@ A double, huge benefit from a single plugin. And all free.
 * Vendor’s name next to product name in shop page
 * Vendor’s name next to product name in single product page
 * Widget for displaying a list of all vendors
+
+Please, read the the **[official plugin documentation](http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor/)** to know all plugin features.
 
 == Screenshots ==
 
@@ -68,6 +70,13 @@ You just have to create the folder *woocommerce/product-vendors* and add in it t
 3. Activate `YITH WooCommerce Multi Vendor` from Plugins page
 
 == Changelog ==
+
+= 1.2.0 =
+
+* Tweak: Admin options management
+* Updated: default.po file
+* Fixed: 404 error on wp_enqueue_style
+* Fixed: Options for Vendors list widget doesn't work
 
 = 1.1.1 =
 
@@ -101,6 +110,10 @@ You just have to create the folder *woocommerce/product-vendors* and add in it t
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+
+* New admin options management
 
 = 1.1.1 =
 

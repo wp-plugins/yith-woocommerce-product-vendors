@@ -30,7 +30,7 @@ if ( ! class_exists( 'YIT_Metabox' ) ) {
      *                          'fields' => array(
      *                          'meta_checkbox' => array(
      *                                 'label'    => __( 'Show title', 'yit' ),
-     *                                 'desc'     => __( 'Show title of the page or not.', 'yit' ),
+     *                                 'desc'     => __( 'Choose whether to show title of the page or not.', 'yit' ),
      *                                 'type'     => 'checkbox',
      *                                 'private'  => false,
      *                                 'std'      => '1'),

@@ -56,7 +56,7 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
          */
         public function get_columns() {
             $columns = array(
-                'commission_id'     => __( 'ID', 'yith_wc_product_vendors' ),
+                'commission_id'     =>  __( 'ID', 'yith_wc_product_vendors' ),
                 'commission_status' => '<span class="status_head tips" data-tip="' . esc_attr__( 'Status', 'yith_wc_product_vendors' ) . '">' . esc_attr__( 'Status', 'yith_wc_product_vendors' ) . '</span>',
                 'order_id'          => __( 'Order', 'yith_wc_product_vendors' ),
                 'line_item'         => __( 'Product', 'yith_wc_product_vendors' ),
@@ -160,7 +160,6 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
                 'commission_id' => array( 'ID', false ),
                 'order_id'      => array( 'order_id', false ),
                 'amount'        => array( 'amount', false ),
-                'date'          => array( 'date', false ),
                 'date_edit'     => array( 'last_edit', false ),
             );
         }
@@ -234,7 +233,7 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
                     $order_uri       = '<a href="' . admin_url( 'post.php?post=' . absint( $order->id ) . '&action=edit' ) . '">' . $order_number . '</a>';
                     $order_info      = $this->_vendor->is_super_user() ? $order_uri : $order_number;
 
-                    printf( _x( '%s by %s', 'Order number by X', 'yith_wc_product_vendors' ), $order_info, $username );
+                    printf( _x( '%s by %s', 'Order number by user', 'yith_wc_product_vendors' ), $order_info, $username );
 
                     if ( $order->billing_email ) {
                         echo '<small class="meta email"><a href="' . esc_url( 'mailto:' . $order->billing_email ) . '">' . esc_html( $order->billing_email ) . '</a></small>';

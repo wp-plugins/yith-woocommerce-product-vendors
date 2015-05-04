@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: YITH Woocommerce Multi Vendor\n"
-"POT-Creation-Date: 2015-04-27 12:26+0100\n"
-"PO-Revision-Date: 2015-04-27 12:26+0100\n"
+"POT-Creation-Date: 2015-05-04 16:04+0100\n"
+"PO-Revision-Date: 2015-05-04 16:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: YIThemes <plugins@yithemes.com>\n"
 "Language: en\n"
@@ -38,104 +38,113 @@ msgstr ""
 
 #: ../includes/class.yith-commissions.php:172
 msgid ""
-"Payment sent successfully. You will receive an email in a few minutes with "
-"the outcome of the payment and the commission state will be changed "
-"accordingly."
+"Payment successful. In a few minutes you will receive an email with the "
+"outcome of the payment and the commission state will be changed accordingly."
 msgstr ""
 
 #: ../includes/class.yith-commissions.php:173
 msgid "Payment failed."
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:212
+#: ../includes/class.yith-commissions.php:214
 msgid "Paid"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:213
+#: ../includes/class.yith-commissions.php:215
 msgid "Unpaid"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:214
+#: ../includes/class.yith-commissions.php:216
 msgid "Pending"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:215
+#: ../includes/class.yith-commissions.php:217
 msgid "Refunded"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:216
+#: ../includes/class.yith-commissions.php:218
 msgid "Cancelled"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:217
+#: ../includes/class.yith-commissions.php:219
 msgid "Processing"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:271
-#: ../includes/class.yith-commissions.php:272
-#: ../includes/class.yith-commissions.php:1164
-#: ../includes/class.yith-vendors-admin.php:121
+#: ../includes/class.yith-commissions.php:277
+#: ../includes/class.yith-commissions.php:278
+#: ../includes/class.yith-commissions.php:1170
+#: ../includes/class.yith-vendors-admin.php:128
 msgid "Commissions"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:336
+#: ../includes/class.yith-commissions.php:342
 #, php-format
 msgid "Commission #%d details"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:337
+#: ../includes/class.yith-commissions.php:343
 #, php-format
 msgid "%1$s &lsaquo; %2$s &#8212; WordPress"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:1030
+#: ../includes/class.yith-commissions.php:1036
 #, php-format
 msgid "Refunded %s from order"
 msgstr ""
 
-#: ../includes/class.yith-commissions.php:1063
+#: ../includes/class.yith-commissions.php:1069
 #, php-format
 msgid "Cancelled %s refund from order"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:122
+#: ../includes/class.yith-commissions.php:1206
+msgid "commission_id"
+msgstr ""
+
+#: ../includes/class.yith-vendors-admin.php:129
 #: ../includes/class.yith-vendors.php:255
 msgid "Vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:129
 #: ../includes/class.yith-vendors-admin.php:130
+#: ../includes/class.yith-vendors-admin.php:886
+msgid "Premium Version"
+msgstr ""
+
+#: ../includes/class.yith-vendors-admin.php:137
+#: ../includes/class.yith-vendors-admin.php:138
+#: ../includes/class.yith-vendors.php:253
 msgid "Multi Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:250
+#: ../includes/class.yith-vendors-admin.php:258
 #, php-format
 msgid ""
 "You do not have permission to edit this product. %1$sClick here to view and "
 "edit your products%2$s."
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:323
-#: ../includes/class.yith-vendors-admin.php:324
+#: ../includes/class.yith-vendors-admin.php:331
+#: ../includes/class.yith-vendors-admin.php:332
 #: ../templates/admin/vendor-admin.php:17
 msgid "Vendor Details"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:468
-#: ../includes/class.yith-vendors-admin.php:488
+#: ../includes/class.yith-vendors-admin.php:476
+#: ../includes/class.yith-vendors-admin.php:496
 msgid "A vendor with this name already exists."
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:469
+#: ../includes/class.yith-vendors-admin.php:477
 msgid "Vendor name already exists"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:793
+#: ../includes/class.yith-vendors-admin.php:801
 #, php-format
 msgid "No %s"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:875
+#: ../includes/class.yith-vendors-admin.php:883
 #: ../plugin-fw/lib/yit-cpt-unlimited.php:1048
 #: ../plugin-fw/lib/yit-cpt-unlimited.php:1196
 #: ../plugin-fw/lib/yit-cpt-unlimited.php:1202
@@ -143,17 +152,8 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:879
-msgid "Premium Version"
-msgstr ""
-
-#: ../includes/class.yith-vendors-admin.php:904
+#: ../includes/class.yith-vendors-admin.php:910
 msgid "Plugin Documentation"
-msgstr ""
-
-#: ../includes/class.yith-vendors.php:253
-#: ../plugin-options/vendors-options.php:21
-msgid "Product Vendors"
 msgstr ""
 
 #: ../includes/class.yith-vendors.php:254
@@ -194,7 +194,7 @@ msgid "Add New Vendor"
 msgstr ""
 
 #: ../includes/class.yith-vendors.php:264
-msgid "New Vendor Name"
+msgid "New Vendor's Name"
 msgstr ""
 
 #: ../includes/class.yith-vendors.php:266
@@ -252,50 +252,50 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:229
+#: ../includes/lib/class.yith-commissions-list-table.php:228
 #: ../templates/admin/commission-view.php:126
 msgid "Guest"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:237
+#: ../includes/lib/class.yith-commissions-list-table.php:236
 #, php-format
-msgctxt "Order number by X"
+msgctxt "Order number by user"
 msgid "%s by %s"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:260
+#: ../includes/lib/class.yith-commissions-list-table.php:259
 #: ../templates/admin/commission-view.php:175
 msgid "User deleted"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:272
+#: ../includes/lib/class.yith-commissions-list-table.php:271
 #: ../templates/admin/commission-view.php:186
 msgid "Vendor deleted"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:285
+#: ../includes/lib/class.yith-commissions-list-table.php:284
 msgid "View"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:290
-#: ../includes/lib/class.yith-commissions-list-table.php:308
+#: ../includes/lib/class.yith-commissions-list-table.php:289
+#: ../includes/lib/class.yith-commissions-list-table.php:307
 #: ../templates/admin/commission-view.php:156
 msgid "Y/m/d g:i:s A"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:297
-#: ../includes/lib/class.yith-commissions-list-table.php:315
+#: ../includes/lib/class.yith-commissions-list-table.php:296
+#: ../includes/lib/class.yith-commissions-list-table.php:314
 #: ../templates/admin/commission-view.php:157
 #, php-format
 msgid "%s ago"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:300
-#: ../includes/lib/class.yith-commissions-list-table.php:317
+#: ../includes/lib/class.yith-commissions-list-table.php:299
+#: ../includes/lib/class.yith-commissions-list-table.php:316
 msgid "Y/m/d"
 msgstr ""
 
-#: ../includes/lib/class.yith-commissions-list-table.php:349
+#: ../includes/lib/class.yith-commissions-list-table.php:348
 msgid "No commissions found."
 msgstr ""
 
@@ -1234,6 +1234,10 @@ msgstr ""
 msgid "Default commission percentage"
 msgstr ""
 
+#: ../plugin-options/vendors-options.php:21
+msgid "Multi vendor"
+msgstr ""
+
 #: ../plugin-options/vendors-options.php:28
 msgid "Vendor name label color"
 msgstr ""
@@ -1343,7 +1347,7 @@ msgid "User details"
 msgstr ""
 
 #: ../templates/admin/commission-view.php:191
-msgid "Paypal"
+msgid "PayPal"
 msgstr ""
 
 #: ../templates/admin/commission-view.php:199
@@ -1457,25 +1461,29 @@ msgid "by"
 msgstr ""
 
 #: ../widgets/class.yith-woocommerce-vendors-widget.php:29
-msgid "YITH WooCommerce Vendor List"
+msgid "YITH Vendor List"
 msgstr ""
 
 #: ../widgets/class.yith-woocommerce-vendors-widget.php:31
 msgid "Display the list with enabled vendors."
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:63
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:66
 msgid "Vendor List"
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:71
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:75
 msgid "Title"
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:76
-msgid "Vendor's amount of products"
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:80
+msgid "Hide this widget on vendor page"
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:81
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:85
+msgid "Vendor's products amount"
+msgstr ""
+
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:90
 msgid "Hide vendors with no products"
 msgstr ""

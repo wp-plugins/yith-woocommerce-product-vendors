@@ -24,5 +24,4 @@
         <?php $commissions_table->add_search_box( __( 'Search commissions', 'yith_wc_product_vendors' ), 's' ); ?>
         <?php $commissions_table->display(); ?>
     </form>
-
 </div>

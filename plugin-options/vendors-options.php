@@ -18,7 +18,7 @@ return apply_filters( 'yith_wpv_panel_vendors_options', array(
             ),
 
             'vendors_options_title' => array(
-                'title' => __( 'Product Vendors', 'yith_wc_product_vendors' ),
+                'title' => __( 'Multi vendor', 'yith_wc_product_vendors' ),
                 'type'  => 'title',
                 'desc'  => '',
                 'id'    => 'yith_wpv_vendors_options_title'

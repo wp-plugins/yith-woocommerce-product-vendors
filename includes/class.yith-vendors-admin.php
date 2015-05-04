@@ -42,7 +42,12 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
         /**
          * @var string Official plugin documentation
          */
-        protected $_official_documentation = 'http://yithemes.com/docs-plugins/yith-woocommerce-product-vendors/' ;
+        protected $_official_documentation = 'http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor/' ;
+
+        /**
+         * @var string Official plugin landing page
+         */
+        protected $_premium_landing = 'http://yithemes.com/themes/plugins/yith-woocommerce-multi-vendor/' ;
 
         /**
          * Construct
@@ -57,6 +62,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
             /* Plugin Informations */
             add_filter( 'plugin_action_links_' . plugin_basename( YITH_WPV_PATH . '/' . basename( YITH_WPV_FILE ) ), array( $this, 'action_links' ) );
             add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 4 );
+            add_action( 'yith_wc_multi_vendor_premium_tab', array( $this, 'show_premium_tab' ) );
 
 	        /* Taxonomy management */
 	        add_action( $this->_taxonomy_name . '_add_form_fields', array( $this, 'add_taxonomy_fields' ), 1, 1 );
@@ -94,6 +100,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 	        /* Vendor menu */
 	        add_action( 'admin_menu', array( $this, 'menu_items' ) );
 	        add_action( 'admin_menu', array( $this, 'remove_media_page' ) );
+	        add_action( 'admin_menu', array( $this, 'remove_dashboard_widgets' ) );
 
 	        /* Vendor information management */
 	        add_action( 'admin_action_yith_admin_save_fields', array( $this, 'save_taxonomy_fields' ) );
@@ -118,10 +125,11 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
             }
 
             $admin_tabs = apply_filters( 'yith_vendors_admin_tabs', array(
-                'commissions' => __( 'Commissions', 'yith_wc_product_vendors' ),
-                'vendors'     => __( 'Vendors', 'yith_wc_product_vendors' ),
-                //'premium'  => __( 'Premium Version', 'yith_wc_product_vendors' ),
-            ) );
+                    'commissions' => __( 'Commissions', 'yith_wc_product_vendors' ),
+                    'vendors'     => __( 'Vendors', 'yith_wc_product_vendors' ),
+                    'premium'     => __( 'Premium Version', 'yith_wc_product_vendors' ),
+                )
+            );
 
             $args = array(
                 'create_menu_page' => true,
@@ -871,11 +879,10 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 		 * @return mixed
 		 * @use plugin_action_links_{$plugin_file_name}
 		 */
-		public function action_links( $links ) {
+        public function action_links( $links ) {
 			$links[] = '<a href="' . admin_url( "admin.php?page={$this->_panel_page}" ) . '">' . __( 'Settings', 'ywpi' ) . '</a>';
 
-
-			if ( defined( 'YITH_YWPI_FREE_INIT' ) ) {
+			if ( defined( 'YITH_WPV_FREE_INIT' ) ) {
 				$links[] = '<a href="' . $this->get_premium_landing_uri() . '" target="_blank">' . __( 'Premium Version', 'ywpi' ) . '</a>';
 			}
 
@@ -898,13 +905,64 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 		 * @use plugin_row_meta
 		 */
 		public function plugin_row_meta( $plugin_meta, $plugin_file, $plugin_data, $status ) {
-			if (
-			     ( defined( 'YITH_WPV_FREE_INIT' ) && ( YITH_WPV_FREE_INIT == $plugin_file ) )
-			) {
-				$plugin_meta[] = '<a href="' . $this->_official_documentation . '" target="_blank">' . __( 'Plugin Documentation', 'ywpi' ) . '</a>';
-			}
 
+            if( ( defined( 'YITH_WPV_INIT' ) && YITH_WPV_INIT == $plugin_file ) || ( defined( 'YITH_WPV_FREE_INIT' ) && YITH_WPV_FREE_INIT == $plugin_file ) ){
+                $plugin_meta[] = '<a href="' . $this->_official_documentation . '" target="_blank">' . __( 'Plugin Documentation', 'ywpi' ) . '</a>';
+            }
 			return $plugin_meta;
 		}
+
+        /**
+         * Get the premium landing uri
+         *
+         * @since   1.0.0
+         * @author  Andrea Grillo <andrea.grillo@yithemes.com>
+         * @return  string The premium landing link
+         */
+        public function get_premium_landing_uri() {
+            return defined( 'YITH_REFER_ID' ) ? $this->_premium_landing . '?refer_id=' . YITH_REFER_ID : $this->_premium_landing;
+        }
+
+        /**
+         * Remove Dashboard Widgets
+         *
+         * @since   1.0.0
+         * @author  Andrea Grillo <andrea.grillo@yithemes.com>
+         * @return  string The premium landing link
+         */
+        public function remove_dashboard_widgets(){
+            $to_removes = array(
+                array(
+                    'id'        => 'woocommerce_dashboard_status',
+                    'screen'    => 'dashboard',
+                    'context'   => 'normal'
+                ),
+                array(
+                    'id'        => 'dashboard_activity',
+                    'screen'    => 'dashboard',
+                    'context'   => 'normal'
+                ),
+                array(
+                    'id'        => 'woocommerce_dashboard_recent_reviews',
+                    'screen'    => 'dashboard',
+                    'context'   => 'normal'
+                ),
+            );
+
+            foreach( $to_removes as $widget ){
+                remove_meta_box( $widget['id'], $widget['screen'], $widget['context'] );
+            }
+        }
+
+         /**
+         * Show the premium tabs
+         *
+         * @since   1.0.0
+         * @author  Andrea Grillo <andrea.grillo@yithemes.com>
+         * @return  string The premium landing link
+         */
+        public function show_premium_tab(){
+            yith_wcpv_get_template( 'premium', array(), 'admin' );
+        }
     }
 }

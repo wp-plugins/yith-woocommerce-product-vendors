@@ -37,8 +37,6 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
          */
         public function __construct() {
 
-            add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-
             /* Shop Page */
             add_action( 'woocommerce_after_shop_loop_item', array( $this, 'woocommerce_template_vendor_name' ), 4  );
             add_action( 'woocommerce_product_query', array( $this, 'check_vendors_selling_capabilities' ), 10, 1 );
@@ -158,6 +156,7 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
             $to_exclude = YITH_Vendors()->get_vendors(
                 array(
                     'enabled_selling' => false,
+                    'owner'           => false,
                     'fields' => 'ids'
                 )
             );
@@ -168,7 +167,7 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
                         'taxonomy' => YITH_Vendors()->get_taxonomy_name(),
                         'field'    => 'id',
                         'terms'    => $to_exclude,
-                        'operator' => 'NOT IN'
+                        'operator' => 'NOT IN' //use NOT IN in query args to include the super admin products
                     )
                 );
 
@@ -215,26 +214,6 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
             if ( $exit ) {
                 exit;
             }
-        }
-
-        /**
-         * Enqueue Style and Scripts
-         *
-         * @return   void
-         * @since    1.0
-         * @author   Andrea Grillo <andrea.grillo@yithemes.com>
-         * @fire yith_wpv_stylesheet_paths The stylesheet paths
-         */
-        public function enqueue_scripts() {
-            $paths = apply_filters( 'yith_wpv_stylesheet_paths', array(
-                    WC()->template_path() . 'product-vendors.css',
-                    'product-vendors.css',
-                )
-            );
-
-            $located    = locate_template( $paths, false, false );
-            $stylesheet = ! empty( $located ) ? str_replace( get_stylesheet_directory(), get_stylesheet_directory_uri(), $located ) : YITH_WPV_ASSETS_URL . 'css/product-vendors.css';
-            wp_enqueue_style( 'yith-wc-product-vendors', $stylesheet );
         }
 
         /**

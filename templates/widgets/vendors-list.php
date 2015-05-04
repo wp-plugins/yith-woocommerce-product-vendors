@@ -19,7 +19,7 @@ $vendors = YITH_Vendors()->get_vendors( array( 'enabled_selling' => true ) );
         <?php
         foreach( $vendors as $vendor ) :
             $product_number = count ( $vendor->get_products() );
-            if( isset( $hide_empty ) && empty( $product_number ) ) {
+            if( isset( $hide_empty ) && ! empty( $hide_empty ) && empty( $product_number ) || empty( $vendor->owner ) ) {
                 continue;
             }
             ?>
@@ -28,7 +28,7 @@ $vendors = YITH_Vendors()->get_vendors( array( 'enabled_selling' => true ) );
                     <?php echo $vendor->name ?>
                 </a>
                 <?php
-                if( isset( $show_product_number ) ) {
+                if( isset( $show_product_number ) && ! empty( $show_product_number ) ) {
                     echo " ({$product_number}) ";
                 }
                 ?>

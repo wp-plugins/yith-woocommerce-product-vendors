@@ -329,7 +329,7 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 				return $this->_vendor = false;
 			}
 
-			return $this->_vendor = yith_get_vendor( $this->vendor_id );
+			return $this->_vendor = yith_get_vendor( absint( $this->vendor_id ) );
 		}
 
 		/**

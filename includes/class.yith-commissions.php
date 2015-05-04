@@ -25,11 +25,11 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
         /**
          * Whether or not to show order item meta added by plugin in order page
          *
-         * @const bool Whether or not to show order item meta
+         * @var bool Whether or not to show order item meta
          *
          * @since 1.0
          */
-        const SHOW_ORDER_ITEM_META = true;
+        public $show_order_item_meta = true;
 
         /**
          * Plugin version
@@ -169,15 +169,17 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 		        array(
 			        'error'   => __( 'Commission status not updated!', 'yith_wc_product_vendors' ),
 			        'updated' => __( 'Commission status updated!', 'yith_wc_product_vendors' ),
-			        'pay-process' => __( 'Payment sent successfully. You will receive an email in a few minutes with the outcome of the payment and the commission state will be changed accordingly.', 'yith_wc_product_vendors' ),
-			        'pay-failed' => __( 'Payment failed.', 'yith_wc_product_vendors' )
+			        'pay-process' => __( 'Payment successful. In a few minutes you will receive an email with the outcome of the payment and the commission state will be changed accordingly.', 'yith_wc_product_vendors' ),
+			        'pay-failed'  => __( 'Payment failed.', 'yith_wc_product_vendors' )
 		        )
 	        );
 
-            if ( ! self::SHOW_ORDER_ITEM_META ) {
+            if ( ! apply_filters( 'yith_show_commissions_order_item_meta', $this->show_order_item_meta )  ) {
                 //hides oreder item meta added by plugin
                 add_filter( 'woocommerce_hidden_order_itemmeta', array( $this, 'hide_order_item_meta' ) );
             }
+
+            add_filter( 'woocommerce_attribute_label', array( $this, 'commissions_attribute_label' ), 10, 3 );
         }
 
         /**
@@ -231,8 +233,12 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 			    $type = $_GET['message'];
 			    if ( in_array( $type, array( 'pay-process' ) ) ) {
 				    $type = 'update-nag';
-			    }
-			    $message = in_array( $type, array( 'updated', 'error' ) ) ? '<p>' . $this->_messages[ $_GET['message'] ] . '</p>' : $this->_messages[ $_GET['message'] ];
+			    } else if( in_array( $type, array( 'pay-failed' ) ) ) {
+                    $type = 'error';
+                }
+
+                $text    = sanitize_text_field( $_GET['text'] );
+			    $message = in_array( $type, array( 'updated', 'error' ) ) ? '<p>' . $this->_messages[ $_GET['message'] ] . ' ' . $text . '</p>' : $this->_messages[ $_GET['message'] ] . ' ' . $text;
 			    ?>
 			    <div class="<?php echo $type ?>">
 				    <?php echo $message ?>
@@ -1177,6 +1183,31 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
          */
         public function set_screen_option( $set, $option, $value ){
             return 'edit_commissions_per_page' == $option ? $value : $set;
+        }
+
+        /**
+         * Change commission label value
+         *
+         * @param $attribute_label  The Label Value
+         * @param $meta_key         The Meta Key value
+         * @param $product          The Product object
+         *
+         * @return string           The label value
+         */
+        public function commissions_attribute_label( $attribute_label, $meta_key, $product = false ){
+            global $pagenow;
+
+            if( $product && 'post.php' == $pagenow && isset( $_GET['post'] ) && $order = wc_get_order( $_GET['post'] ) ){
+                $line_items = $order->get_items( 'line_item' );
+                foreach( $line_items as $line_item_id => $line_item ){
+                    if( $line_item['product_id'] ){
+                        $commission_id = wc_get_order_item_meta( $line_item_id, '_commission_id', true );
+                        $admin_url = YITH_Commission( $commission_id )->get_view_url( 'admin' );
+                        $attribute_label = '_commission_id' == $meta_key ? sprintf( "<a href='%s' class='%s'>" . __( 'commission_id', 'yith_wc_product_vendors' ) . '</a>', $admin_url, 'commission-id-label' ) : $attribute_label;
+                    }
+                }
+            }
+            return $attribute_label;
         }
     }
 }

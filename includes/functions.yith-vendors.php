@@ -24,7 +24,8 @@ if ( ! function_exists( 'yith_wcpv_get_template' ) ) {
      */
     function yith_wcpv_get_template( $filename, $args = array(), $section = '' ) {
 
-        $template_name      = $section . '/' . $filename . '.php';
+        $ext = strpos( $filename, '.php' ) === false ? '.php' : '';
+        $template_name      = $section . '/' . $filename . $ext;
         $template_path      = WC()->template_path() . 'product-vendors/';
         $default_path       = YITH_WPV_TEMPLATE_PATH;
 

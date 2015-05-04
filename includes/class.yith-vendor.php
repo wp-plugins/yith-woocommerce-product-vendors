@@ -124,7 +124,6 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 		    }
 
 		    // RETRIEVE OBJECT
-
 		    // Get vendor by Vendor ID
 		    if ( is_numeric( $vendor ) && 'vendor' == $obj ) {
 			    $vendor_id   = absint( $vendor );
@@ -251,7 +250,11 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 			    $value = self::$taxonomy;
 		    }
 
-            else if( 'registration_date' === $key && empty( $this->$key ) ){
+		    else if ( 'socials' === $key && empty( $value ) ) {
+			    $value = array();
+		    }
+
+            else if( 'registration_date' === $key && empty( $value ) ){
                 $owner_id = $this->get_owner();
                 if( ! empty( $owner_id ) ){
                     $owner = get_user_by( 'id', $owner_id );

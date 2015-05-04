@@ -188,7 +188,7 @@ $item_id = $commission->line_item_id;
 													?>
 												</p>
 												<p>
-													<strong><?php _e( 'Paypal', 'yith_wc_product_vendors' ) ?>:</strong>
+													<strong><?php _e( 'PayPal', 'yith_wc_product_vendors' ) ?>:</strong>
 													<a href="mailto:<?php echo $vendor->paypal_email ?>"><?php echo $vendor->paypal_email ?></a>
 												</p>
 											</div>

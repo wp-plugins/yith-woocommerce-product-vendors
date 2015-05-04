@@ -202,8 +202,8 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		 */
 		public function plugin_fw_loader() {
 			if ( ! defined( 'YIT' ) || ! defined( 'YIT_CORE_PLUGIN' ) ) {
-				require_once( YITH_WPV_PATH . 'plugin-fw/yit-plugin.php' );
-			}
+                require_once( YITH_WPV_PATH . 'plugin-fw/yit-plugin.php' );
+            }
 		}
 
 		/**
@@ -250,7 +250,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		public function get_vendors_taxonomy_label( $arg = '' ) {
 
 			$label = apply_filters( 'yith_product_vendors_taxonomy_label', array(
-					'name'                       => __( 'Product Vendors', 'yith_wc_product_vendors' ),
+					'name'                       => __( 'Multi Vendor', 'yith_wc_product_vendors' ),
 					'singular_name'              => __( 'Vendor', 'yith_wc_product_vendors' ),
 					'menu_name'                  => __( 'Vendors', 'yith_wc_product_vendors' ),
 					'search_items'               => __( 'Search Vendors', 'yith_wc_product_vendors' ),
@@ -261,7 +261,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 					'edit_item'                  => __( 'Edit Vendor', 'yith_wc_product_vendors' ),
 					'update_item'                => __( 'Update Vendor', 'yith_wc_product_vendors' ),
 					'add_new_item'               => __( 'Add New Vendor', 'yith_wc_product_vendors' ),
-					'new_item_name'              => __( 'New Vendor Name', 'yith_wc_product_vendors' ),
+					'new_item_name'              => __( 'New Vendor\'s Name', 'yith_wc_product_vendors' ),
 					'popular_items'              => null, //don't remove!
 					'separate_items_with_commas' => __( 'Separate vendors with commas', 'yith_wc_product_vendors' ),
 					'add_or_remove_items'        => __( 'Add or remove vendors', 'yith_wc_product_vendors' ),
@@ -354,10 +354,18 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
                 'number'  => isset( $args['number'] ) ? $args['number'] : ''
             );
 
+            $exclude_selling = $exclude_owner = array();
+
 			// filter for enable selling
 			if ( '' !== $args['enabled_selling'] ) {
 				global $wpdb;
-				$query_args['exclude'] = $wpdb->get_col( $wpdb->prepare( "SELECT DISTINCT woocommerce_term_id FROM $wpdb->woocommerce_termmeta WHERE meta_key = %s AND meta_value = %s", 'enable_selling', $args['enabled_selling'] ? 'no' : 'yes' ) );
+                $query = $wpdb->prepare( "SELECT DISTINCT woocommerce_term_id FROM $wpdb->woocommerce_termmeta WHERE meta_key = %s AND meta_value = %s", 'enable_selling', $args['enabled_selling'] ? 'no' : 'yes' );
+
+                if( isset( $args['owner'] ) && $args['owner'] === false ){
+                    $query .= $wpdb->prepare( " AND woocommerce_term_id NOT IN ( SELECT DISTINCT woocommerce_term_id FROM $wpdb->woocommerce_termmeta WHERE meta_key = %s AND meta_value = %s )", 'owner', '' );
+                }
+
+                $query_args['exclude'] = $wpdb->get_col( $query );
 			}
 
 			$vendors = get_terms( $this->_taxonomy_name, $query_args );
