@@ -39,15 +39,17 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
          */
         protected $_panel_page = 'yith_wpv_panel';
 
+//TODO: Cambiare link doc e landing
+
         /**
          * @var string Official plugin documentation
          */
-        protected $_official_documentation = 'http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor/' ;
+        protected $_official_documentation = 'http://yithemes.com/docs-plugins/yith-woocommerce-product-vendors/' ;
 
         /**
          * @var string Official plugin landing page
          */
-        protected $_premium_landing = 'http://yithemes.com/themes/plugins/yith-woocommerce-multi-vendor/' ;
+        protected $_premium_landing = 'http://yithemes.com/docs-plugins/yith-woocommerce-product-vendors/' ;
 
         /**
          * Construct
@@ -82,7 +84,6 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 	        remove_filter( 'term_description', 'wp_kses_data' );
 
 	        /* WooCommerce */
-	        //add_action( 'woocommerce_update_option', array( $this, 'change_product_vendors_admin_role' ), 10, 1 );
 	        add_action( 'pre_user_query', array( $this, 'json_search_customer_name' ), 15 );
 
 	        /* Vendor products management */
@@ -836,7 +837,6 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 	     */
         public function prevent_admin_access( $prevent_access ){
             $vendor = yith_get_vendor( 'current', 'user' );
-
             return $vendor->is_valid() && $vendor->has_limited_access() && $vendor->is_user_admin() ? false : $prevent_access;
         }
 

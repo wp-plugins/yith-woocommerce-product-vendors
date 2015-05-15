@@ -3,8 +3,8 @@
 Contributors: yithemes
 Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, yit, yith, yithemes
 Requires at least: 4.0
-Tested up to: 4.2.1
-Stable tag: 1.2.0
+Tested up to: 4.2.2
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,15 @@ You just have to create the folder *woocommerce/product-vendors* and add in it t
 
 == Changelog ==
 
+= 1.3.0 =
+
+* Updated: Plugin default language file
+* Fixed: Changed "Product Vendors" label  to "Vendor" in product list table
+* Fixed: Unable to rewrite frontend css on child theme
+* Fixed: Widget Vendor list: option "Hide this widget on vendor page" doesn't work
+* Removed: Old sidebar template
+* Removed: Old default.po file
+
 = 1.2.0 =
 
 * Tweak: Admin options management
@@ -110,6 +119,10 @@ You just have to create the folder *woocommerce/product-vendors* and add in it t
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.3.0 =
+
+* Fixed minor bugs
 
 = 1.2.0 =
 

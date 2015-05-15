@@ -250,7 +250,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		public function get_vendors_taxonomy_label( $arg = '' ) {
 
 			$label = apply_filters( 'yith_product_vendors_taxonomy_label', array(
-					'name'                       => __( 'Multi Vendor', 'yith_wc_product_vendors' ),
+					'name'                       => __( 'Vendor', 'yith_wc_product_vendors' ),
 					'singular_name'              => __( 'Vendor', 'yith_wc_product_vendors' ),
 					'menu_name'                  => __( 'Vendors', 'yith_wc_product_vendors' ),
 					'search_items'               => __( 'Search Vendors', 'yith_wc_product_vendors' ),
@@ -347,6 +347,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 			$args = wp_parse_args( $args, array(
 				'enabled_selling'   => '',
                 'fields'            => '',
+                'pending'           => '',
 			) );
 
 			$query_args = array(
@@ -367,6 +368,18 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 
                 $query_args['exclude'] = $wpdb->get_col( $query );
 			}
+
+            // filter for pending vendors
+            if( ! empty( $args['pending'] ) && 'yes' == $args['pending'] ){
+                global $wpdb;
+                $query = $wpdb->prepare( "SELECT woocommerce_term_id FROM $wpdb->woocommerce_termmeta WHERE meta_key = %s AND meta_value = %s", 'pending', $args['pending'] );
+
+                $query_args['include'] = $wpdb->get_col( $query );
+
+                if ( empty( $query_args['include'] ) ) {
+                    return array();
+                }
+            }
 
 			$vendors = get_terms( $this->_taxonomy_name, $query_args );
 

@@ -38,3 +38,43 @@ if ( ! function_exists( 'yith_wcpv_get_template' ) ) {
         wc_get_template( $template_name, $args, $template_path, $default_path );
     }
 }
+
+if ( ! function_exists( 'yith_wcpv_check_duplicate_term_name' ) ) {
+    /**
+     * Check for duplicate vendor name
+     *
+     * @author   Andrea Grillo <andrea.grillo@yithemes.com>
+     *
+     * @param $term     string The term name
+     * @param $taxonomy string The taxonomy name
+     *
+     * @return mixed term object | WP_Error
+     * @since    1.0
+     */
+    function yith_wcpv_check_duplicate_term_name( $term, $taxonomy ) {
+        $duplicate = get_term_by( 'name', $term, $taxonomy );
+        return $duplicate ? true : false;
+    }
+}
+
+if( ! function_exists( 'yith_wcpv_add_vendor_caps' ) ){
+        /**
+	     * Add capabilities to vendor owner
+	     *
+	     * @param int $user_id User ID of vendor admin
+	     *
+	     * @author Andrea Grillo <andrea.grillo@yithemes.com>
+	     * @since  1.0
+	     * @return void
+	     */
+	     function yith_wcpv_add_vendor_caps( $user_id = 0 ) {
+		    if ( $user_id > 0 ) {
+			    $user = new WP_User( $user_id );
+                $caps = YITH_Vendors()->vendor_enabled_capabilities();
+
+			    foreach ( $caps as $cap ) {
+				    $user->add_cap( $cap );
+			    }
+		    }
+	    }
+}

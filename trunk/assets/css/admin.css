@@ -72,6 +72,16 @@ select#tax-input-yith_shop_vendor {
     z-index: 999;
 }
 
+.taxonomy-yith_shop_vendor table.wp-list-table .column-name,
+.taxonomy-yith_shop_vendor table.wp-list-table .check-column,
+.taxonomy-yith_shop_vendor table.wp-list-table .enable_sales,
+.taxonomy-yith_shop_vendor table.wp-list-table .column-commission_rate,
+.taxonomy-yith_shop_vendor table.wp-list-table .column-registration_date,
+.taxonomy-yith_shop_vendor table.wp-list-table .column-posts,
+.taxonomy-yith_shop_vendor table.wp-list-table .column-actions{
+    border-bottom: 1px solid #e1e1e1;
+}
+
 .widefat .column-commission_id {
     width: 50px;
     text-align: center
@@ -166,7 +176,8 @@ select#tax-input-yith_shop_vendor {
 }
 
 .widefat .column-user_actions .action-link mark.unpaid:after,
-.widefat .column-commission_status mark.unpaid:after {
+.widefat .column-commission_status mark.unpaid:after,
+.widefat .column-enable_sales mark.pending:after{
     content: "\e012";
     color: #ffba00
 }
@@ -257,5 +268,19 @@ select#tax-input-yith_shop_vendor {
 #plugin-fw-wc span.description {
   display: block;
   margin-top: 10px;
+}
+
+/* Hide WP Submenu item */
+.yith-wcpv-hide-submenu-item {
+    display: none;
+}
+
+/* Term list table */
+#the-list .switch_pending_status a {
+  color: #006505;
+}
+
+#the-list .switch_pending_status a:hover {
+  color: #00ae63;
 }
 
