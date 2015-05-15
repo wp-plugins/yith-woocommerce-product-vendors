@@ -69,8 +69,10 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
 
             if ( $vendor->is_valid() ) {
 
+                $tab_title = apply_filters( 'yith_single_product_vendor_tab_name', YITH_Vendors()->get_vendors_taxonomy_label( 'singular_name' ) );
+
                 $args = array(
-                    'title'    => YITH_Vendors()->get_vendors_taxonomy_label( 'singular_name' ),
+                    'title'    => $tab_title,
                     'priority' => 99,
                     'callback' => array( $this, 'get_vendor_tab' )
                 );
