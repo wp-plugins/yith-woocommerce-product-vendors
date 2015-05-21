@@ -57,24 +57,24 @@ if ( ! function_exists( 'yith_wcpv_check_duplicate_term_name' ) ) {
     }
 }
 
-if( ! function_exists( 'yith_wcpv_add_vendor_caps' ) ){
-        /**
-	     * Add capabilities to vendor owner
-	     *
-	     * @param int $user_id User ID of vendor admin
-	     *
-	     * @author Andrea Grillo <andrea.grillo@yithemes.com>
-	     * @since  1.0
-	     * @return void
-	     */
-	     function yith_wcpv_add_vendor_caps( $user_id = 0 ) {
-		    if ( $user_id > 0 ) {
-			    $user = new WP_User( $user_id );
-                $caps = YITH_Vendors()->vendor_enabled_capabilities();
+if ( ! function_exists( 'yith_wcpv_add_vendor_caps' ) ) {
+    /**
+     * Add capabilities to vendor owner
+     *
+     * @param int $user_id User ID of vendor admin
+     *
+     * @author Andrea Grillo <andrea.grillo@yithemes.com>
+     * @since  1.0
+     * @return void
+     */
+    function yith_wcpv_add_vendor_caps( $user_id = 0 ) {
+        if ( $user_id > 0 ) {
+            $user = new WP_User( $user_id );
+            $caps = YITH_Vendors()->vendor_enabled_capabilities();
 
-			    foreach ( $caps as $cap ) {
-				    $user->add_cap( $cap );
-			    }
-		    }
-	    }
+            foreach ( $caps as $cap ) {
+                $user->add_cap( $cap );
+            }
+        }
+    }
 }

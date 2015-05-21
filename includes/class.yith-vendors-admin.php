@@ -39,17 +39,21 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
          */
         protected $_panel_page = 'yith_wpv_panel';
 
-//TODO: Cambiare link doc e landing
-
         /**
          * @var string Official plugin documentation
          */
-        protected $_official_documentation = 'http://yithemes.com/docs-plugins/yith-woocommerce-product-vendors/' ;
+        protected $_official_documentation = 'http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor/' ;
 
         /**
          * @var string Official plugin landing page
          */
-        protected $_premium_landing = 'http://yithemes.com/docs-plugins/yith-woocommerce-product-vendors/' ;
+        protected $_premium_landing = 'http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor/' ;
+
+                /**
+         * @var string Official plugin landing page
+         */
+        protected $_premium_live = 'http://plugins.yithemes.com/yith-woocommerce-multi-vendor/' ;
+
 
         /**
          * Construct
@@ -90,7 +94,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 	        add_filter( 'request', array( $this, 'filter_product_list' ) );
 	        add_filter( 'wp_count_posts', array( $this, 'vendor_count_posts' ), 10, 3 );
 	        add_action( 'save_post', array( $this, 'add_vendor_taxonomy_to_product' ), 10, 2 );
-	        add_action( 'current_screen', array( $this, 'disabled_manage_other_vendors_product' ) );
+	        add_action( 'current_screen', array( $this, 'disabled_manage_other_vendors_posts' ) );
 
 	        /* Grouped Products */
 	        add_action( 'pre_get_posts', array( $this, 'filter_vendor_linked_products' ), 10, 1 );
@@ -240,14 +244,14 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
         }
 
         /**
-         * Restrict vendors from editing other vendors' products
+         * Restrict vendors from editing other vendors' posts
          *
          * @author      Andrea Grillo <andrea.grillo@yithemes.com>
          * @return      void
          * @since       1.0
          * @use         current_screen filter
          */
-        public function disabled_manage_other_vendors_product() {
+        public function disabled_manage_other_vendors_posts() {
 	        if ( isset( $_POST['post_ID'] ) || ! isset( $_GET['post'] ) ) {
 		        return;
 	        }
@@ -880,10 +884,12 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 		 * @use plugin_action_links_{$plugin_file_name}
 		 */
         public function action_links( $links ) {
-			$links[] = '<a href="' . admin_url( "admin.php?page={$this->_panel_page}" ) . '">' . __( 'Settings', 'ywpi' ) . '</a>';
+			$links[] = '<a href="' . admin_url( "admin.php?page={$this->_panel_page}" ) . '">' . __( 'Settings', 'yith_wc_product_vendors' ) . '</a>';
+            $premium_live_text = defined( 'YITH_WPV_FREE_INIT' ) ?  __( 'Premium live demo', 'yith_wc_product_vendors' ) : __( 'Live demo', 'yith_wc_product_vendors' );
+            $links[] = '<a href="' . $this->_premium_live . '" target="_blank">' . $premium_live_text . '</a>';
 
 			if ( defined( 'YITH_WPV_FREE_INIT' ) ) {
-				$links[] = '<a href="' . $this->get_premium_landing_uri() . '" target="_blank">' . __( 'Premium Version', 'ywpi' ) . '</a>';
+				$links[] = '<a href="' . $this->get_premium_landing_uri() . '" target="_blank">' . __( 'Premium Version', 'yith_wc_product_vendors' ) . '</a>';
 			}
 
 			return $links;
@@ -907,7 +913,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 		public function plugin_row_meta( $plugin_meta, $plugin_file, $plugin_data, $status ) {
 
             if( ( defined( 'YITH_WPV_INIT' ) && YITH_WPV_INIT == $plugin_file ) || ( defined( 'YITH_WPV_FREE_INIT' ) && YITH_WPV_FREE_INIT == $plugin_file ) ){
-                $plugin_meta[] = '<a href="' . $this->_official_documentation . '" target="_blank">' . __( 'Plugin Documentation', 'ywpi' ) . '</a>';
+                $plugin_meta[] = '<a href="' . $this->_official_documentation . '" target="_blank">' . __( 'Plugin Documentation', 'yith_wc_product_vendors' ) . '</a>';
             }
 			return $plugin_meta;
 		}
@@ -929,28 +935,45 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
          * @since   1.0.0
          * @author  Andrea Grillo <andrea.grillo@yithemes.com>
          * @return  string The premium landing link
+         * @return void
          */
         public function remove_dashboard_widgets(){
-            $to_removes = array(
-                array(
-                    'id'        => 'woocommerce_dashboard_status',
-                    'screen'    => 'dashboard',
-                    'context'   => 'normal'
-                ),
-                array(
-                    'id'        => 'dashboard_activity',
-                    'screen'    => 'dashboard',
-                    'context'   => 'normal'
-                ),
-                array(
-                    'id'        => 'woocommerce_dashboard_recent_reviews',
-                    'screen'    => 'dashboard',
-                    'context'   => 'normal'
-                ),
-            );
+            $vendor = yith_get_vendor( 'current', 'user' );
 
-            foreach( $to_removes as $widget ){
-                remove_meta_box( $widget['id'], $widget['screen'], $widget['context'] );
+            if ( $vendor->is_valid() && $vendor->has_limited_access()) {
+
+                $to_removes = array(
+                    array(
+                        'id'        => 'woocommerce_dashboard_status',
+                        'screen'    => 'dashboard',
+                        'context'   => 'normal'
+                    ),
+                    array(
+                        'id'        => 'dashboard_activity',
+                        'screen'    => 'dashboard',
+                        'context'   => 'normal'
+                    ),
+                    array(
+                        'id'        => 'woocommerce_dashboard_recent_reviews',
+                        'screen'    => 'dashboard',
+                        'context'   => 'normal'
+                    ),
+                    array(
+                        'id'        => 'dashboard_right_now',
+                        'screen'    => 'dashboard',
+                        'context'   => 'normal'
+                    ),
+                    array(
+                        'id'        => 'dashboard_quick_press',
+                        'screen'    => 'dashboard',
+                        'context'   => 'normal'
+                    ),
+
+                );
+
+                foreach( $to_removes as $widget ){
+                    remove_meta_box( $widget['id'], $widget['screen'], $widget['context'] );
+                }
             }
         }
 
@@ -964,5 +987,6 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
         public function show_premium_tab(){
             yith_wcpv_get_template( 'premium', array(), 'admin' );
         }
+
     }
 }

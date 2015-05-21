@@ -284,3 +284,10 @@ select#tax-input-yith_shop_vendor {
   color: #00ae63;
 }
 
+/* Vendor Coupon Menu Style */
+#adminmenu #menu-posts-shop_coupon .menu-icon-post div.wp-menu-image:before {
+    font-family: WooCommerce!important;
+    content: "\e600";
+    font-size: 1.3em!important;
+}
+

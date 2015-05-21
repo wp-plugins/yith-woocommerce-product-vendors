@@ -165,7 +165,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 				$this->admin = new YITH_Vendors_Admin();
 			}
 
-			if ( ! is_admin() ) {
+			if ( ! is_admin() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
 				$this->frontend = new YITH_Vendors_Frontend();
 			}
 		}

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Multi Vendor\n"
-"POT-Creation-Date: 2015-05-15 10:34+0100\n"
-"PO-Revision-Date: 2015-05-15 10:34+0100\n"
+"POT-Creation-Date: 2015-05-21 11:43+0100\n"
+"PO-Revision-Date: 2015-05-21 11:43+0100\n"
 "Last-Translator: \n"
 "Language-Team: YIThemes <plugins@yithemes.com>\n"
 "Language: en\n"
@@ -68,7 +68,7 @@ msgstr ""
 #: ../includes/class.yith-commissions.php:277
 #: ../includes/class.yith-commissions.php:278
 #: ../includes/class.yith-commissions.php:1170
-#: ../includes/class.yith-vendors-admin.php:129
+#: ../includes/class.yith-vendors-admin.php:133
 msgid "Commissions"
 msgstr ""
 
@@ -96,53 +96,61 @@ msgstr ""
 msgid "commission_id"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:130
+#: ../includes/class.yith-vendors-admin.php:134
 #: ../includes/class.yith-vendors.php:255
 msgid "Vendors"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:131
-#: ../includes/class.yith-vendors-admin.php:886
+#: ../includes/class.yith-vendors-admin.php:135
+#: ../includes/class.yith-vendors-admin.php:892
 msgid "Premium Version"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:138
-#: ../includes/class.yith-vendors-admin.php:139
+#: ../includes/class.yith-vendors-admin.php:142
+#: ../includes/class.yith-vendors-admin.php:143
 msgid "Multi Vendor"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:259
+#: ../includes/class.yith-vendors-admin.php:263
 #, php-format
 msgid ""
 "You do not have permission to edit this product. %1$sClick here to view and "
 "edit your products%2$s."
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:332
-#: ../includes/class.yith-vendors-admin.php:333
+#: ../includes/class.yith-vendors-admin.php:336
+#: ../includes/class.yith-vendors-admin.php:337
 #: ../templates/admin/vendor-admin.php:17
 msgid "Vendor Details"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:477
-#: ../includes/class.yith-vendors-admin.php:497
+#: ../includes/class.yith-vendors-admin.php:481
+#: ../includes/class.yith-vendors-admin.php:501
 msgid "A vendor with this name already exists."
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:478
+#: ../includes/class.yith-vendors-admin.php:482
 msgid "Vendor name already exists"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:802
+#: ../includes/class.yith-vendors-admin.php:806
 #, php-format
 msgid "No %s"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:883
+#: ../includes/class.yith-vendors-admin.php:887
 msgid "Settings"
 msgstr ""
 
-#: ../includes/class.yith-vendors-admin.php:910
+#: ../includes/class.yith-vendors-admin.php:888
+msgid "Premium live demo"
+msgstr ""
+
+#: ../includes/class.yith-vendors-admin.php:888
+msgid "Live demo"
+msgstr ""
+
+#: ../includes/class.yith-vendors-admin.php:916
 msgid "Plugin Documentation"
 msgstr ""
 
@@ -309,7 +317,7 @@ msgid "Default commission percentage"
 msgstr ""
 
 #: ../plugin-options/vendors-options.php:21
-msgid "Multi vendor"
+msgid "Product management"
 msgstr ""
 
 #: ../plugin-options/vendors-options.php:28
@@ -546,22 +554,22 @@ msgstr ""
 msgid "Display the list with enabled vendors."
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:66
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:67
 msgid "Vendor List"
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:75
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:76
 msgid "Title"
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:80
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:81
 msgid "Hide this widget on vendor page"
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:85
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:86
 msgid "Vendor's products amount"
 msgstr ""
 
-#: ../widgets/class.yith-woocommerce-vendors-widget.php:90
+#: ../widgets/class.yith-woocommerce-vendors-widget.php:91
 msgid "Hide vendors with no products"
 msgstr ""

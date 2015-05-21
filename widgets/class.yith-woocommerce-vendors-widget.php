@@ -46,7 +46,8 @@ if ( ! class_exists( 'YITH_Woocommerce_Vendors_Widget' ) ) {
          * @author Andrea Grillo <andrea.grillo@yithemes.com>
          */
         public function widget( $args, $instance ) {
-            if( empty( $instance['hide_on_vendor_page'] ) ){
+            $hide = ! empty( $instance['hide_on_vendor_page'] ) && is_product_taxonomy( YITH_Vendors()->get_taxonomy_name() );
+            if( ! $hide ){
                 yith_wcpv_get_template( 'vendors-list', $instance, 'widgets' );
             }
 

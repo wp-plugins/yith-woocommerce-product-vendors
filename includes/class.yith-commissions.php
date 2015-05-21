@@ -1200,7 +1200,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
             if( $product && 'post.php' == $pagenow && isset( $_GET['post'] ) && $order = wc_get_order( $_GET['post'] ) ){
                 $line_items = $order->get_items( 'line_item' );
                 foreach( $line_items as $line_item_id => $line_item ){
-                    if( $line_item['product_id'] ){
+                    if( $line_item['product_id'] == $product->id ){
                         $commission_id = wc_get_order_item_meta( $line_item_id, '_commission_id', true );
                         $admin_url = YITH_Commission( $commission_id )->get_view_url( 'admin' );
                         $attribute_label = '_commission_id' == $meta_key ? sprintf( "<a href='%s' class='%s'>" . __( 'commission_id', 'yith_wc_product_vendors' ) . '</a>', $admin_url, 'commission-id-label' ) : $attribute_label;

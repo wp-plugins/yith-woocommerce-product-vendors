@@ -236,16 +236,16 @@
         <div class="landing-container">
             <div class="premium-cta">
                 <p>
-                    Upgrade to the <span class="highlight">premium version</span>
-                    of <span class="highlight">YITH WooCommerce Multi Vendor</span> to benefit from all features!
+                    <?php echo sprintf( __( 'Upgrade to the %1$spremium version%2$s
+                         of %1$sYITH WooCommerce Multi Vendor%2$s to benefit from all features!', 'yith_wc_product_vendors' ),
+                        '<span class="highlight">', '</span>' ); ?>
                 </p>
                 <a href="<?php echo YITH_Vendors()->admin->get_premium_landing_uri(); ?>" target="_blank"
                    class="premium-cta-button button btn">
-                    <span class="highlight">UPGRADE</span>
-                    <span>to the premium version</span>
+                    <?php echo sprintf( __( '%1$s UPGRADE %2$s %3$s to the premium version %2$s', 'yith_wc_product_vendors' ),
+                        '<span class="highlight">', '</span>', '<span>' ); ?>
                 </a>
             </div>
-
         </div>
     </div>
     <div class="section section-even clear"
@@ -259,17 +259,18 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WPV_URL ?>assets/images/01-icon.png" alt="Vendor shop page"/>
-                    <h2>A richer vendor shop page</h2>
+                    <h2><?php echo _e('A richer vendor shop page','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    The vendor page gets more details!<br>
-                    Vendors will be able to add their <b>contact details</b> (email, address, phone number) and the most common
-                    social network profiles (Facebook, Twitter, Google+, LinkedIn and YouTube).
+                    <?php echo sprintf(__('The vendor page gets more details!Vendors will be able to add their
+                    %s contact details %s (email, address, phone number) and the most common
+                    social network profiles (Facebook, Twitter, Google+, LinkedIn and YouTube)
+                    ','yith_wc_product_vendors'),'<b>','</b>')  ?>
                 </p>
-
-                <p>These pieces of
-                    information are gathered in the page of every vendor shop with a <b>header</b> where style and images can
-                    be customized.
+                <p>
+                    <?php  echo sprintf(__('These pieces of
+                    information are gathered in the page of every vendor shop with a %sheader%s where style and images can
+                    be customized.','yith_wc_product_vendors'),'<b>','</b>'); ?>
                 </p>
             </div>
         </div>
@@ -280,18 +281,19 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WPV_URL ?>assets/images/02-icon.png" alt="admin shop"/>
-                    <h2>One or more administrators for every vendor shop
-                    </h2>
+                    <h2><?php echo _e('One or more administrators for every vendor shop','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    The administrators of the vendor shop are one of the most important new features.<br> They are simple
-                    registered users of the shop that have been admitted to <b>manage the products</b> and all the information
-                    about a vendor shop by the administrator of the store or the owner of the vendor shop.
+                    <?php
+                    echo sprintf( __('The administrators of the vendor shop are one of the most important new features.%s They are simple
+                    registered users of the shop that have been admitted to %smanage the products%s and all the information
+                    about a vendor shop by the administrator of the store or the owner of the vendor shop.','yith_wc_product_vendors'),'<br>','<b>','</b>');
+                    ?>
                 </p>
                 <p>
-                    The only
-                    element they can't change is the <b>type of payment</b> that only administrator of the store or the owner
-                    of the vendor shop can set.
+                    <?php echo sprintf( __('The only
+                    element they can\'t change is the %stype of payment%s that only administrator of the store or the owner
+                    of the vendor shop can set.','yith_wc_product_vendors'),'<b>','</b>'); ?>
                 </p>
             </div>
             <div class="col-1">
@@ -308,12 +310,14 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WPV_URL ?>assets/images/03-icon.png" alt="product sale"/>
-                    <h2>Direct product sale</h2>
+                    <h2><?php _e('Direct product sale','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    Thanks to the <b>“Skip Admin review”</b> option, vendors can publish new products without the store
+                    <?php
+                    echo sprintf( __( 'Thanks to the %s“Skip Admin review”%s option, vendors can publish new products without the store
                     administrator approval. This option can be applied to all the vendor shops, or just to the selected
-                    ones.
+                    ones.', 'yith_wc_product_vendors' ), '<b>', '</b>');
+                    ?>
                 </p>
             </div>
         </div>
@@ -324,12 +328,12 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WPV_URL ?>assets/images/04-icon.png" alt="Actions"/>
-                    <h2>Actions for commissions</h2>
+                    <h2><?php _e('Actions for commissions','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    A commissions table with more details to be always up-to-date. Every commission offers a set of
+                    <?php _e('A commissions table with more details to be always up-to-date. Every commission offers a set of
                     buttons to quickly proceed to the PayPal payments (if set as manual), or to change the state of the
-                    commission.
+                    commission.','yith_wc_product_vendors'); ?>
                 </p>
             </div>
             <div class="col-1">
@@ -346,11 +350,13 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WPV_URL ?>assets/images/05-icon.png" alt="Commission rate"/>
-                    <h2>Variable commission rates</h2>
+                    <h2><?php _e('Variable commission rates','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    <b>No more single commission rate for all the vendor shops:</b> in the premium version of the plugin, this
-                    rate can be modified for every single vendor shop and for every product associated.
+                    <?php
+                    echo sprintf( __('%sNo more single commission rate for all the vendor shops:%s in the premium version of the plugin, this
+                    rate can be modified for every single vendor shop and for every product associated.','yith_wc_product_vendors'),'<b>','</b>');
+                    ?>
                 </p>
             </div>
         </div>
@@ -361,12 +367,14 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WPV_URL ?>assets/images/06-icon.png" alt="Coupon"/>
-                    <h2>Organize coupon</h2>
+                    <h2><?php _e('Organize coupon','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    If users use a coupon during a purchase, how will vendor commissions be calculated? It's up to you:
-                    with the <b>"Coupon handling"</b> option, you can decide whether you want to calculate the commission for
-                    the discounted total or not.
+                    <?php
+                    echo sprintf( __('If users use a coupon during a purchase, how will vendor commissions be calculated? It\'s up to you:
+                    with the %s"Coupon handling"%s option, you can decide whether you want to calculate the commission for
+                    the discounted total or not.','yith_wc_product_vendors'),'<b>','</b>' );
+                    ?>
                 </p>
             </div>
             <div class="col-1">
@@ -375,21 +383,64 @@
         </div>
     </div>
     <div class="section section-even clear"
-         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/07-bg.png) no-repeat #fff; background-position: 85% 100%">
+         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/05-bg.png) no-repeat #fff; background-position: 85% 75%">
         <div class="landing-container">
             <div class="col-1">
-                <img src="<?php echo YITH_WPV_URL ?>assets/images/07.png" alt="Screenshot"/>
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/05.png" alt="Screenshot"/>
             </div>
             <div class="col-2">
                 <div class="section-title">
-                    <img src="<?php echo YITH_WPV_URL ?>assets/images/07-icon.png" alt="payments method"/>
-                    <h2>Payment methods</h2>
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/05-icon.png" alt="Commission rate"/>
+                    <h2><?php _e('Variable commission rates','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    Set the "Payment" section of the plugin to activate the PayPal payment method. You can decide
-                    whether to generate the payment requests <b>manually</b> with the relative button, or <b>leave the decision to
-                    the users</b> on how and when they want to be paid: when the order will be completed, or achieving a
-                    certain amount of commissions
+                    <?php
+                    echo sprintf( __('%sNo more single commission rate for all the vendor shops:%s in the premium version of the plugin, this
+                    rate can be modified for every single vendor shop and for every product associated.','yith_wc_product_vendors'),'<b>','</b>');
+                    ?>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="section section-odd clear"
+         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/13-bg.png) no-repeat #f1f1f1; background-position: 15% 100%">
+        <div class="landing-container">
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/13-icon.png" alt="Coupon"/>
+                    <h2><?php _e('COUPON CREATION','yith_wc_product_vendors');?></h2>
+                </div>
+                <p>
+                    <?php
+                    echo sprintf( __('With the option %s “Enable coupon
+                    management” %s, the vendors of your shop can create coupons regarding the products
+                    they own. A nice innovation to offer to your vendor-users.','yith_wc_product_vendors'),'<b>','</b>' );
+                    ?>
+                </p>
+            </div>
+            <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/13.png" alt="Screenshot"/>
+            </div>
+        </div>
+    </div>
+    <div class="section section-even clear"
+         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/14-bg.png) no-repeat #fff; background-position: 85% 100%">
+        <div class="landing-container">
+            <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/14.png" alt="Screenshot"/>
+            </div>
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/14-icon.png" alt="payments method"/>
+                    <h2><?php _e('REVIEWS','yith_wc_product_vendors');?></h2>
+                </div>
+                <p>
+                    <?php
+                    echo sprintf( __(' Just like coupons, this option is tailored on the need to manage reviews
+                    and it has been added to the premium version of the plugin.
+                    Activating the %s“Enable review management”%s option from the option panel of the plugin,
+                     vendors will be free to manage the reviews of the products they own, and act with the same privileges of the administrator of the store.','yith_wc_product_vendors'),'<b>','</b>' )
+                    ?>
                 </p>
             </div>
         </div>
@@ -400,12 +451,14 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WPV_URL ?>assets/images/08-icon.png" alt="Icon"/>
-                    <h2>Advanced reports</h2>
+                    <h2><?php _e('Advanced reports','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    Statistics have a central relevance in the e-commerce field and WooCommerce Multi Vendor offers you
-                    different reports to <b>analyze your data</b>: from the most lucrative vendors, to the best sellers,
-                    including convenient commissions diagrams for each of them.
+                    <?php
+                    echo sprintf( __('Statistics have a central relevance in the e-commerce field and WooCommerce Multi Vendor offers you
+                    different reports to %sanalyze your data%s: from the most lucrative vendors, to the best sellers,
+                    including convenient commissions diagrams for each of them.','yith_wc_product_vendors'),'<b>','</b>' );
+                    ?>
                 </p>
             </div>
             <div class="col-1">
@@ -422,10 +475,13 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WPV_URL ?>assets/images/09-icon.png" alt="payments method"/>
-                    <h2>CSV exportation of the reports</h2>
+                    <h2><?php _e('CSV exportation of the reports','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    For each report, <b>you can export its data in the CSV format</b>: in this way, you will be free to use all the report details in every fields not expressively related to WordPress.
+                    <?php
+                    echo sprintf( __('For each report, %syou can export its data in the CSV format%s: in this way, you will be free to use all
+                     the report details in every fields not expressively related to WordPress.','yith_wc_product_vendors'),'<b>','</b>' );
+                    ?>
                 </p>
             </div>
         </div>
@@ -436,11 +492,13 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WPV_URL ?>assets/images/10-icon.png" alt="Icon"/>
-                    <h2>Vendor's product exclusion from the shop (Product listing)</h2>
+                    <h2><?php _e('Vendor\'s product exclusion from the shop (Product listing)','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    The <b>"Product listing"</b> option has been conceived to exclude from the shop the products of a
-                    particular vendor. In this way, these would be consultable only from the relative vendor's page.
+                    <?php
+                    echo sprintf( __('The %s"Product listing"%s option has been conceived to exclude from the shop the products of a
+                    particular vendor. In this way, these would be consultable only from the relative vendor\'s page.','yith_wc_product_vendors'), '<b>' , '</b>');
+                    ?>
                 </p>
             </div>
             <div class="col-1">
@@ -457,35 +515,140 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WPV_URL ?>assets/images/11-icon.png" alt="payments method"/>
-                    <h2>Three widgets for your sidebars</h2>
+                    <h2><?php _e('Three widgets for your sidebars','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    <b>YITH Vendor List, YITH Vendor Quick Info</b> and <b>YITH Vendor Store Location</b>: these are the three widgets
+                    <?php
+                    echo sprintf( __('%1$sYITH Vendor List, YITH Vendor Quick Info%2$s and %1$sYITH Vendor Store Location%2$s: these are the three widgets
                     that the plugin offers you. Thanks to these widgets, you will be able to show the list of the
                     registered vendors of your shop, and enrich the detail page of the vendor shops with information
                     about their locations, or a contact form users can use to send emails to the shop
-                    administrators. </p>
+                    administrators.','yith_wc_product_vendors'), '<b>', '</b>' )
+                    ?>
+                </p>
             </div>
         </div>
     </div>
     <div class="section section-odd clear"
-         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/12-bg.png) no-repeat #f1f1f1; background-position: 15% 100%">
+         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/10-bg.png) no-repeat #f1f1f1; background-position: 15% 100%">
         <div class="landing-container">
             <div class="col-2">
                 <div class="section-title">
-                    <img src="<?php echo YITH_WPV_URL ?>assets/images/12-icon.png" alt="Icon"/>
-                    <h2>Advanced administration area for each vendor</h2>
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/10-icon.png" alt="Icon"/>
+                    <h2><?php _e('Vendor\'s product exclusion from the shop (Product listing)','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    A breath of fresh air for the "vendor users" that can take advantage of a big and advanced
-                    administrative area. From this place, they will be free to consult the reports about their products,
-                    change their profile information and choose the payment method they prefer.
-                    Each vendor can also check the commissions table, with the whole sum of the relative commissions up
-                    to that moment.
+                    <?php
+                    echo sprintf( __( 'The %s"Product listing"%s option has been conceived to exclude from the shop the products of a
+                    particular vendor. In this way, these would be consultable only from the relative vendor\'s page.','yith_wc_product_vendors' ), '<b>', '</b>' );
+                    ?>
                 </p>
             </div>
             <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/10.png" alt="Screenshot"/>
+            </div>
+        </div>
+    </div>
+    <div class="section section-even clear"
+         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/15-bg.png) no-repeat #fff; background-position: 85% 100%">
+        <div class="landing-container">
+            <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/15.png" alt="Screenshot"/>
+            </div>
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/15-icon.png" alt="vendor name"/>
+                    <h2><?php _e('VISUALIZATION OF THE VENDOR\'S NAME','yith_wc_product_vendors');?></h2>
+                </div>
+                <p>
+                    <?php _e( 'The default setting of the plugin shows the name of each vendor in three pages of your site: the shop page, the product detail page and product category page.
+                    Now you can decide whether you want to show their name and hide them whenever you want with three different options.','yith_wc_product_vendors' );
+                    ?>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="section section-odd clear"
+         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/16-bg.png) no-repeat #f1f1f1; background-position: 15% 100%">
+        <div class="landing-container">
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/16-icon.png" alt="Icon"/>
+                    <h2><?php _e( 'REGISTRATION FROM THE “MY ACCOUNT” PAGE','yith_wc_product_vendors' );?> </h2>
+                </div>
+                <p>
+                    <?php
+                    _e( 'A more dynamic management for whoever would like to become a vendor of your store.
+                    All new users can register as "vendors" of the shop directly from the “My Account” page, and use immediately an administration area. After the confirmation by the administrator, the vendors will be able to sell their products.','yith_wc_product_vendors' )
+                    ?>
+
+                </p>
+            </div>
+            <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/16.png" alt="Screenshot"/>
+            </div>
+        </div>
+    </div>
+    <div class="section section-even clear"
+         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/17-bg.png) no-repeat #fff; background-position: 85% 100%">
+        <div class="landing-container">
+            <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/17.png" alt="Screenshot"/>
+            </div>
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/17-icon.png" alt="icon"/>
+                    <h2><?php _e('RESTRICTED NUMBER OF PRODUCTS','yith_wc_product_vendors');?></h2>
+                </div>
+                <p>
+                    <?php
+                    _e( 'The option “Enable product amount limit” has been conceived to whoever would like to limit the
+                    creation of products of the shop vendors, with the freedom to indicate a specific maximum number of
+                    products that each vendor can create.','yith_wc_product_vendors' );
+                    ?>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="section section-odd clear" style="background: url(<?php echo YITH_WPV_URL ?>assets/images/18-bg.png) no-repeat #f1f1f1; background-position: 15% 100%">
+        <div class="landing-container">
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/18-icon.png" alt="Icon"/>
+                    <h2><?php _e('BULK ACTIONS ON VENDORS','yith_wc_product_vendors');?></h2>
+                </div>
+                <p>
+                    <?php
+                    _e( 'How many times did you find yourself annoyed by the repetition of the same passages with a huge waste of time? Well, now vendors management is completely renewed!
+                    You will be able to apply bulk actions on all the registered vendors, approving or deleting them all together with just one click.','yith_wc_product_vendors' )
+                    ?>
+                </p>
+            </div>
+            <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/18.png" alt="Screenshot"/>
+            </div>
+        </div>
+    </div>
+    <div class="section section-even clear"
+         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/12-bg.png) no-repeat #fff; background-position: 85% 100%">
+        <div class="landing-container">
+            <div class="col-1">
                 <img src="<?php echo YITH_WPV_URL ?>assets/images/12.png" alt="Screenshot"/>
+            </div>
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/12-icon.png" alt="icon"/>
+                    <h2><?php _e('Advanced administration area for each vendor','yith_wc_product_vendors'); ?></h2>
+                </div>
+                <p>
+                    <?php
+                    _e( 'A breath of fresh air for the "vendor users" that can take advantage of a big and advanced
+                    administrative area. From this place, they will be free to consult the reports about their products,
+                    change their profile information and choose the payment method they prefer.
+                    Each vendor can also check the commissions table, with the whole sum of the relative commissions up
+                    to that moment.','yith_wc_product_vendors' )
+                    ?>
+                </p>
             </div>
         </div>
     </div>
@@ -493,13 +656,14 @@
         <div class="landing-container">
             <div class="premium-cta">
                 <p>
-                    Upgrade to the <span class="highlight">premium version</span>
-                    of <span class="highlight">YITH WooCommerce Multi Vendor</span> to benefit from all features!
+                    <?php echo sprintf( __( 'Upgrade to the %1$spremium version%2$s
+                         of %1$sYITH WooCommerce Multi Vendor%2$s to benefit from all features!', 'yith_wc_product_vendors' ),
+                        '<span class="highlight">', '</span>' ); ?>
                 </p>
                 <a href="<?php echo YITH_Vendors()->admin->get_premium_landing_uri(); ?>" target="_blank"
                    class="premium-cta-button button btn">
-                    <span class="highlight">UPGRADE</span>
-                    <span>to the premium version</span>
+                    <?php echo sprintf( __( '%1$s UPGRADE %2$s %3$s to the premium version %2$s', 'yith_wc_product_vendors' ),
+                        '<span class="highlight">', '</span>', '<span>' ); ?>
                 </a>
             </div>
         </div>
