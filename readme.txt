@@ -1,7 +1,7 @@
 ﻿=== YITH WooCommerce Multi Vendor ===
 
 Contributors: yithemes
-Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, yit, yith, yithemes
+Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, multivendor, multivendors, wc multivendor, yit, yith, yithemes
 Requires at least: 4.0
 Tested up to: 4.2.2
 Stable tag: 1.4.0
@@ -41,7 +41,7 @@ A double, huge benefit from a single plugin. And all free.
 * Vendor’s name next to product name in single product page
 * Widget for displaying a list of all vendors
 
-Please, read the the **[official plugin documentation](http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor/)** to know all plugin features.
+Please, read the the **[official plugin documentation](http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor)** to know all plugin features.
 
 == Screenshots ==
 
