@@ -629,8 +629,7 @@
             </div>
         </div>
     </div>
-    <div class="section section-even clear"
-         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/12-bg.png) no-repeat #fff; background-position: 85% 100%">
+    <div class="section section-even clear"style="background: url(<?php echo YITH_WPV_URL ?>assets/images/12-bg.png) no-repeat #fff; background-position: 85% 100%">
         <div class="landing-container">
             <div class="col-1">
                 <img src="<?php echo YITH_WPV_URL ?>assets/images/12.png" alt="Screenshot"/>
@@ -649,6 +648,24 @@
                     to that moment.','yith_wc_product_vendors' )
                     ?>
                 </p>
+            </div>
+        </div>
+    </div>
+    <div class="section section-odd clear" style="background: url(<?php echo YITH_WPV_URL ?>assets/images/19-bg.png) no-repeat #f1f1f1; background-position: 15% 100%">
+        <div class="landing-container">
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/19-icon.png" alt="Icon"/>
+                    <h2><?php _e('ABUSE REPORT','yith_wc_product_vendors');?></h2>
+                </div>
+                <p>
+                    <?php
+                    _e( 'With this feature, your users will be able to send you a message about one of the products of your shop with a dedicated form that will open in a popup within the related product detail page.','yith_wc_product_vendors' )
+                    ?>
+                </p>
+            </div>
+            <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/19.png" alt="Screenshot"/>
             </div>
         </div>
     </div>

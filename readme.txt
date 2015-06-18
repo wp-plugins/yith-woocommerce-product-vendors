@@ -4,7 +4,7 @@ Contributors: yithemes
 Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, multivendor, multivendors, wc multivendor, yit, yith, yithemes
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.4.0
+Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,10 @@ You just have to create the folder *woocommerce/product-vendors* and add in it t
 
 == Changelog ==
 
+= 1.4.3 =
+
+* Fixed: Plugin does not recognize the languages file
+
 = 1.4.0 =
 
 * Added: Support to WooCommerce 2.3.9
@@ -126,6 +130,10 @@ You just have to create the folder *woocommerce/product-vendors* and add in it t
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.4.3 =
+
+* Fixed translation issue.
 
 = 1.4.0 =
 
