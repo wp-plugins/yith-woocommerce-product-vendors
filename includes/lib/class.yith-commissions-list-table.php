@@ -186,7 +186,8 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
             switch ( $column_name ) {
 
                 case 'commission_id':
-                    printf( '<a href="%s"><strong>#%d</strong></a>', $rec->get_view_url( 'admin' ), $rec->id );
+                    $order = wc_get_order( $rec->order_id );
+                    $order ? printf( '<a href="%s"><strong>#%d</strong></a>', $rec->get_view_url( 'admin' ), $rec->id ) : printf( '<strong>#%d</strong>', $rec->id );
                     break;
 
                 case 'commission_status':
@@ -197,6 +198,11 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
                 case 'order_id':
                     /** @var WC_Order $order */
                     $order = wc_get_order( $rec->order_id );
+
+                    if( ! $order ){
+                        echo '<small class="meta">' . __( 'Order Deleted', 'yith_wc_product_vendors' ) . '</small>';
+                        return;
+                    }
 
                     if ( $order->get_user_id() ) {
                         $user_info = $order->get_user();
@@ -244,6 +250,11 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
 
                 case 'line_item':
                     $product     = $rec->get_item();
+
+                    if( ! $product ){
+                        return '<small class="meta">-</small>';
+                    }
+
                     $product_url = get_edit_post_link( $product['product_id'] );
                     return ! empty( $product_url ) ? "<a target='_blank' href='{$product_url}'><strong>{$product['name']}</strong></a>" : "<strong>{$product['name']}</strong>";
                     break;
@@ -299,7 +310,9 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
                         $h_time = mysql2date( __( 'Y/m/d' ), $m_time );
                     }
 
-                    echo '<abbr title="' . $t_time . '">' . $h_time . '</abbr>';
+
+
+                    echo $h_time ? '<abbr title="' . $t_time . '">' . $h_time . '</abbr>' : '<small class="meta">-</small>';
                     break;
 
                 case 'date_edit':
@@ -315,7 +328,7 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
 	                else
 		                $h_time = mysql2date( __( 'Y/m/d' ), $m_time );
 
-                    echo '<abbr title="' . $t_time . '">' . $h_time . '</abbr>';
+                    echo $h_time ? '<abbr title="' . $t_time . '">' . $h_time . '</abbr>' : '<small class="meta">-</small>';
                     break;
             }
 

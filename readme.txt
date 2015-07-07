@@ -4,7 +4,7 @@ Contributors: yithemes
 Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, multivendor, multivendors, wc multivendor, yit, yith, yithemes
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,12 @@ You just have to create the folder *woocommerce/product-vendors* and add in it t
 3. Activate `YITH WooCommerce Multi Vendor` from Plugins page
 
 == Changelog ==
+
+= 1.4.4 =
+
+* Updated: pot language file
+* Fixed: Fatal error in the commision page for deleted orders
+
 
 = 1.4.3 =
 

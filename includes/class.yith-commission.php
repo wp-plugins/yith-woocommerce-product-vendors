@@ -284,12 +284,14 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 			// get order
 			$order = $this->get_order();
 
-			// get product object
-			foreach ( $order->get_items() as $item_id => $item ) {
-				if ( $this->line_item_id == $item_id ) {
-					return $this->_item = $item;
-				}
-			}
+            if ( $order ) {
+                // get product object
+                foreach ( $order->get_items() as $item_id => $item ) {
+                    if ( $this->line_item_id == $item_id ) {
+                        return $this->_item = $item;
+                    }
+                }
+            }
 
 			return $this->_item = false;
 		}
@@ -377,6 +379,10 @@ if ( ! class_exists( 'YITH_Commission' ) ) {
 		 */
 		public function get_date( $context = '' ) {
 			$order = $this->get_order();
+
+            if( ! $order ){
+                return false;
+            }
 
 			if ( 'display' == $context ) {
 				return date_i18n( 'M j, Y - h:i', strtotime( $order->order_date ) );
