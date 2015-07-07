@@ -1,0 +1,866 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: YITH WooCommerce Multi Vendor\n"
+"POT-Creation-Date: 2015-07-07 14:22+0100\n"
+"PO-Revision-Date: 2015-06-19 16:58+0100\n"
+"Last-Translator: \n"
+"Language-Team: YIThemes <plugins@yithemes.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.1\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-KeywordsList: __ ;_e;_n:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: plugin-fw\n"
+
+#: includes/class.yith-commission.php:461
+#, php-format
+msgid "Commission status changed from %s to %s."
+msgstr ""
+
+#: includes/class.yith-commissions.php:170
+msgid "Commission status not updated!"
+msgstr ""
+
+#: includes/class.yith-commissions.php:171
+msgid "Commission status updated!"
+msgstr ""
+
+#: includes/class.yith-commissions.php:172
+msgid ""
+"Payment successful. In a few minutes you will receive an email with the "
+"outcome of the payment and the commission state will be changed accordingly."
+msgstr ""
+
+#: includes/class.yith-commissions.php:173
+msgid "Payment failed."
+msgstr ""
+
+#: includes/class.yith-commissions.php:214
+msgid "Paid"
+msgstr ""
+
+#: includes/class.yith-commissions.php:215
+msgid "Unpaid"
+msgstr ""
+
+#: includes/class.yith-commissions.php:216
+msgid "Pending"
+msgstr ""
+
+#: includes/class.yith-commissions.php:217
+msgid "Refunded"
+msgstr ""
+
+#: includes/class.yith-commissions.php:218
+msgid "Cancelled"
+msgstr ""
+
+#: includes/class.yith-commissions.php:219
+msgid "Processing"
+msgstr ""
+
+#: includes/class.yith-commissions.php:277
+#: includes/class.yith-commissions.php:278
+#: includes/class.yith-commissions.php:1170
+#: includes/class.yith-vendors-admin.php:133
+msgid "Commissions"
+msgstr ""
+
+#: includes/class.yith-commissions.php:342
+#, php-format
+msgid "Commission #%d details"
+msgstr ""
+
+#: includes/class.yith-commissions.php:343
+#, php-format
+msgid "%1$s &lsaquo; %2$s &#8212; WordPress"
+msgstr ""
+
+#: includes/class.yith-commissions.php:1036
+#, php-format
+msgid "Refunded %s from order"
+msgstr ""
+
+#: includes/class.yith-commissions.php:1069
+#, php-format
+msgid "Cancelled %s refund from order"
+msgstr ""
+
+#: includes/class.yith-commissions.php:1206
+msgid "commission_id"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:134
+#: includes/class.yith-vendors.php:255
+msgid "Vendors"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:135
+#: includes/class.yith-vendors-admin.php:892
+msgid "Premium Version"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:142
+#: includes/class.yith-vendors-admin.php:143
+msgid "Multi Vendor"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:263
+#, php-format
+msgid ""
+"You do not have permission to edit this product. %1$sClick here to view and "
+"edit your products%2$s."
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:336
+#: includes/class.yith-vendors-admin.php:337
+#: templates/admin/vendor-admin.php:17
+msgid "Vendor Details"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:481
+#: includes/class.yith-vendors-admin.php:501
+msgid "A vendor with this name already exists."
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:482
+msgid "Vendor name already exists"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:806
+#, php-format
+msgid "No %s"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:887
+msgid "Settings"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:888
+msgid "Premium live demo"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:888
+msgid "Live demo"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:916
+msgid "Plugin Documentation"
+msgstr ""
+
+#: includes/class.yith-vendors.php:253 includes/class.yith-vendors.php:254
+#: templates/admin/commission-view.php:180
+msgid "Vendor"
+msgstr ""
+
+#: includes/class.yith-vendors.php:256
+msgid "Search Vendors"
+msgstr ""
+
+#: includes/class.yith-vendors.php:257
+msgid "All Vendors"
+msgstr ""
+
+#: includes/class.yith-vendors.php:258
+msgid "Parent Vendor"
+msgstr ""
+
+#: includes/class.yith-vendors.php:259
+msgid "Parent Vendor:"
+msgstr ""
+
+#: includes/class.yith-vendors.php:260
+msgid "View Vendor"
+msgstr ""
+
+#: includes/class.yith-vendors.php:261
+msgid "Edit Vendor"
+msgstr ""
+
+#: includes/class.yith-vendors.php:262
+msgid "Update Vendor"
+msgstr ""
+
+#: includes/class.yith-vendors.php:263
+msgid "Add New Vendor"
+msgstr ""
+
+#: includes/class.yith-vendors.php:264
+msgid "New Vendor's Name"
+msgstr ""
+
+#: includes/class.yith-vendors.php:266
+msgid "Separate vendors with commas"
+msgstr ""
+
+#: includes/class.yith-vendors.php:267
+msgid "Add or remove vendors"
+msgstr ""
+
+#: includes/class.yith-vendors.php:268
+msgid "Choose from most used vendors"
+msgstr ""
+
+#: includes/class.yith-vendors.php:269
+msgid "No vendors found"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:59
+msgid "ID"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:61
+msgid "Order"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:62
+msgid "Product"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:63
+#: templates/admin/commission-view.php:404
+msgid "Rate"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:64
+msgid "User"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:66
+msgid "Amount"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:67
+msgid "Date"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:68
+#: templates/admin/commission-view.php:153
+msgid "Last update"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:69
+#: templates/admin/commission-view.php:45
+msgid "Actions"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:203
+msgid "Order Deleted"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:234
+#: templates/admin/commission-view.php:126
+msgid "Guest"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:242
+#, php-format
+msgctxt "Order number by user"
+msgid "%s by %s"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:270
+#: templates/admin/commission-view.php:175
+msgid "User deleted"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:282
+#: templates/admin/commission-view.php:186
+msgid "Vendor deleted"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:295
+msgid "View"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:300
+#: includes/lib/class.yith-commissions-list-table.php:320
+#: templates/admin/commission-view.php:156
+msgid "Y/m/d g:i:s A"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:307
+#: includes/lib/class.yith-commissions-list-table.php:327
+#: templates/admin/commission-view.php:157
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:310
+#: includes/lib/class.yith-commissions-list-table.php:329
+msgid "Y/m/d"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:361
+msgid "No commissions found."
+msgstr ""
+
+#: init.php:34
+msgid ""
+"YITH WooCommerce Multi Vendor is enabled but not effective. It requires "
+"WooCommerce in order to work."
+msgstr ""
+
+#: plugin-options/commissions-options.php:21
+msgid "General settings"
+msgstr ""
+
+#: plugin-options/commissions-options.php:28
+msgid "Commission Base"
+msgstr ""
+
+#: plugin-options/commissions-options.php:31
+msgid "Default commission percentage"
+msgstr ""
+
+#: plugin-options/vendors-options.php:21
+msgid "Product management"
+msgstr ""
+
+#: plugin-options/vendors-options.php:28
+msgid "Vendor name label color"
+msgstr ""
+
+#: plugin-options/vendors-options.php:30
+msgid "Use in shop page and single product page"
+msgstr ""
+
+#: templates/admin/add-product-vendors-taxonomy.php:12
+#: templates/admin/edit-product-vendors-taxonomy.php:13
+msgid "Vendor Shop Owner"
+msgstr ""
+
+#: templates/admin/add-product-vendors-taxonomy.php:17
+msgid ""
+"User that can manage products in this vendor shop and view sale reports."
+msgstr ""
+
+#: templates/admin/add-product-vendors-taxonomy.php:21
+#: templates/admin/edit-product-vendors-taxonomy.php:26
+msgid "PayPal email address"
+msgstr ""
+
+#: templates/admin/add-product-vendors-taxonomy.php:23
+#: templates/admin/edit-product-vendors-taxonomy.php:31
+msgid "Vendor's PayPal email address where profits will be delivered."
+msgstr ""
+
+#: templates/admin/add-product-vendors-taxonomy.php:27
+#: templates/admin/edit-product-vendors-taxonomy.php:37
+msgid "Enable sales"
+msgstr ""
+
+#: templates/admin/add-product-vendors-taxonomy.php:29
+#: templates/admin/edit-product-vendors-taxonomy.php:43
+msgid "Enable or disable product sales."
+msgstr ""
+
+#: templates/admin/add-product-vendors-taxonomy.php:34
+#: templates/admin/edit-product-vendors-taxonomy.php:50
+msgid "Commission:"
+msgstr ""
+
+#: templates/admin/add-product-vendors-taxonomy.php:38
+msgid "Percentage of the total sale price that this vendor receives"
+msgstr ""
+
+#: templates/admin/commission-view.php:25
+msgid "View Commission"
+msgstr ""
+
+#: templates/admin/commission-view.php:26
+msgid "Back"
+msgstr ""
+
+#: templates/admin/commission-view.php:39
+msgid "Commission Actions"
+msgstr ""
+
+#: templates/admin/commission-view.php:47
+#, php-format
+msgid "Change to %s"
+msgstr ""
+
+#: templates/admin/commission-view.php:53
+msgid "Apply"
+msgstr ""
+
+#: templates/admin/commission-view.php:62
+msgid "Commission notes"
+msgstr ""
+
+#: templates/admin/commission-view.php:73
+#, php-format
+msgid "added on %1$s at %2$s"
+msgstr ""
+
+#: templates/admin/commission-view.php:78
+msgid "There are no notes yet."
+msgstr ""
+
+#: templates/admin/commission-view.php:99
+#, php-format
+msgid "Commission %s Details"
+msgstr ""
+
+#: templates/admin/commission-view.php:135
+#, php-format
+msgctxt "Commission credited to [user]"
+msgid "credited to %s &#8212; from order %s &#8212; order status: %s"
+msgstr ""
+
+#: templates/admin/commission-view.php:142
+msgid "General details"
+msgstr ""
+
+#: templates/admin/commission-view.php:145
+msgid "Status"
+msgstr ""
+
+#: templates/admin/commission-view.php:149
+msgid "Commission date"
+msgstr ""
+
+#: templates/admin/commission-view.php:167
+msgid "User details"
+msgstr ""
+
+#: templates/admin/commission-view.php:172
+msgid "Email"
+msgstr ""
+
+#: templates/admin/commission-view.php:191
+msgid "PayPal"
+msgstr ""
+
+#: templates/admin/commission-view.php:199
+msgid "Billing information"
+msgstr ""
+
+#: templates/admin/commission-view.php:224
+msgid "Shipping information"
+msgstr ""
+
+#: templates/admin/commission-view.php:259
+msgid "Item data"
+msgstr ""
+
+#: templates/admin/commission-view.php:266
+msgid "Item"
+msgstr ""
+
+#: templates/admin/commission-view.php:267
+msgid "Qty"
+msgstr ""
+
+#: templates/admin/commission-view.php:268
+msgid "Cost"
+msgstr ""
+
+#: templates/admin/commission-view.php:280
+msgid "Product ID:"
+msgstr ""
+
+#: templates/admin/commission-view.php:283
+#: templates/admin/commission-view.php:285
+msgid "Variation ID:"
+msgstr ""
+
+#: templates/admin/commission-view.php:285
+msgid "No longer exists"
+msgstr ""
+
+#: templates/admin/commission-view.php:289
+msgid "Product SKU:"
+msgstr ""
+
+#: templates/admin/commission-view.php:380
+msgid "Coupon(s) Used"
+msgstr ""
+
+#: templates/admin/commission-view.php:410
+msgid "Commission"
+msgstr ""
+
+#: templates/admin/commissions.php:18
+msgid "Vendor Commissions"
+msgstr ""
+
+#: templates/admin/commissions.php:24
+msgid "Search commissions"
+msgstr ""
+
+#: templates/admin/edit-product-vendors-taxonomy.php:16
+msgid "Search users"
+msgstr ""
+
+#: templates/admin/edit-product-vendors-taxonomy.php:20
+msgid "User that can manage products in this shop and view sale reports."
+msgstr ""
+
+#: templates/admin/edit-product-vendors-taxonomy.php:56
+msgid "Percentage of the total sale price that this vendor receives."
+msgstr ""
+
+#: templates/admin/premium.php:239 templates/admin/premium.php:676
+#, php-format
+msgid ""
+"Upgrade to the %1$spremium version%2$s\n"
+"                         of %1$sYITH WooCommerce Multi Vendor%2$s to benefit "
+"from all features!"
+msgstr ""
+
+#: templates/admin/premium.php:245 templates/admin/premium.php:682
+#, php-format
+msgid "%1$s UPGRADE %2$s %3$s to the premium version %2$s"
+msgstr ""
+
+#: templates/admin/premium.php:262
+msgid "A richer vendor shop page"
+msgstr ""
+
+#: templates/admin/premium.php:265
+#, php-format
+msgid ""
+"The vendor page gets more details!Vendors will be able to add their\n"
+"                    %s contact details %s (email, address, phone number) and "
+"the most common\n"
+"                    social network profiles (Facebook, Twitter, Google+, "
+"LinkedIn and YouTube)\n"
+"                    "
+msgstr ""
+
+#: templates/admin/premium.php:271
+#, php-format
+msgid ""
+"These pieces of\n"
+"                    information are gathered in the page of every vendor "
+"shop with a %sheader%s where style and images can\n"
+"                    be customized."
+msgstr ""
+
+#: templates/admin/premium.php:284
+msgid "One or more administrators for every vendor shop"
+msgstr ""
+
+#: templates/admin/premium.php:288
+#, php-format
+msgid ""
+"The administrators of the vendor shop are one of the most important new "
+"features.%s They are simple\n"
+"                    registered users of the shop that have been admitted to "
+"%smanage the products%s and all the information\n"
+"                    about a vendor shop by the administrator of the store or "
+"the owner of the vendor shop."
+msgstr ""
+
+#: templates/admin/premium.php:294
+#, php-format
+msgid ""
+"The only\n"
+"                    element they can't change is the %stype of payment%s "
+"that only administrator of the store or the owner\n"
+"                    of the vendor shop can set."
+msgstr ""
+
+#: templates/admin/premium.php:313
+msgid "Direct product sale"
+msgstr ""
+
+#: templates/admin/premium.php:317
+#, php-format
+msgid ""
+"Thanks to the %s“Skip Admin review”%s option, vendors can publish new "
+"products without the store\n"
+"                    administrator approval. This option can be applied to "
+"all the vendor shops, or just to the selected\n"
+"                    ones."
+msgstr ""
+
+#: templates/admin/premium.php:331
+msgid "Actions for commissions"
+msgstr ""
+
+#: templates/admin/premium.php:334
+msgid ""
+"A commissions table with more details to be always up-to-date. Every "
+"commission offers a set of\n"
+"                    buttons to quickly proceed to the PayPal payments (if "
+"set as manual), or to change the state of the\n"
+"                    commission."
+msgstr ""
+
+#: templates/admin/premium.php:353 templates/admin/premium.php:394
+msgid "Variable commission rates"
+msgstr ""
+
+#: templates/admin/premium.php:357 templates/admin/premium.php:398
+#, php-format
+msgid ""
+"%sNo more single commission rate for all the vendor shops:%s in the premium "
+"version of the plugin, this\n"
+"                    rate can be modified for every single vendor shop and "
+"for every product associated."
+msgstr ""
+
+#: templates/admin/premium.php:370
+msgid "Organize coupon"
+msgstr ""
+
+#: templates/admin/premium.php:374
+#, php-format
+msgid ""
+"If users use a coupon during a purchase, how will vendor commissions be "
+"calculated? It's up to you:\n"
+"                    with the %s\"Coupon handling\"%s option, you can decide "
+"whether you want to calculate the commission for\n"
+"                    the discounted total or not."
+msgstr ""
+
+#: templates/admin/premium.php:411
+msgid "COUPON CREATION"
+msgstr ""
+
+#: templates/admin/premium.php:415
+#, php-format
+msgid ""
+"With the option %s “Enable coupon\n"
+"                    management” %s, the vendors of your shop can create "
+"coupons regarding the products\n"
+"                    they own. A nice innovation to offer to your vendor-"
+"users."
+msgstr ""
+
+#: templates/admin/premium.php:435
+msgid "REVIEWS"
+msgstr ""
+
+#: templates/admin/premium.php:439
+#, php-format
+msgid ""
+" Just like coupons, this option is tailored on the need to manage reviews\n"
+"                    and it has been added to the premium version of the "
+"plugin.\n"
+"                    Activating the %s“Enable review management”%s option "
+"from the option panel of the plugin,\n"
+"                     vendors will be free to manage the reviews of the "
+"products they own, and act with the same privileges of the administrator of "
+"the store."
+msgstr ""
+
+#: templates/admin/premium.php:454
+msgid "Advanced reports"
+msgstr ""
+
+#: templates/admin/premium.php:458
+#, php-format
+msgid ""
+"Statistics have a central relevance in the e-commerce field and WooCommerce "
+"Multi Vendor offers you\n"
+"                    different reports to %sanalyze your data%s: from the "
+"most lucrative vendors, to the best sellers,\n"
+"                    including convenient commissions diagrams for each of "
+"them."
+msgstr ""
+
+#: templates/admin/premium.php:478
+msgid "CSV exportation of the reports"
+msgstr ""
+
+#: templates/admin/premium.php:482
+#, php-format
+msgid ""
+"For each report, %syou can export its data in the CSV format%s: in this way, "
+"you will be free to use all\n"
+"                     the report details in every fields not expressively "
+"related to WordPress."
+msgstr ""
+
+#: templates/admin/premium.php:495 templates/admin/premium.php:538
+msgid "Vendor's product exclusion from the shop (Product listing)"
+msgstr ""
+
+#: templates/admin/premium.php:499 templates/admin/premium.php:542
+#, php-format
+msgid ""
+"The %s\"Product listing\"%s option has been conceived to exclude from the "
+"shop the products of a\n"
+"                    particular vendor. In this way, these would be "
+"consultable only from the relative vendor's page."
+msgstr ""
+
+#: templates/admin/premium.php:518
+msgid "Three widgets for your sidebars"
+msgstr ""
+
+#: templates/admin/premium.php:522
+#, php-format
+msgid ""
+"%1$sYITH Vendor List, YITH Vendor Quick Info%2$s and %1$sYITH Vendor Store "
+"Location%2$s: these are the three widgets\n"
+"                    that the plugin offers you. Thanks to these widgets, you "
+"will be able to show the list of the\n"
+"                    registered vendors of your shop, and enrich the detail "
+"page of the vendor shops with information\n"
+"                    about their locations, or a contact form users can use "
+"to send emails to the shop\n"
+"                    administrators."
+msgstr ""
+
+#: templates/admin/premium.php:561
+msgid "VISUALIZATION OF THE VENDOR'S NAME"
+msgstr ""
+
+#: templates/admin/premium.php:564
+msgid ""
+"The default setting of the plugin shows the name of each vendor in three "
+"pages of your site: the shop page, the product detail page and product "
+"category page.\n"
+"                    Now you can decide whether you want to show their name "
+"and hide them whenever you want with three different options."
+msgstr ""
+
+#: templates/admin/premium.php:577
+msgid "REGISTRATION FROM THE “MY ACCOUNT” PAGE"
+msgstr ""
+
+#: templates/admin/premium.php:581
+msgid ""
+"A more dynamic management for whoever would like to become a vendor of your "
+"store.\n"
+"                    All new users can register as \"vendors\" of the shop "
+"directly from the “My Account” page, and use immediately an administration "
+"area. After the confirmation by the administrator, the vendors will be able "
+"to sell their products."
+msgstr ""
+
+#: templates/admin/premium.php:601
+msgid "RESTRICTED NUMBER OF PRODUCTS"
+msgstr ""
+
+#: templates/admin/premium.php:605
+msgid ""
+"The option “Enable product amount limit” has been conceived to whoever would "
+"like to limit the\n"
+"                    creation of products of the shop vendors, with the "
+"freedom to indicate a specific maximum number of\n"
+"                    products that each vendor can create."
+msgstr ""
+
+#: templates/admin/premium.php:618
+msgid "BULK ACTIONS ON VENDORS"
+msgstr ""
+
+#: templates/admin/premium.php:622
+msgid ""
+"How many times did you find yourself annoyed by the repetition of the same "
+"passages with a huge waste of time? Well, now vendors management is "
+"completely renewed!\n"
+"                    You will be able to apply bulk actions on all the "
+"registered vendors, approving or deleting them all together with just one "
+"click."
+msgstr ""
+
+#: templates/admin/premium.php:640
+msgid "Advanced administration area for each vendor"
+msgstr ""
+
+#: templates/admin/premium.php:644
+msgid ""
+"A breath of fresh air for the \"vendor users\" that can take advantage of a "
+"big and advanced\n"
+"                    administrative area. From this place, they will be free "
+"to consult the reports about their products,\n"
+"                    change their profile information and choose the payment "
+"method they prefer.\n"
+"                    Each vendor can also check the commissions table, with "
+"the whole sum of the relative commissions up\n"
+"                    to that moment."
+msgstr ""
+
+#: templates/admin/premium.php:659
+msgid "ABUSE REPORT"
+msgstr ""
+
+#: templates/admin/premium.php:663
+msgid ""
+"With this feature, your users will be able to send you a message about one "
+"of the products of your shop with a dedicated form that will open in a popup "
+"within the related product detail page."
+msgstr ""
+
+#: templates/admin/vendor-admin.php:24
+msgid "Name:"
+msgstr ""
+
+#: templates/admin/vendor-admin.php:29
+msgid "Slug:"
+msgstr ""
+
+#: templates/admin/vendor-admin.php:34
+msgid "PayPal email address:"
+msgstr ""
+
+#: templates/admin/vendor-admin.php:39
+msgid "Description:"
+msgstr ""
+
+#: templates/admin/vendor-admin.php:45
+msgid "Commission Rate: "
+msgstr ""
+
+#: templates/admin/vendor-admin.php:52
+msgid "Vendor's selling status: "
+msgstr ""
+
+#: templates/admin/vendor-admin.php:54
+msgid "Enabled"
+msgstr ""
+
+#: templates/admin/vendor-admin.php:54
+msgid "Disabled"
+msgstr ""
+
+#: templates/admin/vendor-admin.php:60
+msgid "Save Vendor Information"
+msgstr ""
+
+#: templates/woocommerce/loop/vendor-name-title.php:20
+#: templates/woocommerce/single-product/vendor-name-title.php:20
+msgid "by"
+msgstr ""
+
+#: widgets/class.yith-woocommerce-vendors-widget.php:29
+msgid "YITH Vendor List"
+msgstr ""
+
+#: widgets/class.yith-woocommerce-vendors-widget.php:31
+msgid "Display the list with enabled vendors."
+msgstr ""
+
+#: widgets/class.yith-woocommerce-vendors-widget.php:67
+msgid "Vendor List"
+msgstr ""
+
+#: widgets/class.yith-woocommerce-vendors-widget.php:76
+msgid "Title"
+msgstr ""
+
+#: widgets/class.yith-woocommerce-vendors-widget.php:81
+msgid "Hide this widget on vendor page"
+msgstr ""
+
+#: widgets/class.yith-woocommerce-vendors-widget.php:86
+msgid "Vendor's products amount"
+msgstr ""
+
+#: widgets/class.yith-woocommerce-vendors-widget.php:91
+msgid "Hide vendors with no products"
+msgstr ""
