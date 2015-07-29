@@ -43,6 +43,7 @@ A double, huge benefit from a single plugin. And all free.
 
 = PREMIUM FEATURES =
 
+
 * Customise vendors’s pages with additional information (contact info, social networks etc.)
 * Name one or more administrators for you vendor shop
 * Edit commission rate for vendor and for single product
@@ -76,13 +77,16 @@ For more information about the PREMIUM version of YITH WooCommerce Multi Vendor,
 
 = Premium Live Demo =
 
+
 Do you want to discover all plugin features? Would you like to try it?
 
 Visit our **[test sandobox](http://plugins.yithemes.com/yith-woocommerce-multi-vendor)**
 By accessing our testing platform, you will be able to discover all plugin features and make all tests that you want and consider necessary, both in back end and in front end.
+
 What are you waiting for, visit the official "**[live demo](http://plugins.yithemes.com/yith-woocommerce-multi-vendor)**" of the plugin and click on "LAUNCH ADMIN DEMO" link that you find in the topbar to make test our plugin right now.
 
 = Coming Soon =
+
 
 Are you curious to know what we are preparing for you?
 In the new version of YITH WooCommerce Multi Vendor, in addition to the ones already mentioned you will also find the following new features:
@@ -101,6 +105,7 @@ In the new version of YITH WooCommerce Multi Vendor, in addition to the ones alr
 
 
 = Documentation =
+
 
 Please, read the the **[official plugin documentation](http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor)** to know all plugin features.
 
