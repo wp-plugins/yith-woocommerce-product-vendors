@@ -8,7 +8,7 @@ Stable tag: 1.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html/
 
-YITH WooCommerce Multi Vendor is a plugin developed to switch your WooCommerce website into a platform hosting more than one shop, like a marketplace.
+YITH WooCommerce Multi Vendor is a plugin developed to switch your website into a platform hosting more than one shop, like a multivendor marketplace.
 
 == Description ==
 
