@@ -13,9 +13,9 @@ YITH WooCommerce Multi Vendor is a plugin developed to switch your WooCommerce w
 == Description ==
 
 Are you trying to make your website a place where you can host many vendor pages and earn commissions from their sales? YITH WooCommerce Multi Vendor
-is the plugin explicitly developed to switch your website into a multi-vendor platform that will let you earn from commissions without you to lift a finger.
-Moreover a multi-vendor shop brings more traffic to your site and allows you to get a better engine search positioning.
-A double, huge benefit from a single plugin. And all free.
+is the plugin explicitly developed to switch your website into a multivendor platform that will let you earn from commissions without you to lift a finger.
+Moreover a multivendor shop brings more traffic to your site and allows you to get a better engine search positioning.
+A double, huge benefit from a single plugin. And all free. Create your multivendor platform and enjoy our unique plugin!
 
 **Section “Vendors”:**
 
