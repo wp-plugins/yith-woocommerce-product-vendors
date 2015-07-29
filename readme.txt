@@ -83,7 +83,7 @@ Do you want to discover all plugin features? Would you like to try it?
 Visit our **[test sandobox](http://plugins.yithemes.com/yith-woocommerce-multi-vendor)**
 By accessing our testing platform, you will be able to discover all plugin features and make all tests that you want and consider necessary, both in back end and in front end.
 
-What are you waiting for, visit the official "**[live demo](http://plugins.yithemes.com/yith-woocommerce-multi-vendor/)**" of the plugin and click on "LAUNCH ADMIN DEMO" link that you find in the topbar to make test our plugin right now.
+What are you waiting for, visit the official "**[live demo](http://plugins.yithemes.com/yith-woocommerce-multi-vendor)**" of the plugin and click on "LAUNCH ADMIN DEMO" link that you find in the topbar to make test our plugin right now.
 
 = Coming Soon =
 
@@ -107,7 +107,7 @@ In the new version of YITH WooCommerce Multi Vendor, in addition to the ones alr
 = Documentation =
 
 
-Please, read the the **[official plugin documentation](http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor/)** to know all plugin features.
+Please, read the the **[official plugin documentation](http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor)** to know all plugin features.
 
 == Screenshots ==
 
@@ -131,7 +131,7 @@ You just have to create the folder *woocommerce/product-vendors* and add in it t
 
 == Installation ==
 
-**Important**: First of all, you have to download and activate [WooCommerce](https://wordpress.org/plugins/woocommerce/) plugin, which is mandatory for YITH WooCommerce Multi Vendor to be working.
+**Important**: First of all, you have to download and activate [WooCommerce](https://wordpress.org/plugins/woocommerce) plugin, which is mandatory for YITH WooCommerce Multi Vendor to be working.
 
 1. Unzip the downloaded zip file.
 2. Upload the plugin folder into the `wp-content/plugins/` directory of your WordPress site.
