@@ -1,14 +1,14 @@
 ﻿=== YITH WooCommerce Multi Vendor ===
 
 Contributors: yithemes
-Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, multivendor, multivendors, wc multivendor, WooCommerce vedors, WooCommerce, Vendor, Multivendor, marketplace, seller, product vendor, product vendors, store, WooCommerce multivendor, Woo vendors, wc vendors, multistore, dc vendors, dc vendor, dc multi vendor, dc multi vendors, dc product vendor, dc product vendors, yit, yith, yithemes
+Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, multivendor, multivendors, wc multivendor, WooCommerce vedors, WooCommerce, Vendor, Multivendor, marketplace, seller, product vendor, product vendors, store, WooCommerce multivendor, Woo vendors, wc vendors, multistore, dc vendors, dc vendor, dc multi vendor, dc multi vendors, dc product vendor, dc product vendors, woocommerce marketplace, yit, yith, yithemes
 Requires at least: 4.0
 Tested up to: 4.2.2
 Stable tag: 1.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html/
 
-YITH WooCommerce Multi Vendor is a plugin explicitly developed to switch your website into a platform hosting more than one shop.
+YITH WooCommerce Multi Vendor is a plugin explicitly developed to switch your WooCommerce website into a platform hosting more than one shop, like a marketplace.
 
 == Description ==
 
@@ -73,7 +73,7 @@ A double, huge benefit from a single plugin. And all free.
 * Each vendor can manage reviews of his/her own products (NEW)
 * Let users send messages about shop products to the administrator (NEW)
 
-For more information about the PREMIUM version of YITH WooCommerce Multi Vendor, visit its official page on **[yithemes marketplace](https://yithemes.com/themes/plugins/yith-woocommerce-multi-vendor/)**
+For more information about the PREMIUM version of YITH WooCommerce Multi Vendor, visit its official page on **[yithemes marketplace](https://yithemes.com/themes/plugins/yith-woocommerce-multi-vendor)**
 
 = Premium Live Demo =
 
@@ -83,7 +83,7 @@ Do you want to discover all plugin features? Would you like to try it?
 Visit our **[test sandobox](http://plugins.yithemes.com/yith-woocommerce-multi-vendor)**
 By accessing our testing platform, you will be able to discover all plugin features and make all tests that you want and consider necessary, both in back end and in front end.
 
-What are you waiting for, visit the official "**[live demo](http://plugins.yithemes.com/yith-woocommerce-multi-vendor)**" of the plugin and click on "LAUNCH ADMIN DEMO" link that you find in the topbar to make test our plugin right now.
+What are you waiting for, visit the official "**[live demo](http://plugins.yithemes.com/yith-woocommerce-multi-vendor/)**" of the plugin and click on "LAUNCH ADMIN DEMO" link that you find in the topbar to make test our plugin right now.
 
 = Coming Soon =
 
@@ -107,7 +107,7 @@ In the new version of YITH WooCommerce Multi Vendor, in addition to the ones alr
 = Documentation =
 
 
-Please, read the the **[official plugin documentation](http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor)** to know all plugin features.
+Please, read the the **[official plugin documentation](http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor/)** to know all plugin features.
 
 == Screenshots ==
 
@@ -147,7 +147,6 @@ YITH WooCommerce Multi Vendor will add a new tab called "Multi Vendor" in "YIT P
 
 * Updated: pot language file
 * Fixed: Fatal error in the commision page for deleted orders
-
 
 = 1.4.3 =
 
