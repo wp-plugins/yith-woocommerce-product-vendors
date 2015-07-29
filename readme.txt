@@ -41,6 +41,67 @@ A double, huge benefit from a single plugin. And all free.
 * Vendor’s name next to product name in single product page
 * Widget for displaying a list of all vendors
 
+= PREMIUM FEATURES =
+
+* Customise vendors’s pages with additional information (contact info, social networks etc.)
+* Name one or more administrators for you vendor shop
+* Edit commission rate for vendor and for single product
+* Publish products for sale without super admin permission (customisable for each vendor)
+* Advanced reports for vendor shops: orders, stock management and commissions
+* Advanced reports for admin: registered vendors and sales report for each single vendor
+* Pay commissions via PayPal when order is completed
+* Pay commissions via PayPal when a set threshold amount set by the vendor is reached
+* Pay commissions using bulk actions
+* Pay commissions manually
+* Notify commission payments via email
+* Handle coupons: super admin can decide to include coupons in commission calculation or not
+* Show a summary of all commissions and filter them using advanced filters (product, user, date etc.)
+* Link to the vendor’s page displayed below the product
+* Decide the position for “Vendors” tab in single product page
+* Product listing: display vendors’ products in shop page or not
+* Add or remove links to vendor shop in common shop page, in single product page and in category page (NEW)
+* Advanced management of related products
+* Widget “Store Location”
+* Widget “Store Quick Info”
+* Hide the widget “Quick info” to unlogged users (NEW)
+* Customise header of the vendor shop page
+* Manage your vendor using bulk actions (NEW)
+* Register a new vendor from front end (NEW)
+* Set maximum amount of products that each vendor can put on sale (NEW)
+* Each vendor can create his/her own coupons (NEW)
+* Each vendor can manage reviews of his/her own products (NEW)
+* Let users send messages about shop products to the administrator (NEW)
+
+For more information about the PREMIUM version of YITH WooCommerce Multi Vendor, visit its official page on **[yithemes marketplace](https://yithemes.com/themes/plugins/yith-woocommerce-multi-vendor/)**
+
+= Premium Live Demo =
+
+Do you want to discover all plugin features? Would you like to try it?
+
+Visit our **[test sandobox](http://plugins.yithemes.com/yith-woocommerce-multi-vendor)**
+By accessing our testing platform, you will be able to discover all plugin features and make all tests that you want and consider necessary, both in back end and in front end.
+What are you waiting for, visit the official "**[live demo](http://plugins.yithemes.com/yith-woocommerce-multi-vendor)**" of the plugin and click on "LAUNCH ADMIN DEMO" link that you find in the topbar to make test our plugin right now.
+
+= Coming Soon =
+
+Are you curious to know what we are preparing for you?
+In the new version of YITH WooCommerce Multi Vendor, in addition to the ones already mentioned you will also find the following new features:
+
+* Item sold information in single product page
+* Total sales information in vendor page
+* yith_wcmv_header_icons_class hook to change header icons in vendor page
+* YITH WooCommerce Ajax Product Filter Support
+* Vendor list shortcode
+* Featured product management
+* Custom store image
+* Order management
+* Frontend dashbord
+
+...and much more!
+
+
+= Documentation =
+
 Please, read the the **[official plugin documentation](http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor)** to know all plugin features.
 
 == Screenshots ==
@@ -58,16 +119,22 @@ Please, read the the **[official plugin documentation](http://yithemes.com/docs-
 
 == Frequently Asked Questions ==
 
-= Can i customize plugin templates ? =
+= Can I customize plugin templates ? =
 
 Yes, you can, plugin templates can be overwritten from your theme.
 You just have to create the folder *woocommerce/product-vendors* and add in it the templates that you want to customize.
 
 == Installation ==
 
+**Important**: First of all, you have to download and activate [WooCommerce](https://wordpress.org/plugins/woocommerce/) plugin, which is mandatory for YITH WooCommerce Multi Vendor to be working.
+
 1. Unzip the downloaded zip file.
 2. Upload the plugin folder into the `wp-content/plugins/` directory of your WordPress site.
 3. Activate `YITH WooCommerce Multi Vendor` from Plugins page
+
+= Configuration =
+
+YITH WooCommerce Multi Vendor will add a new tab called "Multi Vendor" in "YIT Plugins" menu item. There, you will find all Yithemes plugins with quick access to plugin setting page.
 
 == Changelog ==
 
