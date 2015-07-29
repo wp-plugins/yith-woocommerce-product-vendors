@@ -1,7 +1,7 @@
 ﻿=== YITH WooCommerce Multi Vendor ===
 
 Contributors: yithemes
-Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, multivendor, multivendors, wc multivendor, yit, yith, yithemes
+Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, multivendor, multivendors, wc multivendor, WooCommerce vedors, WooCommerce, Vendor, Multivendor, marketplace, seller, product vendor, product vendors, store, WooCommerce multivendor, Woo vendors, wc vendors, multistore, dc vendors, dc vendor, dc multi vendor, dc multi vendors, cd product vendor, cd product vendors, yit, yith, yithemes
 Requires at least: 4.0
 Tested up to: 4.2.2
 Stable tag: 1.4.4
