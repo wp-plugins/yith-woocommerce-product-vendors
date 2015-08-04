@@ -142,13 +142,16 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		 * @return YITH_Vendors Main instance
 		 * @author Andrea Grillo <andrea.grillo@yithemes.com>
 		 */
-		public static function instance() {
-			if ( is_null( self::$_instance ) ) {
-				self::$_instance = new self();
-			}
+        public static function instance() {
 
-			return self::$_instance;
-		}
+            $self = __CLASS__ . ( class_exists( __CLASS__ . '_Premium' ) ? '_Premium' : '' );
+
+            if ( is_null( $self::$_instance ) ) {
+                $self::$_instance = new $self;
+            }
+
+            return $self::$_instance;
+        }
 
 		/**
 		 * Class Initializzation
@@ -379,6 +382,12 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
                 if ( empty( $query_args['include'] ) ) {
                     return array();
                 }
+            }
+
+            // add pagination (use to shortcodes)
+            if( isset( $args['pagination'] ) && isset( $args['pagination']['number'] ) && isset( $args['pagination']['offset'] ) ){
+                $query_args['offset'] = $args['pagination']['offset'];
+                $query_args['number'] = $args['pagination']['number'];
             }
 
 			$vendors = get_terms( $this->_taxonomy_name, $query_args );

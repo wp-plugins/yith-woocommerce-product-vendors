@@ -4,7 +4,7 @@ Contributors: yithemes
 Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, multivendor, multivendors, wc multivendor, WooCommerce vedors, WooCommerce, Vendor, Multivendor, marketplace, seller, product vendor, product vendors, store, WooCommerce multivendor, Woo vendors, wc vendors, multistore, dc vendors, dc vendor, dc multi vendor, dc multi vendors, dc product vendor, dc product vendors, woocommerce marketplace, yit, yith, yithemes
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.4.4
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html/
 
@@ -41,6 +41,20 @@ A double, huge benefit from a single plugin. And all free. Create your multivend
 * Vendor’s name next to product name in single product page
 * Widget for displaying a list of all vendors
 
+= Languages =
+
+Also available in:
+
+* English
+* Italian
+
+= WPML =
+
+Take advantage of [WPML](https://wpml.org/?aid=24889&affiliate_key=Qn1wDeBNTcZV) compatibility.
+You are free to translate easily your plugin with the powerful tool [WPML](https://wpml.org/?aid=24889&affiliate_key=Qn1wDeBNTcZV).
+
+YITH WooCommerce Multi Vendor is **[100% WPML Compatible](https://wpml.org/plugin/yith-woocommerce-multi-vendor/)**
+
 = PREMIUM FEATURES =
 
 
@@ -60,18 +74,26 @@ A double, huge benefit from a single plugin. And all free. Create your multivend
 * Link to the vendor’s page displayed below the product
 * Decide the position for “Vendors” tab in single product page
 * Product listing: display vendors’ products in shop page or not
-* Add or remove links to vendor shop in common shop page, in single product page and in category page (NEW)
+* Add or remove links to vendor shop in common shop page, in single product page and in category page
 * Advanced management of related products
 * Widget “Store Location”
 * Widget “Store Quick Info”
-* Hide the widget “Quick info” to unlogged users (NEW)
+* Hide the widget “Quick info” to unlogged users
 * Customise header of the vendor shop page
-* Manage your vendor using bulk actions (NEW)
-* Register a new vendor from front end (NEW)
-* Set maximum amount of products that each vendor can put on sale (NEW)
-* Each vendor can create his/her own coupons (NEW)
-* Each vendor can manage reviews of his/her own products (NEW)
-* Let users send messages about shop products to the administrator (NEW)
+* Manage your vendor using bulk actions
+* Register a new vendor from front end
+* Set maximum amount of products that each vendor can put on sale
+* Each vendor can create his/her own coupons
+* Each vendor can manage reviews of his/her own products
+* Let users send messages about shop products to the administrator
+* "New order" and "Cancelled order" email system for vendor (NEW)
+* Admin can set the minimum value for commission withdrawals (NEW)
+* Admin can enable/disable featured products management option (NEW)
+* Shortcodes for list of vendors (NEW)
+* Show Item sold and Total sales information in single product page
+* 100% compatible with YITH WooCommerce Ajax Product Filter
+* Italian language available
+
 
 For more information about the PREMIUM version of YITH WooCommerce Multi Vendor, visit its official page on **[yithemes marketplace](https://yithemes.com/themes/plugins/yith-woocommerce-multi-vendor)**
 
@@ -91,15 +113,14 @@ What are you waiting for, visit the official "**[live demo](http://plugins.yithe
 Are you curious to know what we are preparing for you?
 In the new version of YITH WooCommerce Multi Vendor, in addition to the ones already mentioned you will also find the following new features:
 
-* Item sold information in single product page
-* Total sales information in vendor page
-* yith_wcmv_header_icons_class hook to change header icons in vendor page
-* YITH WooCommerce Ajax Product Filter Support
-* Vendor list shortcode
-* Featured product management
 * Custom store image
 * Order management
-* Frontend dashbord
+* Shipping management
+* Tax management
+* Paypal adaptive payment
+* Seller verification system
+* Seller vacation module
+* Frontend dashboard
 
 ...and much more!
 
@@ -142,6 +163,15 @@ You just have to create the folder *woocommerce/product-vendors* and add in it t
 YITH WooCommerce Multi Vendor will add a new tab called "Multi Vendor" in "YIT Plugins" menu item. There, you will find all Yithemes plugins with quick access to plugin setting page.
 
 == Changelog ==
+
+= 1.5.0 =
+
+* Added: YITH WooCommerce Ajax Product Filter Support
+* Added: Italian language file
+* Added: WPML Support
+* Updated: pot language file
+* Fixed: Variation don't show in order commission details page
+* Fixed: Prevent double instance in singleton class
 
 = 1.4.4 =
 

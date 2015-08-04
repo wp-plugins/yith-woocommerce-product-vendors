@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Multi Vendor\n"
-"POT-Creation-Date: 2015-07-07 14:22+0100\n"
+"POT-Creation-Date: 2015-08-04 12:04+0200\n"
 "PO-Revision-Date: 2015-06-19 16:58+0100\n"
 "Last-Translator: \n"
 "Language-Team: YIThemes <plugins@yithemes.com>\n"
@@ -10,8 +10,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
-"X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 "X-Poedit-KeywordsList: __ ;_e;_n:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
@@ -98,7 +98,7 @@ msgid "commission_id"
 msgstr ""
 
 #: includes/class.yith-vendors-admin.php:134
-#: includes/class.yith-vendors.php:255
+#: includes/class.yith-vendors.php:258
 msgid "Vendors"
 msgstr ""
 
@@ -155,60 +155,60 @@ msgstr ""
 msgid "Plugin Documentation"
 msgstr ""
 
-#: includes/class.yith-vendors.php:253 includes/class.yith-vendors.php:254
+#: includes/class.yith-vendors.php:256 includes/class.yith-vendors.php:257
 #: templates/admin/commission-view.php:180
 msgid "Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:256
+#: includes/class.yith-vendors.php:259
 msgid "Search Vendors"
 msgstr ""
 
-#: includes/class.yith-vendors.php:257
+#: includes/class.yith-vendors.php:260
 msgid "All Vendors"
 msgstr ""
 
-#: includes/class.yith-vendors.php:258
+#: includes/class.yith-vendors.php:261
 msgid "Parent Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:259
+#: includes/class.yith-vendors.php:262
 msgid "Parent Vendor:"
 msgstr ""
 
-#: includes/class.yith-vendors.php:260
+#: includes/class.yith-vendors.php:263
 msgid "View Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:261
+#: includes/class.yith-vendors.php:264
 msgid "Edit Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:262
+#: includes/class.yith-vendors.php:265
 msgid "Update Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:263
+#: includes/class.yith-vendors.php:266
 msgid "Add New Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:264
+#: includes/class.yith-vendors.php:267
 msgid "New Vendor's Name"
 msgstr ""
 
-#: includes/class.yith-vendors.php:266
+#: includes/class.yith-vendors.php:269
 msgid "Separate vendors with commas"
 msgstr ""
 
-#: includes/class.yith-vendors.php:267
+#: includes/class.yith-vendors.php:270
 msgid "Add or remove vendors"
 msgstr ""
 
-#: includes/class.yith-vendors.php:268
+#: includes/class.yith-vendors.php:271
 msgid "Choose from most used vendors"
 msgstr ""
 
-#: includes/class.yith-vendors.php:269
+#: includes/class.yith-vendors.php:272
 msgid "No vendors found"
 msgstr ""
 
@@ -225,7 +225,7 @@ msgid "Product"
 msgstr ""
 
 #: includes/lib/class.yith-commissions-list-table.php:63
-#: templates/admin/commission-view.php:404
+#: templates/admin/commission-view.php:449
 msgid "Rate"
 msgstr ""
 
@@ -481,11 +481,11 @@ msgstr ""
 msgid "Product SKU:"
 msgstr ""
 
-#: templates/admin/commission-view.php:380
+#: templates/admin/commission-view.php:425
 msgid "Coupon(s) Used"
 msgstr ""
 
-#: templates/admin/commission-view.php:410
+#: templates/admin/commission-view.php:455
 msgid "Commission"
 msgstr ""
 
@@ -611,7 +611,7 @@ msgid ""
 msgstr ""
 
 #: templates/admin/premium.php:370
-msgid "Organize coupon"
+msgid "Coupon handling"
 msgstr ""
 
 #: templates/admin/premium.php:374
@@ -666,7 +666,7 @@ msgid ""
 "Multi Vendor offers you\n"
 "                    different reports to %sanalyze your data%s: from the "
 "most lucrative vendors, to the best sellers,\n"
-"                    including convenient commissions diagrams for each of "
+"                    including convenient commission diagrams for each of "
 "them."
 msgstr ""
 

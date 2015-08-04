@@ -48,6 +48,9 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
 
             /* Related Products */
             add_filter( 'woocommerce_related_products_args', array( $this, 'related_products_args' ) );
+
+            /* Ajax Product Filter Support */
+            add_filter( 'yith_wcan_product_taxonomy_type', array( $this, 'add_taxonomy_page' ) );
         }
 
         /**
@@ -230,6 +233,18 @@ if ( ! class_exists( 'YITH_Vendors_Frontend' ) ) {
             $args['tax_query'] = $this->check_vendors_selling_capabilities( false, false );
             return $args;
 
+        }
+
+        /**
+         * Add vendor taxonomy page to Ajax Product Filter plugin
+         *
+         * @param $pages The widget taxonomy pages
+         *
+         * @return mixed|array The allowed taxonomy
+         */
+        public function add_taxonomy_page( $pages ){
+            $pages[] = YITH_Vendors()->get_taxonomy_name();
+            return $pages;
         }
     }
 }

@@ -27,7 +27,7 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
 	 * @property    string $threshold
 	 * @property    string $registration_date
 	 * @property    string $registration_date_gmt
-	 * @property    array $admins
+	 * @property    array  $admins
 	 * @property    int|string $commission
 	 */
     class YITH_Vendor {
@@ -673,6 +673,31 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
                 'average_rating'        => $average_rating,
                 'reviews_product_count' => $reviews_product_count
             );
+        }
+
+         /**
+         * get the email vendor order table
+         *
+         * @return array The review average and the product with reviews count
+         */
+        public function email_order_items_table( $order, $show_download_links = false, $show_sku = false, $show_purchase_note = false, $show_image = false, $image_size = array( 32, 32 ), $plain_text = false ) {
+
+            ob_start();
+
+            $template = $plain_text ? 'emails/plain/vendor-email-order-items.php' : 'emails/vendor-email-order-items.php';
+
+            yith_wcpv_get_template( $template, array(
+                'order'               => $order,
+                'vendor'              => $this,
+                'items'               => $order->get_items(),
+                'show_download_links' => $show_download_links,
+                'show_sku'            => $show_sku,
+                'show_purchase_note'  => $show_purchase_note,
+                'show_image'          => $show_image,
+                'image_size'          => $image_size
+            ), '' );
+
+            return ob_get_clean();
         }
 
     }

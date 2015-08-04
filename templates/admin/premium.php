@@ -367,7 +367,7 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WPV_URL ?>assets/images/06-icon.png" alt="Coupon"/>
-                    <h2><?php _e('Organize coupon','yith_wc_product_vendors');?></h2>
+                    <h2><?php _e('Coupon handling','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
                     <?php
@@ -457,7 +457,7 @@
                     <?php
                     echo sprintf( __('Statistics have a central relevance in the e-commerce field and WooCommerce Multi Vendor offers you
                     different reports to %sanalyze your data%s: from the most lucrative vendors, to the best sellers,
-                    including convenient commissions diagrams for each of them.','yith_wc_product_vendors'),'<b>','</b>' );
+                    including convenient commission diagrams for each of them.','yith_wc_product_vendors'),'<b>','</b>' );
                     ?>
                 </p>
             </div>
