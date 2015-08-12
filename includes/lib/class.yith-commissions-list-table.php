@@ -161,6 +161,7 @@ if ( ! class_exists( 'YITH_Commissions_List_Table' ) ) {
                 'order_id'      => array( 'order_id', false ),
                 'amount'        => array( 'amount', false ),
                 'date_edit'     => array( 'last_edit', false ),
+                'vendor'        => array( 'vendor_id', false ),
             );
         }
 

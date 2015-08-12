@@ -98,7 +98,6 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		 * @access public
 		 */
 		public function __construct() {
-
 			/* === Main Classes to Load === */
 			$require = apply_filters( 'yith_wcpv_require_class',
 				array(

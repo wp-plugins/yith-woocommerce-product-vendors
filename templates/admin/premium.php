@@ -529,23 +529,19 @@
             </div>
         </div>
     </div>
-    <div class="section section-odd clear"
-         style="background: url(<?php echo YITH_WPV_URL ?>assets/images/10-bg.png) no-repeat #f1f1f1; background-position: 15% 100%">
+    <div class="section section-odd clear" style="background: url(<?php echo YITH_WPV_URL ?>assets/images/24-bg.png) no-repeat #f1f1f1; background-position: 15% 100%">
         <div class="landing-container">
             <div class="col-2">
                 <div class="section-title">
-                    <img src="<?php echo YITH_WPV_URL ?>assets/images/10-icon.png" alt="Icon"/>
-                    <h2><?php _e('Vendor\'s product exclusion from the shop (Product listing)','yith_wc_product_vendors');?></h2>
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/24-icon.png" alt="Icon"/>
+                    <h2><?php _e('Shortcode','yith_wc_product_vendors');?></h2>
                 </div>
                 <p>
-                    <?php
-                    echo sprintf( __( 'The %s"Product listing"%s option has been conceived to exclude from the shop the products of a
-                    particular vendor. In this way, these would be consultable only from the relative vendor\'s page.','yith_wc_product_vendors' ), '<b>', '</b>' );
-                    ?>
+                    <?php _e('Take advantage of the YITH WooCommerce Multi Vendor List shortcode to show the complete list of your shop vendors in any page.','yith_wc_product_vendors','yith_wc_product_vendors');?>
                 </p>
             </div>
             <div class="col-1">
-                <img src="<?php echo YITH_WPV_URL ?>assets/images/10.png" alt="Screenshot"/>
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/24.png" alt="Screenshot"/>
             </div>
         </div>
     </div>
@@ -666,6 +662,77 @@
             </div>
             <div class="col-1">
                 <img src="<?php echo YITH_WPV_URL ?>assets/images/19.png" alt="Screenshot"/>
+            </div>
+        </div>
+    </div>
+    <div class="section section-even clear"style="background: url(<?php echo YITH_WPV_URL ?>assets/images/20-bg.png) no-repeat #fff; background-position: 85% 100%">
+        <div class="landing-container">
+            <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/20.png" alt="Screenshot"/>
+            </div>
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/20-icon.png" alt="icon"/>
+                    <h2><?php _e('Second email','yith_wc_product_vendors'); ?></h2>
+                </div>
+                <p>
+                    <?php
+                    _e( 'Each time that a new order is registered or cancelled, a notification email is sent to the corresponding vendor. This sending can sometimes be affected by some problems, and this is why you should be able to send again the lost email. With the premium version of the plugin, you will just have to go to the detail page of the order and with a single click everything will be solved.','yith_wc_product_vendors' )
+                    ?>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="section section-odd clear" style="background: url(<?php echo YITH_WPV_URL ?>assets/images/21-bg.png) no-repeat #f1f1f1; background-position: 15% 100%">
+        <div class="landing-container">
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/21-icon.png" alt="Icon"/>
+                    <h2><?php _e('Minimum amount of commissions','yith_wc_product_vendors');?></h2>
+                </div>
+                <p>
+                    <?php
+                    _e( 'If each vendor can decide a commission threshold for which asking the payment, administrators must be free to control how this works.Setting a minimum amount of commissions, you will be free to pay commissions starting from the amount you have set.','yith_wc_product_vendors' );?>
+                </p>
+            </div>
+            <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/21.png" alt="Screenshot"/>
+            </div>
+        </div>
+    </div>
+    <div class="section section-even clear"style="background: url(<?php echo YITH_WPV_URL ?>assets/images/22-bg.png) no-repeat #fff; background-position: 85% 100%">
+        <div class="landing-container">
+            <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/22.png" alt="Screenshot"/>
+            </div>
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/22-icon.png" alt="icon"/>
+                    <h2><?php _e('Highlighted products','yith_wc_product_vendors'); ?></h2>
+                </div>
+                <p>
+                    <?php
+                    _e( 'Setting a WooCommerce product as "Featured" means standing it out among the others, maybe putting it in the main part of the homepage, or in one of the widgets of the siderbars of your shop. With the related option, you will be free to allow or block vendors to set their products as "featured".','yith_wc_product_vendors' )
+                    ?>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="section section-odd clear" style="background: url(<?php echo YITH_WPV_URL ?>assets/images/23-bg.png) no-repeat #f1f1f1; background-position: 15% 100%">
+        <div class="landing-container">
+            <div class="col-2">
+                <div class="section-title">
+                    <img src="<?php echo YITH_WPV_URL ?>assets/images/23-icon.png" alt="Icon"/>
+                    <h2><?php _e('Sales amount','yith_wc_product_vendors');?></h2>
+                </div>
+                <p>
+                    <?php
+                    _e( 'Enrich your shop with more information. Show the amount of sales made by each vendor, placing it in the detail page of the related product, and for each single product assigned to a vendor.','yith_wc_product_vendors' )
+                    ?>
+                </p>
+            </div>
+            <div class="col-1">
+                <img src="<?php echo YITH_WPV_URL ?>assets/images/23.png" alt="Screenshot"/>
             </div>
         </div>
     </div>

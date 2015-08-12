@@ -3,8 +3,8 @@
 Contributors: yithemes
 Tags: product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, multivendor, multivendors, wc multivendor, WooCommerce vedors, WooCommerce, Vendor, Multivendor, marketplace, seller, product vendor, product vendors, store, WooCommerce multivendor, Woo vendors, wc vendors, multistore, dc vendors, dc vendor, dc multi vendor, dc multi vendors, dc product vendor, dc product vendors, woocommerce marketplace, yit, yith, yithemes
 Requires at least: 4.0
-Tested up to: 4.2.2
-Stable tag: 1.5.0
+Tested up to: 4.2.4
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html/
 
@@ -163,6 +163,12 @@ You just have to create the folder *woocommerce/product-vendors* and add in it t
 YITH WooCommerce Multi Vendor will add a new tab called "Multi Vendor" in "YIT Plugins" menu item. There, you will find all Yithemes plugins with quick access to plugin setting page.
 
 == Changelog ==
+
+= 1.5.1 =
+
+* Added: Support to WooCommerce 2.4
+* Tweak: Plugin Core Framework
+* Fixed: Vendor don't see product page with product listing enabled
 
 = 1.5.0 =
 

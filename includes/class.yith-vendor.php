@@ -640,9 +640,19 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
          *
          * @return array The order ids
          */
-        public function get_orders() {
+        public function get_orders( $type = 'parent', $status = false ) {
             global $wpdb;
-            $order_id = $wpdb->get_col( $wpdb->prepare( "SELECT DISTINCT order_id FROM {$wpdb->commissions} WHERE vendor_id = %d", $this->id ) );
+            $query = $wpdb->prepare( "SELECT DISTINCT order_id FROM {$wpdb->commissions} WHERE vendor_id = %d", $this->id );
+
+            if( 'suborder' == $type ){
+                $post_parent_query = $query;
+                $query = $wpdb->prepare( "SELECT DISTINCT ID FROM {$wpdb->posts} WHERE post_parent IN ({$post_parent_query}) AND post_author=%d", $this->get_owner() );
+                if( $status ){
+                    $query .= $wpdb->prepare( " AND post_status=%s", $status );
+                }
+            }
+
+            $order_id = $wpdb->get_col( $query );
             return $order_id;
         }
 

@@ -106,6 +106,8 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 	        add_action( 'admin_menu', array( $this, 'menu_items' ) );
 	        add_action( 'admin_menu', array( $this, 'remove_media_page' ) );
 	        add_action( 'admin_menu', array( $this, 'remove_dashboard_widgets' ) );
+            add_action( 'admin_init', array( $this, 'remove_wp_bar_admin_menu' ) );
+            add_action( 'admin_bar_menu', array( $this, 'show_admin_bar_visit_store' ), 31 );
 
 	        /* Vendor information management */
 	        add_action( 'admin_action_yith_admin_save_fields', array( $this, 'save_taxonomy_fields' ) );
@@ -186,6 +188,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 
             if ( is_admin() && ! $vendor->is_super_user() && $vendor->is_user_admin() && 'product' == $typenow ) {
 	            $request[ $vendor->term->taxonomy ] = $vendor->slug;
+                return apply_filters( "yith_wcmv_{$typenow}_request", $request );
             }
 
             return $request;
@@ -988,5 +991,44 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
             yith_wcpv_get_template( 'premium', array(), 'admin' );
         }
 
+        /**
+         * Remove new post and comments wp bar admin menu for vendor
+         *
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since 1.5.1
+         * @return void
+         */
+        public function remove_wp_bar_admin_menu() {
+            $vendor = yith_get_vendor( 'current', 'user' );
+
+            if( $vendor->is_valid() && $vendor->has_limited_access() ){
+                remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
+                remove_action( 'admin_bar_menu', 'wp_admin_bar_new_content_menu', 70 );
+            }
+        }
+
+        /**
+         * Replace the Visit Store link from WooCommerce
+         * with the vendor store page link, if user is a vendor
+         * and is are logged in
+         *
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since 1.5.1
+         * @param $wp_admin_bar The WP_Admin_Bar object
+         */
+        public function show_admin_bar_visit_store( $wp_admin_bar ) {
+            $vendor = yith_get_vendor( 'current', 'user' );
+
+            if ( $vendor->is_valid() && $vendor->has_limited_access() && apply_filters( 'woocommerce_show_admin_bar_visit_store', true ) ) {
+                // Add an option to visit the store
+                $wp_admin_bar->add_node( array(
+                        'parent' => 'site-name',
+                        'id'     => 'view-store',
+                        'title'  => __( 'Visit Store', 'woocommerce' ),
+                        'href'   => $vendor->get_url( 'frontend' )
+                    )
+                );
+            }
+        }
     }
 }
